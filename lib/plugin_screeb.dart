@@ -1,6 +1,4 @@
-
 import 'dart:async';
-import 'dart:ffi';
 
 import 'package:flutter/services.dart';
 
@@ -17,8 +15,10 @@ class PluginScreeb {
   }
 
   /// Send to Screeb backend an tracking [eventId] with optional [properties]
-  static Future<bool?> sendTrackingEvent(String eventId, Map<String, dynamic>? properties) async {
-    final bool? success = await _channel.invokeMethod('sendTrackingEvent', [eventId, properties]);
+  static Future<bool?> sendTrackingEvent(
+      String eventId, Map<String, dynamic>? properties) async {
+    final bool? success =
+        await _channel.invokeMethod('sendTrackingEvent', [eventId, properties]);
     return success;
   }
 
@@ -26,8 +26,10 @@ class PluginScreeb {
   ///
   /// This api call is important to trigger a survey where the targeting is
   /// configured using screens parameters.
-  static Future<bool?> sendTrackingScreen(String screen, Map<String, dynamic>? properties) async {
-    final bool? success = await _channel.invokeMethod('sendTrackingScreen', [screen, properties]);
+  static Future<bool?> sendTrackingScreen(
+      String screen, Map<String, dynamic>? properties) async {
+    final bool? success =
+        await _channel.invokeMethod('sendTrackingScreen', [screen, properties]);
     return success;
   }
 
@@ -36,8 +38,8 @@ class PluginScreeb {
   /// This api call is important to trigger a survey where the targeting is
   /// configured using visitor properties parameters.
   static Future<bool?> visitorProperty(Map<String, dynamic>? properties) async {
-    final bool? success = await _channel.invokeMethod('visitorProperty', [properties]);
+    final bool? success =
+        await _channel.invokeMethod('visitorProperty', [properties]);
     return success;
   }
-
 }
