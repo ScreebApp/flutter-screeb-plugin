@@ -6,7 +6,7 @@
 
 ---
 
-# plugin_screeb
+# Screeb flutter plugin
 
 A flutter plugin to integrate Screeb mobile sdk for Android and/or iOS.
 
