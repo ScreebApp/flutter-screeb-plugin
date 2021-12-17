@@ -1,0 +1,47 @@
+PODS:
+  - Alamofire (5.4.4)
+  - AlamofireNetworkActivityLogger (3.4.0):
+    - Alamofire (~> 5.4.0)
+  - Flutter (1.0.0)
+  - Kingfisher (7.1.2)
+  - plugin_screeb (0.0.1):
+    - Flutter
+    - Screeb (~> 0.7)
+  - Screeb (0.7.0):
+    - Alamofire (~> 5.4)
+    - AlamofireNetworkActivityLogger (~> 3.4)
+    - Kingfisher (~> 7.0)
+    - Starscream (~> 4.0.0)
+  - Starscream (4.0.4)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - plugin_screeb (from `.symlinks/plugins/plugin_screeb/ios`)
+  - Screeb (= 0.7.0)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - AlamofireNetworkActivityLogger
+    - Kingfisher
+    - Screeb
+    - Starscream
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  plugin_screeb:
+    :path: ".symlinks/plugins/plugin_screeb/ios"
+
+SPEC CHECKSUMS:
+  Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
+  AlamofireNetworkActivityLogger: 162ab8aee00e6267a4304d7cc134e13ccfe3bcc5
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+  Kingfisher: 44ed6a8504763f27bab46163adfac83f5deb240c
+  plugin_screeb: 0fd332d21360baf0884aca488fef6133472bbe2a
+  Screeb: 950f362c945ea515f55289a3f990d17b54183a45
+  Starscream: 5178aed56b316f13fa3bc55694e583d35dd414d9
+
+PODFILE CHECKSUM: 7a003bec55e85f8d691d87d0fd2b0133e9801abc
+
+COCOAPODS: 1.11.2
