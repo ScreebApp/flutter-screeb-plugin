@@ -13,20 +13,23 @@ import java.util.HashMap
 /** PluginScreebPlugin */
 class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
     private lateinit var channel: MethodChannel
+    private lateinit var context: android.content.Context
 
     override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
         channel = MethodChannel(flutterPluginBinding.binaryMessenger, "plugin_screeb")
         channel.setMethodCallHandler(this)
+        context = flutterPluginBinding.applicationContext
     }
 
     override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
         val arguments = call.arguments as ArrayList<*>
+
         if (call.method == CALL_INIT_SDK) {
             val channelId = arguments[0] as String
             screeb = Screeb.Builder()
-                    .withContext(this)
+                    .withContext(context)
                     .withChannelId(channelId)
-                    .build();
+                    .build()
             result.success(true)
             return
         }
