@@ -48,4 +48,5 @@ android {
 dependencies {
     implementation "app.screeb.sdk:android-sdk:1.1.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'app.screeb.sdk:android-sdk:1.1.0'
 }

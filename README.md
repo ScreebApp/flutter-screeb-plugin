@@ -14,52 +14,15 @@ A flutter plugin to integrate Screeb mobile sdk for Android and/or iOS.
 
 Screeb sdk needs to be installed and initialized on each platform before being used in flutter.
 
-### Android
-
-Installation with MavenCentral : 
-
-```groovy
-implementation 'app.screeb.sdk:android-sdk:1.1.0'
-```
-
-Initialization in your custom Application class
-
-```kotlin
-// simple initialization
-val screeb = Screeb.Builder()
-        .withContext(this)
-        .withChannelId("<website-id>")
-        .build()
-
-// detailed initialization using a unique id and custom properties, see Identify visitors section
-val screeb = Screeb.Builder()
-        .withContext(this)
-        .withChannelId("<website-id>")
-        .withVisitorId("johndoe@screeb.app") // optional
-        .withVisitorProperties(VisitorProperties().apply {
-            this["email"] = "johndoe@screeb.app"
-            this["age"] = 32
-        }) // optional
-        .build()
-```
-
-### iOS
-
-Installation instruction in the project's Podfile
-
-```ruby
-pod "Screeb", "0.7.0"
-```
-
-Initialization in your AppDelegate.swift file :
-
-```swift
-Screeb.initSdk(context: controller, channelId: "<website-id>")
-```
-
-## Usage in flutter
+## Usage
 
 Several commands are available in Screeb flutter plugin api :
+
+### InitSdk command
+
+```dart
+PluginScreeb.initSdk("channelId");
+```
 
 ### SetIdentity command
 

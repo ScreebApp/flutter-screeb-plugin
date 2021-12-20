@@ -1,3 +1,8 @@
+## 0.0.2
+
+- Support SDK initialization as part of the plugin
+- Manage platform specific SDKs versions internally
+
 ## 0.0.1
 
 - Initial version
