@@ -11,17 +11,6 @@ import java.util.*
 class ExampleApplication: Application() {
     override fun onCreate() {
         super.onCreate()
-        screeb = Screeb.Builder()
-            .withContext(this)
-            .withChannelId("082b7590-1621-4f72-8030-731a98cd1448") // Preview survey
-            .withVisitorId("clement2@screeb.app")
-            .withVisitorProperties(VisitorProperties().apply {
-                this["email"] = "flutter_plugin@screeb.app"
-                this["age"] = 32
-                this["company"] = "Flutter"
-                this["logged_at"] = Date()
-            })
-            .build()
     }
 
     override fun attachBaseContext(base: Context) {
