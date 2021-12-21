@@ -14,9 +14,12 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
     switch call.method {
         case "initSdk":
             if let channelId = args[0] as? String {
-                let controller = self.window?.rootViewController
-                Screeb.initSdk(context: controller, channelId: channelId)
-                result(true)
+                if let controller = UIApplication.shared.keyWindow?.rootViewController as? UIViewController {
+                    Screeb.initSdk(context: controller, channelId: channelId)
+                    result(true)
+                } else {
+                    result(false)
+                }
             } else {
                 result(FlutterError(code: "-1",
                                     message: "iOS could not extract flutter arguments in method: \(call.method)",
