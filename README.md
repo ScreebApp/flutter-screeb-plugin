@@ -13,7 +13,7 @@ A flutter plugin to integrate Screeb mobile sdk for Android and/or iOS.
 ## Getting Started
 
 You should set IOS target build configuration `BUILD_LIBRARY_FOR_DISTRIBUTION` to `YES` in your `Podfile` to avoid runtime crash:
-```
+```ruby
 post_install do |installer|
   ...
   installer.pods_project.targets.each do |target|
