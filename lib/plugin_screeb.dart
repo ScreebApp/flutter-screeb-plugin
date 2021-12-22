@@ -11,7 +11,7 @@ class PluginScreeb {
   ///
   /// Call this method first elsewhere subsequent calls will fail
   /// Providing a [androidChannelId] and [iosChannelId] is mandatory, please visit your account to find
-  /// the identifier
+  /// the identifiers
   static Future<bool?> initSdk(
       String androidChannelId, String iosChannelId) async {
     if (Platform.isIOS) {

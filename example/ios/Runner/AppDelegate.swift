@@ -1,6 +1,5 @@
 import UIKit
 import Flutter
-import Screeb
 
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate {

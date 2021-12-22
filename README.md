@@ -34,7 +34,7 @@ Several commands are available in Screeb flutter plugin api :
 ### InitSdk command
 
 ```dart
-PluginScreeb.initSdk("channelId");
+PluginScreeb.initSdk("<android-channel-id", "<ios-channel-id");
 ```
 
 ### SetIdentity command
