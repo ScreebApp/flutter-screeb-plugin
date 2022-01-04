@@ -1,5 +1,6 @@
 package app.screeb.plugin_screeb
 
+import android.content.Context
 import androidx.annotation.NonNull
 import app.screeb.sdk.Screeb
 
@@ -26,10 +27,11 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
 
         if (call.method == CALL_INIT_SDK) {
             val channelId = arguments[0] as String
-            screeb = Screeb.Builder()
-                    .withContext(context)
-                    .withChannelId(channelId)
-                    .build()
+            if (screeb == null) {
+                result.success(false)
+                return
+            }
+            screeb?.pluginInit(channelId, null, null)
             result.success(true)
             return
         }
@@ -81,6 +83,13 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
         const val CALL_SEND_TRACKING_EVENT = "sendTrackingEvent"
         const val CALL_SEND_TRACKING_SCREEN = "sendTrackingScreen"
         const val CALL_VISITOR_PROPERTY = "visitorProperty"
+
+        fun setAppContext(context: Context){
+            screeb = Screeb.Builder()
+                .withContext(context)
+                .withPluginMode(true)
+                .build()
+        }
     }
 }
 

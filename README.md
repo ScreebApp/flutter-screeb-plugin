@@ -27,6 +27,20 @@ post_install do |installer|
 end
 ```
 
+### Android specific configuration
+
+The Android sdk needs to be notified of activities lifecycle changes to be correctly started.
+
+It is mandatory to pass the Application context to the plugin in your custom Application class
+in the `onCreate` function :
+
+```kotlin
+    override fun onCreate() {
+    super.onCreate()
+    PluginScreebPlugin.setAppContext(this)
+}
+```
+
 ## Usage
 
 Several commands are available in Screeb flutter plugin api :

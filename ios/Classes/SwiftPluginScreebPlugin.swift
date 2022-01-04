@@ -62,10 +62,10 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                                     message: "iOS could not extract flutter arguments in method: \(call.method)",
                                     details: nil))
             }
-            default:
-                result(FlutterError(code: "-1", message: "iOS could not extract " +
-                       "flutter arguments in method: \(call.method)", details: nil))
-                break
+        default:
+            result(FlutterError(code: "-1", message: "iOS could not extract " +
+                "flutter arguments in method: \(call.method)", details: nil))
+            break
         }
   }
 
