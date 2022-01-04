@@ -17,6 +17,14 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+
+    PluginScreeb.initSdk("082b7590-1621-4f72-8030-731a98cd1448", "5c62c145-91f1-4abd-8aa2-63d7847db1e1");
+    // Optionally setup the identity of the visitor
+    _visitorProperty(<String, dynamic>{
+      "email": "flutter_plugin@screeb.app",
+      "age": 32,
+      "company": "Flutter",
+    });
   }
 
   void _setIdentity(String userId){

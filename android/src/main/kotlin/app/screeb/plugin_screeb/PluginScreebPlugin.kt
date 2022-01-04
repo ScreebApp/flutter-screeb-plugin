@@ -1,5 +1,6 @@
 package app.screeb.plugin_screeb
 
+import android.content.Context
 import androidx.annotation.NonNull
 import app.screeb.sdk.Screeb
 
@@ -13,19 +14,33 @@ import java.util.HashMap
 /** PluginScreebPlugin */
 class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
     private lateinit var channel: MethodChannel
+    private lateinit var context: android.content.Context
 
     override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
         channel = MethodChannel(flutterPluginBinding.binaryMessenger, "plugin_screeb")
         channel.setMethodCallHandler(this)
+        context = flutterPluginBinding.applicationContext
     }
 
     override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
+        val arguments = call.arguments as ArrayList<*>
+
+        if (call.method == CALL_INIT_SDK) {
+            val channelId = arguments[0] as String
+            if (screeb == null) {
+                result.success(false)
+                return
+            }
+            screeb?.pluginInit(channelId, null, null)
+            result.success(true)
+            return
+        }
+
         if (screeb == null) {
             result.error(ERROR_SCREEB_NOT_INIT, null, null)
             return
         }
 
-        val arguments = call.arguments as ArrayList<*>
         when (call.method) {
             CALL_SET_IDENTITY -> {
                 val userId = arguments[0] as String
@@ -63,10 +78,18 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
         var screeb: Screeb? = null
         const val ERROR_SCREEB_NOT_INIT = "ERROR_SCREEB_NOT_INIT"
 
+        const val CALL_INIT_SDK = "initSdk"
         const val CALL_SET_IDENTITY = "setIdentity"
         const val CALL_SEND_TRACKING_EVENT = "sendTrackingEvent"
         const val CALL_SEND_TRACKING_SCREEN = "sendTrackingScreen"
         const val CALL_VISITOR_PROPERTY = "visitorProperty"
+
+        fun setAppContext(context: Context){
+            screeb = Screeb.Builder()
+                .withContext(context)
+                .withPluginMode(true)
+                .build()
+        }
     }
 }
 

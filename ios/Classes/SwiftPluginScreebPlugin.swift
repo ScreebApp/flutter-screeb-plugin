@@ -10,9 +10,21 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-    print("ios command \(call.method)")
     guard let args = call.arguments as? [Any] else { return }
     switch call.method {
+        case "initSdk":
+            if let channelId = args[0] as? String {
+                if let controller = UIApplication.shared.keyWindow?.rootViewController as? UIViewController {
+                    Screeb.initSdk(context: controller, channelId: channelId)
+                    result(true)
+                } else {
+                    result(false)
+                }
+            } else {
+                result(FlutterError(code: "-1",
+                                    message: "iOS could not extract flutter arguments in method: \(call.method)",
+                                    details: nil))
+            }
         case "setIdentity":
             if let userId = args[0] as? String {
                 Screeb.setIdentity(uniqueVisitorId: userId)
@@ -50,10 +62,10 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                                     message: "iOS could not extract flutter arguments in method: \(call.method)",
                                     details: nil))
             }
-            default:
-                result(FlutterError(code: "-1", message: "iOS could not extract " +
-                       "flutter arguments in method: \(call.method)", details: nil))
-                break
+        default:
+            result(FlutterError(code: "-1", message: "iOS could not extract " +
+                "flutter arguments in method: \(call.method)", details: nil))
+            break
         }
   }
 

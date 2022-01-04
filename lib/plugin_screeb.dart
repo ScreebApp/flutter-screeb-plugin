@@ -1,9 +1,25 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/services.dart';
 
 class PluginScreeb {
   static const MethodChannel _channel = MethodChannel('plugin_screeb');
+
+  /// Provides a way to initialize the SDK with a specific channel ID by
+  /// platform Android and iOS
+  ///
+  /// Call this method first elsewhere subsequent calls will fail
+  /// Providing a [androidChannelId] and [iosChannelId] is mandatory, please visit your account to find
+  /// the identifiers
+  static Future<bool?> initSdk(
+      String androidChannelId, String iosChannelId) async {
+    if (Platform.isIOS) {
+      return await _channel.invokeMethod('initSdk', [iosChannelId]);
+    } else if (Platform.isAndroid) {
+      return await _channel.invokeMethod('initSdk', [androidChannelId]);
+    }
+  }
 
   /// Provides an authentified id for the user of the app
   ///

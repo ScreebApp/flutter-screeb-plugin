@@ -12,54 +12,44 @@ A flutter plugin to integrate Screeb mobile sdk for Android and/or iOS.
 
 ## Getting Started
 
-Screeb sdk needs to be installed and initialized on each platform before being used in flutter.
+You should set IOS target build configuration `BUILD_LIBRARY_FOR_DISTRIBUTION` to `YES` in your `Podfile` to avoid runtime crash:
+```ruby
+post_install do |installer|
+  ...
+  installer.pods_project.targets.each do |target|
+    ...
 
-### Android
-
-Installation with MavenCentral : 
-
-```groovy
-implementation 'app.screeb.sdk:android-sdk:1.1.0'
+    target.build_configurations.each do |config|
+      ...
+      config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+    end
+  end
+end
 ```
 
-Initialization in your custom Application class
+### Android specific configuration
+
+The Android sdk needs to be notified of activities lifecycle changes to be correctly started.
+
+It is mandatory to pass the Application context to the plugin in your custom Application class
+in the `onCreate` function :
 
 ```kotlin
-// simple initialization
-val screeb = Screeb.Builder()
-        .withContext(this)
-        .withChannelId("<website-id>")
-        .build()
-
-// detailed initialization using a unique id and custom properties, see Identify visitors section
-val screeb = Screeb.Builder()
-        .withContext(this)
-        .withChannelId("<website-id>")
-        .withVisitorId("johndoe@screeb.app") // optional
-        .withVisitorProperties(VisitorProperties().apply {
-            this["email"] = "johndoe@screeb.app"
-            this["age"] = 32
-        }) // optional
-        .build()
+    override fun onCreate() {
+    super.onCreate()
+    PluginScreebPlugin.setAppContext(this)
+}
 ```
 
-### iOS
-
-Installation instruction in the project's Podfile
-
-```ruby
-pod "Screeb", "0.7.0"
-```
-
-Initialization in your AppDelegate.swift file :
-
-```swift
-Screeb.initSdk(context: controller, channelId: "<website-id>")
-```
-
-## Usage in flutter
+## Usage
 
 Several commands are available in Screeb flutter plugin api :
+
+### InitSdk command
+
+```dart
+PluginScreeb.initSdk("<android-channel-id", "<ios-channel-id");
+```
 
 ### SetIdentity command
 

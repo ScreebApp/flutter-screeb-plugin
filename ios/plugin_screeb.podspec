@@ -21,7 +21,7 @@ Screeb plugin for Flutter, simplify use of Screeb in Flutter apps
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
   s.swift_version = '5.0'
 
-  s.dependency 'Screeb', '~> 0.7'
+  s.dependency 'Screeb', '~> 0.8'
   s.preserve_paths = 'Screeb.xcframework'
     s.xcconfig = { 'OTHER_LDFLAGS' => '-framework Screeb' }
     s.vendored_frameworks = 'Screeb.xcframework'

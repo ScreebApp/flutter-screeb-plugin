@@ -68,6 +68,5 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'app.screeb.sdk:android-sdk:1.1.0'
     implementation "androidx.multidex:multidex:$multidex_version"
 }

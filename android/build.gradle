@@ -2,7 +2,7 @@ group 'app.screeb.plugin_screeb'
 version '1.0.0'
 
 buildscript {
-    ext.kotlin_version = '1.3.50'
+    ext.kotlin_version = '1.6.0'
     repositories {
         google()
         mavenCentral()
@@ -46,6 +46,7 @@ android {
 }
 
 dependencies {
-    implementation "app.screeb.sdk:android-sdk:1.1.0"
+    implementation "app.screeb.sdk:android-sdk:1.2.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'app.screeb.sdk:android-sdk:1.1.0'
 }
