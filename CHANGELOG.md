@@ -1,3 +1,8 @@
+## 0.0.3
+
+- iOS sdk version 0.9.0
+- android sdk version 1.3.0
+
 ## 0.0.2
 
 - Support SDK initialization as part of the plugin
