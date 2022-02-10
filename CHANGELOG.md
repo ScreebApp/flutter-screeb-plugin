@@ -1,3 +1,8 @@
+## 0.0.4
+
+- iOS sdk version 1.0.0
+- android sdk version 1.4.0
+
 ## 0.0.3
 
 - iOS sdk version 0.9.0

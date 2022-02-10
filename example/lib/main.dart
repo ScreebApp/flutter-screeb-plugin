@@ -18,29 +18,40 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
 
-    PluginScreeb.initSdk("082b7590-1621-4f72-8030-731a98cd1448", "5c62c145-91f1-4abd-8aa2-63d7847db1e1");
-    // Optionally setup the identity of the visitor
-    _visitorProperty(<String, dynamic>{
-      "email": "flutter_plugin@screeb.app",
-      "age": 32,
-      "company": "Flutter",
-    });
+    /*
+    PluginScreeb.initSdk(
+        "082b7590-1621-4f72-8030-731a98cd1448",
+        "5c62c145-91f1-4abd-8aa2-63d7847db1e1",
+        null,
+        null
+    );
+     */
+    PluginScreeb.initSdk(
+        "082b7590-1621-4f72-8030-731a98cd1448",
+        "5c62c145-91f1-4abd-8aa2-63d7847db1e1",
+        "flutter_plugin@screeb.app",
+        <String, dynamic>{
+          'isConnected': false,
+          'age': 29,
+          'product' : 'iPhone 13',
+        }
+    );
   }
 
-  void _setIdentity(String userId){
-    PluginScreeb.setIdentity(userId);
+  void _setIdentity(String userId, Map<String, dynamic>? properties){
+    PluginScreeb.setIdentity(userId, properties);
   }
 
   void _sendTrackingEvent(String eventId,  Map<String, dynamic>? properties){
-    PluginScreeb.sendTrackingEvent(eventId, properties);
+    PluginScreeb.trackEvent(eventId, properties);
   }
 
   void _sendTrackingScreen(String screen,  Map<String, dynamic>? properties){
-    PluginScreeb.sendTrackingScreen(screen, properties);
+    PluginScreeb.trackScreen(screen, properties);
   }
 
   void _visitorProperty(Map<String, dynamic>? properties){
-    PluginScreeb.visitorProperty(properties);
+    PluginScreeb.setProperty(properties);
   }
 
   @override
@@ -57,7 +68,11 @@ class _MyAppState extends State<MyApp> {
               const Text("Screeb Commands"),
               ElevatedButton(
                 child: const Text('set identity'),
-                onPressed: () => _setIdentity('iosflutterId'),
+                onPressed: () => _setIdentity('iosflutterId', <String, dynamic>{
+                  'isConnected': false,
+                  'age': 29,
+                  'product' : 'iPhone 13',
+                }),
               ),
               ElevatedButton(
                 child: const Text('send tracking event'),

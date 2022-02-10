@@ -27,11 +27,14 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
 
         if (call.method == CALL_INIT_SDK) {
             val channelId = arguments[0] as String
+            val userId: String? = arguments[1] as? String
+            val properties = (arguments[2] as? Map<*, *>)?.toVisitorProperty()
+
             if (screeb == null) {
                 result.success(false)
                 return
             }
-            screeb?.pluginInit(channelId, null, null)
+            screeb?.pluginInit(channelId, userId, properties)
             result.success(true)
             return
         }
@@ -44,7 +47,8 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
         when (call.method) {
             CALL_SET_IDENTITY -> {
                 val userId = arguments[0] as String
-                screeb?.setIdentity(userId)
+                val properties = (arguments[1] as? Map<*, *>)?.toVisitorProperty()
+                screeb?.setIdentity(userId, properties)
                 result.success(true)
             }
             CALL_SEND_TRACKING_EVENT -> {
@@ -80,9 +84,9 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
 
         const val CALL_INIT_SDK = "initSdk"
         const val CALL_SET_IDENTITY = "setIdentity"
-        const val CALL_SEND_TRACKING_EVENT = "sendTrackingEvent"
-        const val CALL_SEND_TRACKING_SCREEN = "sendTrackingScreen"
-        const val CALL_VISITOR_PROPERTY = "visitorProperty"
+        const val CALL_SEND_TRACKING_EVENT = "trackEvent"
+        const val CALL_SEND_TRACKING_SCREEN = "trackScreen"
+        const val CALL_VISITOR_PROPERTY = "setProperty"
 
         fun setAppContext(context: Context){
             screeb = Screeb.Builder()
