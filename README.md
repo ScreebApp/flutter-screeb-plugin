@@ -10,7 +10,7 @@
 
 A flutter plugin to integrate Screeb mobile sdk for Android and/or iOS.
 
-## Getting Started
+## iOS specific configuration
 
 You should set IOS target build configuration `BUILD_LIBRARY_FOR_DISTRIBUTION` to `YES` in your `Podfile` to avoid runtime crash:
 ```ruby
@@ -45,26 +45,48 @@ in the `onCreate` function :
 
 Several commands are available in Screeb flutter plugin api :
 
-### InitSdk command
+### initSdk command
 
 ```dart
-PluginScreeb.initSdk("<android-channel-id", "<ios-channel-id");
+// Simple init command with no additionnal parameters
+PluginScreeb.initSdk("<android-channel-id>", "<ios-channel-id>", null, null);
 ```
-
-### SetIdentity command
 
 ```dart
-PluginScreeb.setIdentity("userId");
+// Init command with identity and properties parameters
+PluginScreeb.initSdk("<android-channel-id>", "<ios-channel-id>", "identity", <String, dynamic>{
+    'isConnected': true,
+    'age': 27,
+    'company' : 'Screeb',
+    'technology' : 'iOS',
+    'flutterAccount' : true
+});
 ```
 
-### SendTrackingEvent command
+### setIdentity command
+
+```dart
+// Identity example without properties 
+PluginScreeb.setIdentity("userId", null);
+
+// Identity example with properties 
+PluginScreeb.setIdentity("userId", <String, dynamic>{
+'isConnected': true,
+'age': 27,
+'company' : 'Screeb',
+'technology' : 'iOS',
+'flutterAccount' : true
+});
+```
+
+### trackEvent command
 
 ```dart
 // Event example without properties 
-PluginScreeb.sendTrackingEvent("eventId");
+PluginScreeb.trackEvent("eventId", null);
 
 // Event example with properties 
-PluginScreeb.sendTrackingEvent("eventId", <String, dynamic>{
+PluginScreeb.trackEvent("eventId", <String, dynamic>{
     'isConnected': true,
     'age': 27,
     'company' : 'Screeb',
@@ -73,14 +95,14 @@ PluginScreeb.sendTrackingEvent("eventId", <String, dynamic>{
 });
 ```
 
-### SendTrackingScreen command
+### trackScreen command
 
 ```dart
 // Screen event example without properties 
-PluginScreeb.sendTrackingScreen("screen_name");
+PluginScreeb.trackScreen("screen_name", null);
 
 // Screen event example with properties 
-PluginScreeb.sendTrackingScreen("screen_name", <String, dynamic>{
+PluginScreeb.trackScreen("screen_name", <String, dynamic>{
     'isConnected': true,
     'age': 27,
     'company' : 'Screeb',
@@ -89,11 +111,11 @@ PluginScreeb.sendTrackingScreen("screen_name", <String, dynamic>{
 });
 ```
 
-### VisitorProperty command
+### setProperty command
 
 ```dart
 // VisitorProperty example
-PluginScreeb.visitorProperty("screen_name", <String, dynamic>{
+PluginScreeb.setProperty(<String, dynamic>{
     'isConnected': true,
     'age': 27,
     'company' : 'Screeb',

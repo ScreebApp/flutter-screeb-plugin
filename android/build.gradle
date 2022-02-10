@@ -1,5 +1,5 @@
 group 'app.screeb.plugin_screeb'
-version '0.0.4'
+version '0.0.5'
 
 buildscript {
     ext.kotlin_version = '1.6.0'

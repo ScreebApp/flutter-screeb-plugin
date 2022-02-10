@@ -24,7 +24,7 @@ class PluginScreeb {
     }
   }
 
-  /// Provides an authentified id for the user of the app
+  /// Provides an authentified id for the user of the app with optional [properties]
   ///
   /// Providing a [userId] is important to sharpen the Screeb targeting engine
   /// and avoid survey triggering more than necessary.
@@ -33,7 +33,7 @@ class PluginScreeb {
     return success;
   }
 
-  /// Send to Screeb backend an tracking [eventId] with optional [properties]
+  /// Send to Screeb backend a tracking [eventId] with optional [properties]
   static Future<bool?> trackEvent(
       String eventId, Map<String, dynamic>? properties) async {
     final bool? success =
@@ -41,7 +41,7 @@ class PluginScreeb {
     return success;
   }
 
-  /// Send to Screeb backend an tracking [screen] name with optional [properties]
+  /// Send to Screeb backend a tracking [screen] name with optional [properties]
   ///
   /// This api call is important to trigger a survey where the targeting is
   /// configured using screens parameters.
