@@ -1,3 +1,10 @@
+## 0.0.4
+
+- Rename tracking methods and setProperties
+- iOS sdk version 1.1.0
+- android sdk version 1.4.0
+- Many bugs fixed
+
 ## 0.0.3
 
 - iOS sdk version 0.9.0

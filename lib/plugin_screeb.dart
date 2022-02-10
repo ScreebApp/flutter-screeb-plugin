@@ -13,11 +13,14 @@ class PluginScreeb {
   /// Providing a [androidChannelId] and [iosChannelId] is mandatory, please visit your account to find
   /// the identifiers
   static Future<bool?> initSdk(
-      String androidChannelId, String iosChannelId) async {
+      String androidChannelId,
+      String iosChannelId,
+      String? userId,
+      Map<String, dynamic>? properties) async {
     if (Platform.isIOS) {
-      return await _channel.invokeMethod('initSdk', [iosChannelId]);
+      return await _channel.invokeMethod('initSdk', [iosChannelId, userId, properties]);
     } else if (Platform.isAndroid) {
-      return await _channel.invokeMethod('initSdk', [androidChannelId]);
+      return await _channel.invokeMethod('initSdk', [androidChannelId, userId, properties]);
     }
   }
 
@@ -25,16 +28,16 @@ class PluginScreeb {
   ///
   /// Providing a [userId] is important to sharpen the Screeb targeting engine
   /// and avoid survey triggering more than necessary.
-  static Future<bool?> setIdentity(String userId) async {
-    final bool? success = await _channel.invokeMethod('setIdentity', [userId]);
+  static Future<bool?> setIdentity(String userId, Map<String, dynamic>? properties) async {
+    final bool? success = await _channel.invokeMethod('setIdentity', [userId, properties]);
     return success;
   }
 
   /// Send to Screeb backend an tracking [eventId] with optional [properties]
-  static Future<bool?> sendTrackingEvent(
+  static Future<bool?> trackEvent(
       String eventId, Map<String, dynamic>? properties) async {
     final bool? success =
-        await _channel.invokeMethod('sendTrackingEvent', [eventId, properties]);
+        await _channel.invokeMethod('trackEvent', [eventId, properties]);
     return success;
   }
 
@@ -42,10 +45,10 @@ class PluginScreeb {
   ///
   /// This api call is important to trigger a survey where the targeting is
   /// configured using screens parameters.
-  static Future<bool?> sendTrackingScreen(
+  static Future<bool?> trackScreen(
       String screen, Map<String, dynamic>? properties) async {
     final bool? success =
-        await _channel.invokeMethod('sendTrackingScreen', [screen, properties]);
+        await _channel.invokeMethod('trackScreen', [screen, properties]);
     return success;
   }
 
@@ -53,9 +56,9 @@ class PluginScreeb {
   ///
   /// This api call is important to trigger a survey where the targeting is
   /// configured using visitor properties parameters.
-  static Future<bool?> visitorProperty(Map<String, dynamic>? properties) async {
+  static Future<bool?> setProperty(Map<String, dynamic>? properties) async {
     final bool? success =
-        await _channel.invokeMethod('visitorProperty', [properties]);
+        await _channel.invokeMethod('setProperty', [properties]);
     return success;
   }
 }

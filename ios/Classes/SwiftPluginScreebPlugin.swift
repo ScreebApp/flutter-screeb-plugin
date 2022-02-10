@@ -13,9 +13,9 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
     guard let args = call.arguments as? [Any] else { return }
     switch call.method {
         case "initSdk":
-            if let channelId = args[0] as? String {
+            if let channelId = args[0] as? String, let userId = args[1] as? String, let property = args[2] as? [String: Any] {
                 if let controller = UIApplication.shared.keyWindow?.rootViewController as? UIViewController {
-                    Screeb.initSdk(context: controller, channelId: channelId)
+                    Screeb.initSdk(context: controller, channelId: channelId, identity: userId, visitorProperty: self.mapToAnyEncodable(map: property))
                     result(true)
                 } else {
                     result(false)
@@ -26,15 +26,15 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                                     details: nil))
             }
         case "setIdentity":
-            if let userId = args[0] as? String {
-                Screeb.setIdentity(uniqueVisitorId: userId)
+            if let userId = args[0] as? String, let property = args[1] as? [String: Any] {
+                Screeb.setIdentity(uniqueVisitorId: userId, visitorProperty: self.mapToAnyEncodable(map: property))
                 result(true)
             } else {
                 result(FlutterError(code: "-1",
                                     message: "iOS could not extract flutter arguments in method: \(call.method)",
                                     details: nil))
             }
-        case "sendTrackingEvent":
+        case "trackEvent":
             if let eventId = args[0] as? String, let property = args[1] as? [String: Any] {
                 Screeb.trackEvent(name: eventId, trackingEventProperties: self.mapToAnyEncodable(map: property))
                 result(true)
@@ -43,7 +43,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                                     message: "iOS could not extract flutter arguments in method: \(call.method)",
                                     details: nil))
             }
-        case "sendTrackingScreen":
+        case "trackScreen":
             if let screen = args[0] as? String, let property = args[1] as? [String: Any] {
                 Screeb.trackScreen(name: screen, trackingEventProperties: self.mapToAnyEncodable(map: property))
                 result(true)
@@ -52,7 +52,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                                     message: "iOS could not extract flutter arguments in method: \(call.method)",
                                     details: nil))
             }
-        case "visitorProperty":
+        case "setProperty":
             if let _property = args[0] as? [String: Any] {
                 let property = self.mapToAnyEncodable(map: _property)
                 Screeb.visitorProperty(visitorProperty: property)
