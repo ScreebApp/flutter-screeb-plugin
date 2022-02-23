@@ -35,7 +35,7 @@ It is mandatory to pass the Application context to the plugin in your custom App
 in the `onCreate` function :
 
 ```kotlin
-    override fun onCreate() {
+override fun onCreate() {
     super.onCreate()
     PluginScreebPlugin.setAppContext(this)
 }
@@ -71,11 +71,11 @@ PluginScreeb.setIdentity("userId", null);
 
 // Identity example with properties 
 PluginScreeb.setIdentity("userId", <String, dynamic>{
-'isConnected': true,
-'age': 27,
-'company' : 'Screeb',
-'technology' : 'iOS',
-'flutterAccount' : true
+    'isConnected': true,
+    'age': 27,
+    'company' : 'Screeb',
+    'technology' : 'iOS',
+    'flutterAccount' : true
 });
 ```
 
