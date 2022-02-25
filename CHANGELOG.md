@@ -1,3 +1,8 @@
+## 0.0.6
+
+- iOS sdk version 1.2.0
+- android sdk version 1.6.0
+
 ## 0.0.5
 
 - Fix README documentation
