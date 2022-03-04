@@ -1,3 +1,7 @@
+## 0.0.7
+
+- iOS : fix null property issue
+
 ## 0.0.6
 
 - iOS sdk version 1.2.0
