@@ -29,6 +29,11 @@ post_install do |installer|
 end
 ```
 
+When upgrading a Screeb plugin version, it can be useful to run in /ios directory :
+```
+pod update Screeb
+```
+
 ### Android specific configuration
 
 The Android sdk needs to be notified of activities lifecycle changes to be correctly started.

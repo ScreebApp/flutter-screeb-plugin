@@ -4,10 +4,10 @@ PODS:
     - Alamofire (~> 5.4.0)
   - Flutter (1.0.0)
   - Kingfisher (7.2.0)
-  - plugin_screeb (0.0.8):
+  - plugin_screeb (0.0.9):
     - Flutter
-    - Screeb (~> 1.3.0)
-  - Screeb (1.3.0):
+    - Screeb (~> 1.4.0)
+  - Screeb (1.4.0):
     - Alamofire (~> 5.4)
     - AlamofireNetworkActivityLogger (~> 3.4)
     - Kingfisher (~> 7.0)
@@ -37,8 +37,8 @@ SPEC CHECKSUMS:
   AlamofireNetworkActivityLogger: 162ab8aee00e6267a4304d7cc134e13ccfe3bcc5
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
   Kingfisher: 3ac0b75b155cabc0e544877d1a4deea29feece92
-  plugin_screeb: 92eeda0f995b10dcc832cb617d46e4384679f9a2
-  Screeb: 30e49ab54ebce8d1418553abcd86b75976dc730b
+  plugin_screeb: 139b0a4020a6968bc4f4045e3260626493c8cdff
+  Screeb: dac6a6465a798d79c5a11972d52affcc6980e96d
   Starscream: 5178aed56b316f13fa3bc55694e583d35dd414d9
 
 PODFILE CHECKSUM: 3a514d0c8286cdf222654062887b78155e90bfda
