@@ -1,3 +1,8 @@
+## 0.0.10
+
+- iOS sdk version 1.5.0
+- Optional properties can be omitted, ex : setIdentity("user_id")
+
 ## 0.0.9
 
 - iOS sdk version 1.4.0

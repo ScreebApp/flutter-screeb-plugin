@@ -56,7 +56,7 @@ Several commands are available in Screeb flutter plugin api :
 
 ```dart
 // Simple init command with no additionnal parameters
-PluginScreeb.initSdk("<android-channel-id>", "<ios-channel-id>", null, null);
+PluginScreeb.initSdk("<android-channel-id>", "<ios-channel-id>", null);
 ```
 
 ```dart
@@ -74,7 +74,7 @@ PluginScreeb.initSdk("<android-channel-id>", "<ios-channel-id>", "identity", <St
 
 ```dart
 // Identity example without properties 
-PluginScreeb.setIdentity("userId", null);
+PluginScreeb.setIdentity("userId");
 
 // Identity example with properties 
 PluginScreeb.setIdentity("userId", <String, dynamic>{
@@ -90,7 +90,7 @@ PluginScreeb.setIdentity("userId", <String, dynamic>{
 
 ```dart
 // Event example without properties 
-PluginScreeb.trackEvent("eventId", null);
+PluginScreeb.trackEvent("eventId");
 
 // Event example with properties 
 PluginScreeb.trackEvent("eventId", <String, dynamic>{
@@ -106,7 +106,7 @@ PluginScreeb.trackEvent("eventId", <String, dynamic>{
 
 ```dart
 // Screen event example without properties 
-PluginScreeb.trackScreen("screen_name", null);
+PluginScreeb.trackScreen("screen_name");
 
 // Screen event example with properties 
 PluginScreeb.trackScreen("screen_name", <String, dynamic>{
