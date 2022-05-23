@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'plugin_screeb'
-  s.version          = '0.0.11'
+  s.version          = '0.0.12'
   s.summary          = 'Screeb flutter plugin'
   s.description      = <<-DESC
 Screeb plugin for Flutter, simplify use of Screeb in Flutter apps
@@ -21,7 +21,7 @@ Screeb plugin for Flutter, simplify use of Screeb in Flutter apps
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
   s.swift_version = '5.0'
 
-  s.dependency 'Screeb', '~> 1.5.0'
+  s.dependency 'Screeb', '1.5.1'
   s.preserve_paths = 'Screeb.xcframework'
     s.xcconfig = { 'OTHER_LDFLAGS' => '-framework Screeb' }
     s.vendored_frameworks = 'Screeb.xcframework'
