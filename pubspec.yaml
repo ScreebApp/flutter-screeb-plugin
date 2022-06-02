@@ -1,6 +1,6 @@
 name: plugin_screeb
 description: A flutter plugin to integrate Screeb mobile sdk for Android and/or iOS.
-version: 0.0.12
+version: 0.0.13
 homepage: https://screeb.app
 repository: https://github.com/ScreebApp/flutter-screeb-plugin
 
@@ -15,7 +15,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^1.0.0
+  flutter_lints: ^2.0.1
 flutter:
   plugin:
     platforms:
