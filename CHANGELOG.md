@@ -1,3 +1,8 @@
+## 0.0.14
+
+- Android sdk version 1.8.0
+- iOS sdk version 1.7.0
+
 ## 0.0.13
 
 - Android sdk version 1.7.1

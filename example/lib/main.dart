@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plugin_screeb/plugin_screeb.dart';
+import 'dart:developer';
 
 void main() {
   runApp(const MyApp());
@@ -32,18 +33,22 @@ class _MyAppState extends State<MyApp> {
 
   void _setIdentity(String userId, Map<String, dynamic>? properties){
     PluginScreeb.setIdentity(userId, properties);
+    log("SetIdentity");
   }
 
   void _sendTrackingEvent(String eventId,  Map<String, dynamic>? properties){
     PluginScreeb.trackEvent(eventId, properties);
+    log("TrackingEvent");
   }
 
   void _sendTrackingScreen(String screen,  Map<String, dynamic>? properties){
     PluginScreeb.trackScreen(screen, properties);
+    log("TrackingScreen");
   }
 
   void _visitorProperty(Map<String, dynamic>? properties){
     PluginScreeb.setProperty(properties);
+    log("VisitorProperties");
   }
 
   @override
