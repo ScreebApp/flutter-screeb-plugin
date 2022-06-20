@@ -1,3 +1,7 @@
+## 0.0.15
+
+- Android sdk version 1.8.1
+
 ## 0.0.14
 
 - Android sdk version 1.8.0
