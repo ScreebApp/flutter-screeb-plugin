@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'plugin_screeb'
-  s.version          = '0.0.16'
+  s.version          = '0.0.17'
   s.summary          = 'Screeb flutter plugin'
   s.description      = <<-DESC
 Screeb plugin for Flutter, simplify use of Screeb in Flutter apps

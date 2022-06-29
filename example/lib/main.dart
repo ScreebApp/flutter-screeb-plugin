@@ -27,6 +27,7 @@ class _MyAppState extends State<MyApp> {
           'isConnected': false,
           'age': 29,
           'product' : 'iPhone 13',
+          'email' : 'flutter_plugin@screeb.app',
         }
     );
   }
