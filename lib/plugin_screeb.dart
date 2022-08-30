@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:io';
-import 'package:intl/intl.dart';
 import 'package:flutter/services.dart';
 
 class PluginScreeb {
@@ -64,13 +63,12 @@ class PluginScreeb {
 
   static Map<String, dynamic>? formatDates(Map<String, dynamic>? properties) {
     var newMap =  <String, dynamic>{};
-    final DateFormat formatter = DateFormat('dd.MM.yyyy-HH:mm:ss.ZZ');
     if (properties?.isEmpty == true){
       return properties;
     }
     properties?.forEach((key, value) {
       if (value is DateTime) {
-        String newValue = formatter.format(value);
+        String newValue = '${value.toIso8601String()}+${value.timeZoneOffset.inHours.toString()}:00';
         newMap[key] = newValue;
       } else {
         newMap[key] = value;
