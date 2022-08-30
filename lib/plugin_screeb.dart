@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:io';
-
+import 'package:intl/intl.dart';
 import 'package:flutter/services.dart';
 
 class PluginScreeb {
@@ -18,9 +18,9 @@ class PluginScreeb {
       String? userId,
       [Map<String, dynamic>? properties]) async {
     if (Platform.isIOS) {
-      return await _channel.invokeMethod('initSdk', [iosChannelId, userId, properties]);
+      return await _channel.invokeMethod('initSdk', [iosChannelId, userId, formatDates(properties)]);
     } else if (Platform.isAndroid) {
-      return await _channel.invokeMethod('initSdk', [androidChannelId, userId, properties]);
+      return await _channel.invokeMethod('initSdk', [androidChannelId, userId, formatDates(properties)]);
     }
   }
 
@@ -29,7 +29,7 @@ class PluginScreeb {
   /// Providing a [userId] is important to sharpen the Screeb targeting engine
   /// and avoid survey triggering more than necessary.
   static Future<bool?> setIdentity(String userId, [Map<String, dynamic>? properties]) async {
-    final bool? success = await _channel.invokeMethod('setIdentity', [userId, properties]);
+    final bool? success = await _channel.invokeMethod('setIdentity', [userId, formatDates(properties)]);
     return success;
   }
 
@@ -37,7 +37,7 @@ class PluginScreeb {
   static Future<bool?> trackEvent(
       String eventId, [Map<String, dynamic>? properties]) async {
     final bool? success =
-        await _channel.invokeMethod('trackEvent', [eventId, properties]);
+        await _channel.invokeMethod('trackEvent', [eventId, formatDates(properties)]);
     return success;
   }
 
@@ -48,7 +48,7 @@ class PluginScreeb {
   static Future<bool?> trackScreen(
       String screen, [Map<String, dynamic>? properties]) async {
     final bool? success =
-        await _channel.invokeMethod('trackScreen', [screen, properties]);
+        await _channel.invokeMethod('trackScreen', [screen, formatDates(properties)]);
     return success;
   }
 
@@ -58,7 +58,25 @@ class PluginScreeb {
   /// configured using visitor properties parameters.
   static Future<bool?> setProperty(Map<String, dynamic>? properties) async {
     final bool? success =
-        await _channel.invokeMethod('setProperty', [properties]);
+        await _channel.invokeMethod('setProperty', [formatDates(properties)]);
     return success;
+  }
+
+  static Map<String, dynamic>? formatDates(Map<String, dynamic>? properties) {
+    var newMap =  <String, dynamic>{};
+    final DateFormat formatter = DateFormat('dd.MM.yyyy-HH:mm:ss.ZZ');
+    if (properties?.isEmpty == true){
+      return properties;
+    }
+    properties?.forEach((key, value) {
+      if (value is DateTime) {
+        String newValue = formatter.format(value);
+        newMap[key] = newValue;
+      } else {
+        newMap[key] = value;
+      }
+    });
+
+    return newMap;
   }
 }
