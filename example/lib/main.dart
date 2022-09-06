@@ -28,6 +28,7 @@ class _MyAppState extends State<MyApp> {
           'age': 29,
           'product' : 'iPhone 13',
           'email' : 'flutter_plugin@screeb.app',
+          'born' : DateTime.now()
         }
     );
   }
