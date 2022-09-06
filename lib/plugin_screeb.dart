@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:flutter/services.dart';
+import 'dart:developer';
 
 class PluginScreeb {
   static const MethodChannel _channel = MethodChannel('plugin_screeb');
@@ -68,8 +69,9 @@ class PluginScreeb {
     }
     properties?.forEach((key, value) {
       if (value is DateTime) {
-        String newValue = '${value.toIso8601String()}+${value.timeZoneOffset.inHours.toString()}:00';
+        String newValue = '${value.toIso8601String()}+${value.timeZoneOffset.inHours.toString().padLeft(2,'0')}:00';
         newMap[key] = newValue;
+//        log('date: $newValue');
       } else {
         newMap[key] = value;
       }
