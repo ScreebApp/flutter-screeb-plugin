@@ -68,6 +68,13 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
                 screeb?.setVisitorProperties(map)
                 result.success(true)
             }
+            CALL_START_SURVEY -> {
+                val surveyId = arguments[0] as String
+                val allowMultipleResponses = arguments[1] as Boolean
+                val hiddenFields = (arguments[2] as Map<*, *>).toVisitorProperty()
+                screeb?.startSurvey(surveyId, allowMultipleResponses, hiddenFields)
+                result.success(true)
+            }
             else -> {
                 result.notImplemented()
             }
@@ -87,6 +94,7 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
         const val CALL_SEND_TRACKING_EVENT = "trackEvent"
         const val CALL_SEND_TRACKING_SCREEN = "trackScreen"
         const val CALL_VISITOR_PROPERTY = "setProperty"
+        const val CALL_START_SURVEY = "startSurvey"
 
         fun setAppContext(context: Context){
             screeb = Screeb.Builder()
