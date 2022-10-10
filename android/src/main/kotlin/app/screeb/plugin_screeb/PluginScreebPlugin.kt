@@ -71,8 +71,12 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
             CALL_START_SURVEY -> {
                 val surveyId = arguments[0] as String
                 val allowMultipleResponses = arguments[1] as Boolean
-                val hiddenFields = (arguments[2] as Map<*, *>)?.toSurveyProperty()
-                screeb?.startSurvey(surveyId, allowMultipleResponses, hiddenFields)
+                val hiddenFields = (arguments[2] as Map<*, *>)?.toVisitorProperty()
+                screeb?.startSurvey(
+                        surveyId,
+                        allowMultipleResponses,
+                        hiddenFields.filterValues { it != null } as Map<Int, String>
+                )
                 result.success(true)
             }
             else -> {
@@ -109,15 +113,6 @@ private fun <K, V> Map<K, V>.toVisitorProperty(): HashMap<String, Any?> {
     return HashMap<String, Any?>().apply {
         this@toVisitorProperty.forEach {
             this[it.key as String] = it.value
-        }
-    }
-}
-
-private fun <K, V> Map<K, V>.toSurveyProperty(): HashMap<String, Any> {
-    return HashMap<String, Any>().apply {
-        this@toSurveyProperty.forEach {
-//            if (it.value != null)
-                this[it.key as String] = it.value
         }
     }
 }
