@@ -116,7 +116,7 @@ private fun <K, V> Map<K, V>.toVisitorProperty(): HashMap<String, Any?> {
 private fun <K, V> Map<K, V>.toSurveyProperty(): HashMap<String, Any> {
     return HashMap<String, Any>().apply {
         this@toSurveyProperty.forEach {
-            if (it.value != null)
+//            if (it.value != null)
                 this[it.key as String] = it.value
         }
     }
