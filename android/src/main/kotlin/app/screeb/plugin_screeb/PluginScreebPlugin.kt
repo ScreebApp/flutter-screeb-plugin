@@ -75,7 +75,7 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
                 screeb?.startSurvey(
                         surveyId,
                         allowMultipleResponses,
-                        hiddenFields.filterValues { it != null } as Map<Int, String>
+                        (hiddenFields?.filterValues { it != null }) as Map<String, Any>?
                 )
                 result.success(true)
             }
