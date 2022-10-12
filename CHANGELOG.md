@@ -1,3 +1,7 @@
+## 0.0.19
+
+- Implement startSurvey feature
+
 ## 0.0.18
 
 - Android sdk version 1.9.2: https://github.com/ScreebApp/sdk-android-public/releases/tag/1.9.2

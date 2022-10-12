@@ -67,6 +67,21 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                                     message: "iOS could not extract flutter arguments in method: \(call.method)",
                                     details: nil))
             }
+        case "startSurvey":
+            if let surveyId = args[0] as? String {
+                let allowMultipleResponses: Bool = (args[1] as? Bool) ?? false
+                let hiddenFields: [String: Any?]? = args[2] as? [String: Any?]
+                Screeb.startSurvey(
+                    surveyId: surveyId,
+                    allowMultipleResponses: allowMultipleResponses,
+                    hiddenFields: self.mapToAnyEncodable(map: hiddenFields).compactMapValues { $0 } as [String : AnyEncodable]
+                )
+                result(true)
+            } else {
+                result(FlutterError(code: "-1",
+                                    message: "iOS could not extract flutter arguments in method: \(call.method)",
+                                    details: nil))
+            }
         default:
             result(FlutterError(code: "-1", message: "iOS could not extract " +
                 "flutter arguments in method: \(call.method)", details: nil))
