@@ -1,6 +1,11 @@
-## 0.0.19
+## 0.1.0
 
 - Implement startSurvey feature
+- Implement (un)assignGroup features
+- (un)assignGroup permit null properties
+
+- Android sdk version 1.10.4: https://github.com/ScreebApp/sdk-android-public/releases/tag/1.10.4
+- iOS sdk version 1.10.2: https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.10.2
 
 ## 0.0.18
 
