@@ -30,6 +30,25 @@ class PluginScreeb {
   static Future<bool?> setIdentity(String userId, [Map<String, dynamic>? properties]) =>
       _channel.invokeMethod('setIdentity', [userId, _formatDates(properties)]);
 
+  /// Send to Screeb backend the user's custom [properties]
+  ///
+  /// This api call is important to trigger a survey where the targeting is
+  /// configured using visitor properties parameters.
+  static Future<bool?> setProperty(Map<String, dynamic>? properties) =>
+      _channel.invokeMethod('setProperty', [_formatDates(properties)]);
+
+  /// Send to Screeb backend a group assignation for current user [properties]
+  ///
+  /// This api call is important to improve analysis.
+  static Future<bool?> assignGroup(String? groupType, String groupName, Map<String, dynamic>? properties) =>
+      _channel.invokeMethod('assignGroup', [groupType, groupName, _formatDates(properties)]);
+
+  /// Send to Screeb backend a group unassignation for current user [properties]
+  ///
+  /// This api call is important to improve analysis.
+  static Future<bool?> unassignGroup(String? groupType, String groupName, Map<String, dynamic>? properties) =>
+      _channel.invokeMethod('unassignGroup', [groupType, groupName, _formatDates(properties)]);
+
   /// Send to Screeb backend a tracking [eventId] with optional [properties]
   static Future<bool?> trackEvent(String eventId, [Map<String, dynamic>? properties]) =>
       _channel.invokeMethod('trackEvent', [eventId, _formatDates(properties)]);
@@ -40,13 +59,6 @@ class PluginScreeb {
   /// configured using screens parameters.
   static Future<bool?> trackScreen(String screen, [Map<String, dynamic>? properties]) =>
       _channel.invokeMethod('trackScreen', [screen, _formatDates(properties)]);
-
-  /// Send to Screeb backend the user's custom [properties]
-  ///
-  /// This api call is important to trigger a survey where the targeting is
-  /// configured using visitor properties parameters.
-  static Future<bool?> setProperty(Map<String, dynamic>? properties) =>
-      _channel.invokeMethod('setProperty', [_formatDates(properties)]);
 
   /// Send to Screeb backend a tracking [screen] name with optional [properties]
   ///

@@ -4,14 +4,13 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'plugin_screeb'
-  s.version          = '0.0.19'
-  s.summary          = 'Screeb flutter plugin'
-  s.description      = <<-DESC
-Screeb plugin for Flutter, simplify use of Screeb in Flutter apps
-                       DESC
+  s.version          = '0.1.0'
+  s.summary          = 'Screeb is a Product-led User Research Platform'
+  s.description      = 'Screeb is a Product-led User Research Platform'
   s.homepage         = 'https://screeb.app'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Screeb' => 'clement@screeb.app' }
+  s.author           = { 'Clement Quaquin' => 'clement@screeb.app',
+                         'Samuel Berthe' => 'samuel@screeb.app' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
@@ -21,7 +20,7 @@ Screeb plugin for Flutter, simplify use of Screeb in Flutter apps
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
   s.swift_version = '5.0'
 
-  s.dependency 'Screeb', '1.8.2'
+  s.dependency 'Screeb', '1.10.2'
   s.preserve_paths = 'Screeb.xcframework'
     s.xcconfig = { 'OTHER_LDFLAGS' => '-framework Screeb' }
     s.vendored_frameworks = 'Screeb.xcframework'

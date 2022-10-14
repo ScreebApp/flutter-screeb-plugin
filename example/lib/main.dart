@@ -38,6 +38,21 @@ class _MyAppState extends State<MyApp> {
     log("SetIdentity");
   }
 
+  void _visitorProperty(Map<String, dynamic>? properties){
+    PluginScreeb.setProperty(properties);
+    log("SetIdentityProperties");
+  }
+
+  void _sendAssignGroup(String? groupType, String groupName, Map<String, dynamic>? properties){
+    PluginScreeb.assignGroup(groupType, groupName, properties);
+    log("AssignGroup");
+  }
+
+  void _sendUnassignGroup(String? groupType, String groupName, Map<String, dynamic>? properties){
+    PluginScreeb.unassignGroup(groupType, groupName, properties);
+    log("UnassignGroup");
+  }
+
   void _sendTrackingEvent(String eventId,  Map<String, dynamic>? properties){
     PluginScreeb.trackEvent(eventId, properties);
     log("TrackingEvent");
@@ -48,9 +63,9 @@ class _MyAppState extends State<MyApp> {
     log("TrackingScreen");
   }
 
-  void _visitorProperty(Map<String, dynamic>? properties){
-    PluginScreeb.setProperty(properties);
-    log("VisitorProperties");
+  void _startSurvey(String surveyId, bool allowMultiple){
+    PluginScreeb.startSurvey(surveyId, allowMultiple);
+    log("StartSurvey");
   }
 
   @override
@@ -66,12 +81,32 @@ class _MyAppState extends State<MyApp> {
             children: [
               const Text("Screeb Commands"),
               ElevatedButton(
+                child: const Text('start survey'),
+                onPressed: () => _startSurvey("42099e75-c7a1-4b55-a119-18ed82e6f66d", true),
+              ),
+              ElevatedButton(
                 child: const Text('set identity'),
                 onPressed: () => _setIdentity('iosflutterId', <String, dynamic>{
                   'isConnected': false,
                   'age': 29,
                   'product' : 'iPhone 13',
                 }),
+              ),
+              ElevatedButton(
+                child: const Text('send visitor property'),
+                onPressed: () => _visitorProperty(<String, dynamic>{
+                  'isConnected': false,
+                  'age': 29,
+                  'product' : 'iPhone 13',
+                }),
+              ),
+              ElevatedButton(
+                child: const Text('assign group'),
+                onPressed: () => _sendAssignGroup(null, "Apple", {}),
+              ),
+              ElevatedButton(
+                child: const Text('unassign group'),
+                onPressed: () => _sendUnassignGroup(null, "Apple", {}),
               ),
               ElevatedButton(
                 child: const Text('send tracking event'),
@@ -91,14 +126,6 @@ class _MyAppState extends State<MyApp> {
                   'company' : 'Screeb',
                   'technology' : 'Android',
                   'flutterAccount' : false
-                }),
-              ),
-              ElevatedButton(
-                child: const Text('send visitor property'),
-                onPressed: () => _visitorProperty(<String, dynamic>{
-                  'isConnected': false,
-                  'age': 29,
-                  'product' : 'iPhone 13',
                 }),
               ),
             ],
