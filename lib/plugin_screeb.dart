@@ -65,7 +65,7 @@ class PluginScreeb {
   /// This api call is important to trigger a survey where the targeting is
   /// configured using screens parameters.
   static Future<bool?> startSurvey(String surveyId,
-          [bool allowMultipleResponses = false, Map<String, dynamic>? properties]) =>
+          [bool allowMultipleResponses = true, Map<String, dynamic>? properties]) =>
       _channel.invokeMethod('startSurvey', [surveyId, allowMultipleResponses, _formatDates(properties)]);
 
   /// Format payloads so DateTime properties are correctly interpreted by the SDK
