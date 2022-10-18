@@ -1,3 +1,11 @@
+
+## 0.1.1
+
+  Replace number emojis by custom emojis.
+
+  Android sdk version 1.10.5: https://github.com/ScreebApp/sdk-android-public/releases/tag/1.10.5
+- iOS sdk version 1.10.3: https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.10.3
+
 ## 0.1.0
 
 - Implement startSurvey feature
@@ -6,6 +14,8 @@
 
 - Android sdk version 1.10.4: https://github.com/ScreebApp/sdk-android-public/releases/tag/1.10.4
 - iOS sdk version 1.10.2: https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.10.2
+
+Special thanks to @jeff-odopass for his help ;)
 
 ## 0.0.18
 
@@ -92,4 +102,3 @@
 - Initial version
 - Support Android/iOS Screeb sdks
 - Public api for commands : setIdentity, sendTrakingEvent, sendTrackingScreen, visitorProperty
-
