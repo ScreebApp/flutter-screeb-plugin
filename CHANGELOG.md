@@ -1,3 +1,16 @@
+# CHANGELOGS
+
+## 0.1.2
+
+**Improvements:**
+
+- Make targeting more reliable in order to **not** trigger survey in corner-case
+
+
+**Native SDK version:**
+
+- Android sdk version 1.10.6: https://github.com/ScreebApp/sdk-android-public/releases/tag/1.10.6
+- iOS sdk version 1.10.4: https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.10.4
 
 ## 0.1.1
 
