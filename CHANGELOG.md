@@ -1,11 +1,23 @@
 # CHANGELOGS
 
+## 0.1.3
+
+**Improvements:**
+
+- Fix crash on unexpected question/answer flow
+- Fix unexpected behaviour on response closing
+- Dependencies update (Android)
+
+**Native SDK version:**
+
+- Android sdk version 1.10.9: https://github.com/ScreebApp/sdk-android-public/releases/tag/1.10.9
+- iOS sdk version 1.10.4: https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.10.4
+
 ## 0.1.2
 
 **Improvements:**
 
 - Make targeting more reliable in order to **not** trigger survey in corner-case
-
 
 **Native SDK version:**
 
