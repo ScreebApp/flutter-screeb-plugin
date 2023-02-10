@@ -104,6 +104,18 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                                     message: "iOS could not extract flutter arguments in method: \(call.method)",
                                     details: nil))
             }
+        case "closeSdk":
+            Screeb.closeSdk()
+            result(true)
+        case "resetIdentity":
+            Screeb.resetIdentity()
+            result(true)
+        case "debug":
+            Screeb.debug()
+            result(true)
+        case "debugTargeting":
+            Screeb.debugTargeting()
+            result(true)
         default:
             result(FlutterError(code: "-1", message: "iOS could not extract " +
                 "flutter arguments in method: \(call.method)", details: nil))

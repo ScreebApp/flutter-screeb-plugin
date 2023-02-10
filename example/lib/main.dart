@@ -68,6 +68,26 @@ class _MyAppState extends State<MyApp> {
     log("StartSurvey");
   }
 
+  void _closeSdk(){
+    PluginScreeb.closeSdk();
+    log("CloseSdk");
+  }
+
+  void _resetIdentity(){
+    PluginScreeb.resetIdentity();
+    log("ResetIdentity");
+  }
+
+  void _debug(){
+    PluginScreeb.debug();
+    log("debug");
+  }
+
+  void _debugTargeting(){
+    PluginScreeb.debugTargeting();
+    log("debugTargeting");
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -127,6 +147,14 @@ class _MyAppState extends State<MyApp> {
                   'technology' : 'Android',
                   'flutterAccount' : false
                 }),
+              ),
+              ElevatedButton(
+                child: const Text('reset Identity'),
+                onPressed: () => _resetIdentity()
+              ),
+              ElevatedButton(
+                child: const Text('debug'),
+                onPressed: () => _debug()
               ),
             ],
           ),

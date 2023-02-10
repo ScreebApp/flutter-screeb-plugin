@@ -68,6 +68,28 @@ class PluginScreeb {
           [bool allowMultipleResponses = true, Map<String, dynamic>? properties]) =>
       _channel.invokeMethod('startSurvey', [surveyId, allowMultipleResponses, _formatDates(properties)]);
 
+  ///Provide a way to stop the SDK
+  ///
+  ///Its the opposite of initSdk
+  static Future<bool?> closeSdk()=>
+      _channel.invokeMethod('closeSdk',[]);
+
+  ///Provide a way to reset the identity of the user
+  ///
+  ///You can use it on the disconnection of a user for example to make it anonymous
+  static Future<bool?> resetIdentity()=>
+      _channel.invokeMethod('resetIdentity',[]);
+
+  ///Provide a way to get various debug informations
+  static Future<bool?> debug()=>
+      _channel.invokeMethod('debug',[]);
+
+  ///Provide a way to debug targeting rules
+  ///
+  ///If you don't know why your survey isn't showing you can use this command to print debug log
+  static Future<bool?> debugTargeting()=>
+      _channel.invokeMethod('debugTargeting',[]);
+
   /// Format payloads so DateTime properties are correctly interpreted by the SDK
   static Map<String, dynamic>? _formatDates(Map<String, dynamic>? properties) => properties?.map(
         (key, value) => MapEntry(
