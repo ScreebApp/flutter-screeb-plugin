@@ -82,6 +82,22 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
                 )
                 result.success(true)
             }
+            CALL_CLOSE_SDK -> {
+                Screeb.closeSdk()
+                result.success(true)
+            }
+            CALL_RESET_IDENTITY -> {
+                Screeb.resetIdentity()
+                result.success(true)
+            }
+            CALL_DEBUG -> {
+                Screeb.debug()
+                result.success(true)
+            }
+            CALL_DEBUG_TARGETING -> {
+                Screeb.debugTargeting()
+                result.success(true)
+            }
             else -> {
                 result.notImplemented()
             }
@@ -101,6 +117,10 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
         const val CALL_SEND_TRACKING_EVENT = "trackEvent"
         const val CALL_SEND_TRACKING_SCREEN = "trackScreen"
         const val CALL_START_SURVEY = "startSurvey"
+        const val CALL_CLOSE_SDK = "closeSdk"
+        const val CALL_RESET_IDENTITY = "resetIdentity"
+        const val CALL_DEBUG = "debug"
+        const val CALL_DEBUG_TARGETING = "debugTargeting"
 
         fun setAppContext(context: Context){
             Screeb.initSdkWithContextOnly(context)

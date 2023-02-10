@@ -20,8 +20,10 @@ class _MyAppState extends State<MyApp> {
     super.initState();
 
     PluginScreeb.initSdk(
-        "082b7590-1621-4f72-8030-731a98cd1448",
-        "5c62c145-91f1-4abd-8aa2-63d7847db1e1",
+        //"082b7590-1621-4f72-8030-731a98cd1448", //preview
+        //"5c62c145-91f1-4abd-8aa2-63d7847db1e1", //preview
+        "3844713b-999b-41b1-a375-e36196640988", //ClemC
+        "9dc1c517-3e48-4542-9c17-e43e8258d925", //ClemC
         "flutter_plugin@screeb.app",
         <String, dynamic>{
           'isConnected': false,
@@ -66,6 +68,26 @@ class _MyAppState extends State<MyApp> {
   void _startSurvey(String surveyId, bool allowMultiple){
     PluginScreeb.startSurvey(surveyId, allowMultiple);
     log("StartSurvey");
+  }
+
+  void _closeSdk(){
+    PluginScreeb.closeSdk();
+    log("CloseSdk");
+  }
+
+  void _resetIdentity(){
+    PluginScreeb.resetIdentity();
+    log("ResetIdentity");
+  }
+
+  void _debug(){
+    PluginScreeb.debug();
+    log("debug");
+  }
+
+  void _debugTargeting(){
+    PluginScreeb.debugTargeting();
+    log("debugTargeting");
   }
 
   @override
@@ -127,6 +149,14 @@ class _MyAppState extends State<MyApp> {
                   'technology' : 'Android',
                   'flutterAccount' : false
                 }),
+              ),
+              ElevatedButton(
+                child: const Text('reset Identity'),
+                onPressed: () => _resetIdentity()
+              ),
+              ElevatedButton(
+                child: const Text('debug'),
+                onPressed: () => _debug()
               ),
             ],
           ),
