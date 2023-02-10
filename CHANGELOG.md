@@ -1,5 +1,18 @@
 # CHANGELOGS
 
+## 0.2.0
+
+**Improvements:**
+
+- add debug and debugTargeting commands
+- resetIdentity command
+- closeSdk
+
+**Native SDK version:**
+
+- Android sdk version 1.12.0: https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.12.0
+- iOS sdk version 1.12.0: https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.12.0
+
 ## 0.1.3
 
 **Improvements:**
