@@ -20,10 +20,8 @@ class _MyAppState extends State<MyApp> {
     super.initState();
 
     PluginScreeb.initSdk(
-        //"082b7590-1621-4f72-8030-731a98cd1448", //preview
-        //"5c62c145-91f1-4abd-8aa2-63d7847db1e1", //preview
-        "3844713b-999b-41b1-a375-e36196640988", //ClemC
-        "9dc1c517-3e48-4542-9c17-e43e8258d925", //ClemC
+        "082b7590-1621-4f72-8030-731a98cd1448",
+        "5c62c145-91f1-4abd-8aa2-63d7847db1e1",
         "flutter_plugin@screeb.app",
         <String, dynamic>{
           'isConnected': false,
