@@ -1,5 +1,18 @@
 # CHANGELOGS
 
+## 0.2.3
+
+**Improvements:**
+
+- Dependency update: vanniktech/Emoji
+- Better log management
+- Improved error handling
+
+**Native SDK version:**
+
+- Android sdk version 1.12.3: https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.12.3
+- iOS sdk version 1.12.3: https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.12.3
+
 ## 0.2.2
 
 **Improvements:**
@@ -11,6 +24,7 @@
 
 - Android sdk version 1.12.1: https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.12.1
 - iOS sdk version 1.12.3: https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.12.3
+
 ## 0.2.1
 
 **Improvements:**
