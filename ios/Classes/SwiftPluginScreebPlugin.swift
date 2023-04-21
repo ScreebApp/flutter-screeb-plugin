@@ -93,10 +93,12 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
             if let surveyId = args[0] as? String {
                 let allowMultipleResponses: Bool = (args[1] as? Bool) ?? false
                 let hiddenFields: [String: Any?]? = args[2] as? [String: Any?]
+                let ignoreSurveyStatus: Bool = (args[3] as? Bool) ?? false
                 Screeb.startSurvey(
                     surveyId: surveyId,
                     allowMultipleResponses: allowMultipleResponses,
-                    hiddenFields: self.mapToAnyEncodable(map: hiddenFields).compactMapValues { $0 } as [String : AnyEncodable]
+                    hiddenFields: self.mapToAnyEncodable(map: hiddenFields).compactMapValues { $0 } as [String : AnyEncodable],
+                    ignoreSurveyStatus: ignoreSurveyStatus
                 )
                 result(true)
             } else {

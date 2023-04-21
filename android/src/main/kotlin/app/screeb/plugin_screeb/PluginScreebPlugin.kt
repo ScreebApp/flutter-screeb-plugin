@@ -75,10 +75,12 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
                 val surveyId = arguments[0] as String
                 val allowMultipleResponses = arguments[1] as Boolean
                 val hiddenFields = (arguments[2] as? Map<*, *>)?.toProperty()
+                val ignoreSurveyStatus = arguments[3] as Boolean
                 Screeb.startSurvey(
                         surveyId = surveyId,
                         allowMultipleResponses,
-                        (hiddenFields?.filterValues { it != null }) as HashMap<String, Any>?
+                        (hiddenFields?.filterValues { it != null }) as HashMap<String, Any>?,
+                        ignoreSurveyStatus
                 )
                 result.success(true)
             }
