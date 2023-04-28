@@ -91,9 +91,9 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
             }
         case "startSurvey":
             if let surveyId = args[0] as? String {
-                let allowMultipleResponses: Bool = (args[1] as? Bool) ?? false
+                let allowMultipleResponses: Bool = (args[1] as? Bool) ?? true
                 let hiddenFields: [String: Any?]? = args[2] as? [String: Any?]
-                let ignoreSurveyStatus: Bool = (args[3] as? Bool) ?? false
+                let ignoreSurveyStatus: Bool = (args[3] as? Bool) ?? true
                 Screeb.startSurvey(
                     surveyId: surveyId,
                     allowMultipleResponses: allowMultipleResponses,
