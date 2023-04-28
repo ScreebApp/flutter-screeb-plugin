@@ -1,5 +1,17 @@
 # CHANGELOGS
 
+## 0.2.4
+
+**Improvements:**
+
+- startSurvey command now accepts the ignoreSurveyStatus argument (default: true)
+- Fix multiple "End survey" buttons
+
+**Native SDK version:**
+
+- Android sdk version 1.13.1: https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.13.1
+- iOS sdk version 1.13.0: https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.13.0
+
 ## 0.2.3
 
 **Improvements:**
@@ -75,9 +87,10 @@
 
 ## 0.1.1
 
-  Replace number emojis by custom emojis.
+Replace number emojis by custom emojis.
 
-  Android sdk version 1.10.5: https://github.com/ScreebApp/sdk-android-public/releases/tag/1.10.5
+Android sdk version 1.10.5: https://github.com/ScreebApp/sdk-android-public/releases/tag/1.10.5
+
 - iOS sdk version 1.10.3: https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.10.3
 
 ## 0.1.0

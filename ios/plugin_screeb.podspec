@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'plugin_screeb'
-  s.version          = '0.2.2'
+  s.version          = '0.2.4'
   s.summary          = 'Screeb is a Product-led User Research Platform'
   s.description      = 'Screeb is a Product-led User Research Platform'
   s.homepage         = 'https://screeb.app'
