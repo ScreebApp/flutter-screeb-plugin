@@ -1,5 +1,22 @@
 # CHANGELOGS
 
+## 0.2.5
+
+**Improvements:**
+
+- Improve logger
+
+- Fix moshi IllegalArgumentException
+
+- Fix Version Targeting
+
+- Update gradle version
+
+**Native SDK version:**
+
+- Android sdk version 1.13.3: https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.13.3
+- iOS sdk version 1.13.1: https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.13.1
+
 ## 0.2.4
 
 **Improvements:**
