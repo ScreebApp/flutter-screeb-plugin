@@ -1,5 +1,18 @@
 # CHANGELOGS
 
+## 0.2.6
+
+**Improvements:**
+
+- Add new "Range rating" type of questions
+
+- Fix crash when host can't be resolved
+
+**Native SDK version:**
+
+- Android sdk version 1.13.5: https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.13.5
+- iOS sdk version 1.13.2: https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.13.2
+
 ## 0.2.5
 
 **Improvements:**
