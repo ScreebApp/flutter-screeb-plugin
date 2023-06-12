@@ -1,5 +1,16 @@
 # CHANGELOGS
 
+## 0.2.7
+
+**Improvements:**
+
+- Fix unhandled exception in Android internal coroutine
+
+**Native SDK version:**
+
+- Android sdk version 1.13.7: https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.13.7
+- iOS sdk version 1.13.2: https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.13.2
+
 ## 0.2.6
 
 **Improvements:**

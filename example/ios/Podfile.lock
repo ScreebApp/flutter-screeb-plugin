@@ -3,7 +3,7 @@ PODS:
   - Flutter (1.0.0)
   - KeyboardGuide (0.2.1)
   - Kingfisher (7.7.0)
-  - plugin_screeb (0.2.6):
+  - plugin_screeb (0.2.7):
     - Flutter
     - Screeb (= 1.13.2)
   - Screeb (1.13.2):
@@ -36,10 +36,10 @@ SPEC CHECKSUMS:
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
   KeyboardGuide: 1a30e6f6cac60f56ea94938bf9bc894bbc170be2
   Kingfisher: f043ac666dfc96c1f37604f93effb45a7ee3a3e1
-  plugin_screeb: 3aab85a1424252123d82d5c42ea2b184efc5321a
+  plugin_screeb: 641fa046218b33b97d5aa276bce9993a1c6bd5e7
   Screeb: 73cc62b991dbccebc7b8afb59e5d7cf519277f11
   Starscream: 5178aed56b316f13fa3bc55694e583d35dd414d9
 
 PODFILE CHECKSUM: 8eff4eb669e99dbab507ce721c0ed77a0b510f9f
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.1

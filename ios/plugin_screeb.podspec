@@ -4,13 +4,12 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'plugin_screeb'
-  s.version          = '0.2.6'
-  s.summary          = 'Screeb is a Product-led User Research Platform'
-  s.description      = 'Screeb is a Product-led User Research Platform'
+  s.version          = '0.2.7'
+  s.summary          = 'Screeb - Continuous Product Discovery Without the Time Sink'
+  s.description      = 'Screeb - Continuous Product Discovery Without the Time Sink'
   s.homepage         = 'https://screeb.app'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Clement Quaquin' => 'clement@screeb.app',
-                         'Samuel Berthe' => 'samuel@screeb.app',
+  s.author           = { 'Samuel Berthe' => 'samuel@screeb.app',
                          'Clement Chaban' => 'clement.chaban@screeb.app'}
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
