@@ -1,17 +1,9 @@
 PODS:
-  - Alamofire (5.7.1)
   - Flutter (1.0.0)
-  - KeyboardGuide (0.2.1)
-  - Kingfisher (7.7.0)
-  - plugin_screeb (0.2.7):
+  - plugin_screeb (1.0.0-rc.1):
     - Flutter
-    - Screeb (= 1.13.2)
-  - Screeb (1.13.2):
-    - Alamofire (~> 5.4)
-    - KeyboardGuide (~> 0.2.1)
-    - Kingfisher (~> 7.0)
-    - Starscream (~> 4.0.0)
-  - Starscream (4.0.4)
+    - Screeb (= 2.0.0-rc.3)
+  - Screeb (2.0.0-rc.3)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
@@ -19,11 +11,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - Alamofire
-    - KeyboardGuide
-    - Kingfisher
     - Screeb
-    - Starscream
 
 EXTERNAL SOURCES:
   Flutter:
@@ -32,13 +20,9 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/plugin_screeb/ios"
 
 SPEC CHECKSUMS:
-  Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
-  KeyboardGuide: 1a30e6f6cac60f56ea94938bf9bc894bbc170be2
-  Kingfisher: f043ac666dfc96c1f37604f93effb45a7ee3a3e1
-  plugin_screeb: 641fa046218b33b97d5aa276bce9993a1c6bd5e7
-  Screeb: 73cc62b991dbccebc7b8afb59e5d7cf519277f11
-  Starscream: 5178aed56b316f13fa3bc55694e583d35dd414d9
+  plugin_screeb: 08c54ffc2bceb20d43f23bbf7f17d3a8e3485ba3
+  Screeb: ddcbe411fdd58605916b2312c97b4432b335b328
 
 PODFILE CHECKSUM: 8eff4eb669e99dbab507ce721c0ed77a0b510f9f
 

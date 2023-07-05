@@ -1,5 +1,16 @@
 # CHANGELOGS
 
+## 1.0.0-rc.1
+
+**Improvements:**
+
+- The SDK has been rewritten from scratch to provide greater stability, instant updates of Screeb features and be even lighter.
+
+**Native SDK version:**
+
+- Android sdk version 2.0.0-rc.1: https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.0-rc.1
+- iOS sdk version 2.0.0-rc.3: https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0-rc.3
+
 ## 0.2.7
 
 **Improvements:**
