@@ -1,6 +1,18 @@
 # CHANGELOGS
 
-## 1.0.0-rc.1
+## 1.0.0-rc.2
+
+**Improvements:**
+
+- The SDK has been rewritten from scratch to provide greater stability, instant updates of Screeb features and be even lighter.
+- Improved Android Flutter compatibility
+
+**Native SDK version:**
+
+- Android sdk version 2.0.0-rc.2: https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.0-rc.2
+- iOS sdk version 2.0.0-rc.3: https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0-rc.3
+
+## 1.0.0-rc.1
 
 **Improvements:**
 

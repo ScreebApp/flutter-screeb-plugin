@@ -14,7 +14,7 @@ import java.util.HashMap
 /** PluginScreebPlugin */
 class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
     private lateinit var channel: MethodChannel
-    private lateinit var context: android.content.Context
+    private lateinit var context: Context
 
     override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
         channel = MethodChannel(flutterPluginBinding.binaryMessenger, "plugin_screeb")
