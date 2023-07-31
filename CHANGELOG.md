@@ -1,6 +1,6 @@
 # CHANGELOGS
 
-## 1.0.0-rc.2
+## 1.0.0-rc.2
 
 **Improvements:**
 
@@ -12,7 +12,7 @@
 - Android sdk version 2.0.0-rc.2: https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.0-rc.2
 - iOS sdk version 2.0.0-rc.3: https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0-rc.3
 
-## 1.0.0-rc.1
+## 1.0.0-rc.1
 
 **Improvements:**
 
