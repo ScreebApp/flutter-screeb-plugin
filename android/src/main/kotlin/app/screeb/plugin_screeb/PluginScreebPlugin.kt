@@ -30,8 +30,23 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
                 val channelId = arguments[0] as String
                 val userId: String? = arguments[1] as? String
                 val properties = (arguments[2] as? Map<*, *>)?.toProperty()
+                val hooks = (arguments[3] as? Map<*, *>)?.toProperty()
+                var mapHooks = hashMapOf<String, Any>()
+                if (hooks != null) {
+                    hooks.forEach { (key, value) ->
+                        if (key == "version"){
+                            mapHooks[key as String] = value as String
+                        } else {
+                            mapHooks[key as String] = { payload:Any -> channel.invokeMethod("handleHooks", hashMapOf("hookId" to value, "payload" to payload.toString()) ) }
+                        }
+                    }
+                }
+                if(mapHooks.isEmpty()) {
+                    Screeb.pluginInit(channelId, userId, properties, null)
+                } else {
+                    Screeb.pluginInit(channelId, userId, properties, mapHooks)
+                }
 
-                Screeb.pluginInit(channelId, userId, properties)
                 return result.success(true)
             }
             CALL_SET_IDENTITY -> {
@@ -76,12 +91,35 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
                 val allowMultipleResponses = arguments[1] as Boolean
                 val hiddenFields = (arguments[2] as? Map<*, *>)?.toProperty()
                 val ignoreSurveyStatus = arguments[3] as Boolean
-                Screeb.startSurvey(
-                        surveyId = surveyId,
-                        allowMultipleResponses,
-                        (hiddenFields?.filterValues { it != null }) as HashMap<String, Any>?,
-                        ignoreSurveyStatus
-                )
+                val hooks = (arguments[4] as? Map<*, *>)?.toProperty()
+                var mapHooks = hashMapOf<String, Any>()
+                if (hooks != null) {
+                    hooks.forEach { (key, value) ->
+                        if (key == "version"){
+                            mapHooks[key as String] = value as String
+                        } else {
+                            mapHooks[key as String] = { payload:Any -> channel.invokeMethod("handleHooks", hashMapOf("hookId" to value, "payload" to payload.toString()) ) }
+                        }
+                    }
+                }
+
+                if (mapHooks.isEmpty()) {
+                    Screeb.startSurvey(
+                            surveyId = surveyId,
+                            allowMultipleResponses,
+                            (hiddenFields?.filterValues { it != null }) as HashMap<String, Any>?,
+                            ignoreSurveyStatus
+                    )
+                } else {
+                    Screeb.startSurvey(
+                            surveyId = surveyId,
+                            allowMultipleResponses,
+                            (hiddenFields?.filterValues { it != null }) as HashMap<String, Any>?,
+                            ignoreSurveyStatus,
+                            mapHooks
+                    )
+                }
+                
                 result.success(true)
             }
             CALL_CLOSE_SDK -> {
