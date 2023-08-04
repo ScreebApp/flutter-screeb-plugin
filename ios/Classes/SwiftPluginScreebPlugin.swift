@@ -3,10 +3,13 @@ import UIKit
 import Screeb
 
 public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
+
+  static var channel: FlutterMethodChannel? = nil
+
   public static func register(with registrar: FlutterPluginRegistrar) {
-    let channel = FlutterMethodChannel(name: "plugin_screeb", binaryMessenger: registrar.messenger())
+    SwiftPluginScreebPlugin.channel = FlutterMethodChannel(name: "plugin_screeb", binaryMessenger: registrar.messenger())
     let instance = SwiftPluginScreebPlugin()
-    registrar.addMethodCallDelegate(instance, channel: channel)
+    registrar.addMethodCallDelegate(instance, channel: SwiftPluginScreebPlugin.channel!)
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
@@ -16,8 +19,20 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
             if let channelId = args[0] as? String {
                 let userId: String? = args[1] as? String
                 let property: [String: Any?]? = args[2] as? [String: Any?]
+                let hooks: [String: Any?]? = args[3] as? [String: Any?]
+                var mapHooks: [String: Any?] = nil
+                if (hooks != nil) {
+                    mapHooks = [:]
+                    hooks?.forEach{ hook in
+                        if(hook.key == "version"){
+                            mapHooks![hook.key] = hook.value as? String
+                        } else {
+                            mapHooks![hook.key] = {(payload:Any) -> () in SwiftPluginScreebPlugin.channel!.invokeMethod("handleHooks", arguments: ["hookId":hook.value,"payload":String(describing: payload)]) }
+                        }
+                    }
+                }
                 if let controller = UIApplication.shared.keyWindow?.rootViewController as? UIViewController {
-                    Screeb.initSdk(context: controller, channelId: channelId, identity: userId, visitorProperty: self.mapToAnyEncodable(map: property))
+                        Screeb.initSdk(context: controller, channelId: channelId, identity: userId, visitorProperty: self.mapToAnyEncodable(map: property), hooks: mapHooks)
                     result(true)
                 } else {
                     result(false)
@@ -94,11 +109,24 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                 let allowMultipleResponses: Bool = (args[1] as? Bool) ?? true
                 let hiddenFields: [String: Any?]? = args[2] as? [String: Any?]
                 let ignoreSurveyStatus: Bool = (args[3] as? Bool) ?? true
+                let hooks: [String: Any?]? = args[4] as? [String: Any?]
+                var mapHooks: [String: Any?] = nil
+                if (hooks != nil) {
+                    mapHooks = [:]
+                    hooks?.forEach{ hook in
+                        if(hook.key == "version"){
+                            mapHooks![hook.key] = hook.value as? String
+                        } else {
+                            mapHooks![hook.key] = {(payload:Any) -> () in SwiftPluginScreebPlugin.channel!.invokeMethod("handleHooks", arguments: ["hookId":hook.value,"payload":String(describing: payload)]) }
+                        }
+                    }
+                }
                 Screeb.startSurvey(
                     surveyId: surveyId,
                     allowMultipleResponses: allowMultipleResponses,
                     hiddenFields: self.mapToAnyEncodable(map: hiddenFields).compactMapValues { $0 } as [String : AnyEncodable],
-                    ignoreSurveyStatus: ignoreSurveyStatus
+                    ignoreSurveyStatus: ignoreSurveyStatus,
+                    hooks: mapHooks
                 )
                 result(true)
             } else {

@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
   s.swift_version = '5.0'
 
-  s.dependency 'Screeb', '2.0.0-rc.3'
+  s.dependency 'Screeb', '2.0.0'
   s.preserve_paths = 'Screeb.xcframework'
     s.xcconfig = { 'OTHER_LDFLAGS' => '-framework Screeb' }
     s.vendored_frameworks = 'Screeb.xcframework'
