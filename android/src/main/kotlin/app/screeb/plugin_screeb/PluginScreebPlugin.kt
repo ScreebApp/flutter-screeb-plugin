@@ -30,8 +30,8 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
                 val channelId = arguments[0] as String
                 val userId: String? = arguments[1] as? String
                 val properties = (arguments[2] as? Map<*, *>)?.toProperty()
-                val hooks = (arguments[4] as? Map<*, *>)?.toProperty()
-                val mapHooks = hashMapOf<String, Any>()
+                val hooks = (arguments[3] as? Map<*, *>)?.toProperty()
+                var mapHooks = hashMapOf<String, Any>()
                 if (hooks != null) {
                     hooks.forEach { (key, value) ->
                         if (key == "version"){
@@ -41,8 +41,12 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
                         }
                     }
                 }
+                if(mapHooks.isEmpty()) {
+                    Screeb.pluginInit(channelId, userId, properties, null)
+                } else {
+                    Screeb.pluginInit(channelId, userId, properties, mapHooks)
+                }
 
-                Screeb.pluginInit(channelId, userId, properties, mapHooks)
                 return result.success(true)
             }
             CALL_SET_IDENTITY -> {
@@ -88,7 +92,7 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
                 val hiddenFields = (arguments[2] as? Map<*, *>)?.toProperty()
                 val ignoreSurveyStatus = arguments[3] as Boolean
                 val hooks = (arguments[4] as? Map<*, *>)?.toProperty()
-                val mapHooks = hashMapOf<String, Any>()
+                var mapHooks = hashMapOf<String, Any>()
                 if (hooks != null) {
                     hooks.forEach { (key, value) ->
                         if (key == "version"){
@@ -98,14 +102,24 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
                         }
                     }
                 }
+
+                if (mapHooks.isEmpty()) {
+                    Screeb.startSurvey(
+                            surveyId = surveyId,
+                            allowMultipleResponses,
+                            (hiddenFields?.filterValues { it != null }) as HashMap<String, Any>?,
+                            ignoreSurveyStatus
+                    )
+                } else {
+                    Screeb.startSurvey(
+                            surveyId = surveyId,
+                            allowMultipleResponses,
+                            (hiddenFields?.filterValues { it != null }) as HashMap<String, Any>?,
+                            ignoreSurveyStatus,
+                            mapHooks
+                    )
+                }
                 
-                Screeb.startSurvey(
-                        surveyId = surveyId,
-                        allowMultipleResponses,
-                        (hiddenFields?.filterValues { it != null }) as HashMap<String, Any>?,
-                        ignoreSurveyStatus,
-                        mapHooks
-                )
                 result.success(true)
             }
             CALL_CLOSE_SDK -> {
