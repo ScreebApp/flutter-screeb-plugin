@@ -20,7 +20,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                 let userId: String? = args[1] as? String
                 let property: [String: Any?]? = args[2] as? [String: Any?]
                 let hooks: [String: Any?]? = args[3] as? [String: Any?]
-                var mapHooks: [String: Any?] = nil
+                var mapHooks: [String: Any?]? = nil
                 if (hooks != nil) {
                     mapHooks = [:]
                     hooks?.forEach{ hook in
@@ -110,7 +110,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                 let hiddenFields: [String: Any?]? = args[2] as? [String: Any?]
                 let ignoreSurveyStatus: Bool = (args[3] as? Bool) ?? true
                 let hooks: [String: Any?]? = args[4] as? [String: Any?]
-                var mapHooks: [String: Any?] = nil
+                var mapHooks: [String: Any?]? = nil
                 if (hooks != nil) {
                     mapHooks = [:]
                     hooks?.forEach{ hook in
