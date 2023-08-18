@@ -1,5 +1,16 @@
 # CHANGELOGS
 
+## 2.0.5
+
+**Improvements:**
+
+- Catch possible exception when parsing messages
+
+**Native SDK version:**
+
+- Android sdk version 2.0.4: https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.4
+- iOS sdk version 2.0.0: https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0
+
 ## 2.0.4
 
 **Improvements:**
