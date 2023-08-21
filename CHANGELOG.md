@@ -4,6 +4,17 @@
 
 **Improvements:**
 
+- Add InitProvider to allow setup plugin without overriding Application class
+
+**Native SDK version:**
+
+- Android sdk version 2.0.4: https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.6
+- iOS sdk version 2.0.0: https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0
+
+## 2.0.6
+
+**Improvements:**
+
 - Reduced iOS minimum version to 11.0
 
 **Native SDK version:**
