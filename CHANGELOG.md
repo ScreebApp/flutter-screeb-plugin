@@ -1,5 +1,16 @@
 # CHANGELOGS
 
+## 2.0.8
+
+**Improvements:**
+
+- Avoid keyboard to overlap survey
+
+**Native SDK version:**
+
+- Android sdk version 2.0.7: https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.7
+- iOS sdk version 2.0.0: https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0
+
 ## 2.0.7
 
 **Improvements:**
@@ -8,7 +19,7 @@
 
 **Native SDK version:**
 
-- Android sdk version 2.0.4: https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.6
+- Android sdk version 2.0.6: https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.6
 - iOS sdk version 2.0.0: https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0
 
 ## 2.0.6
