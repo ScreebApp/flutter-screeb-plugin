@@ -8,7 +8,7 @@
 
 **Native SDK version:**
 
-- Android sdk version 2.0.7: https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.9
+- Android sdk version 2.0.9: https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.9
 - iOS sdk version 2.0.0: https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0
 
 ## 2.0.8
