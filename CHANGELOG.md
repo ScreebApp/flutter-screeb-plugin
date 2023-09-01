@@ -1,11 +1,21 @@
 # CHANGELOGS
 
+## 2.0.12
+
+**Improvements:**
+
+- Fix a case where survey was not displayed
+
+**Native SDK version:**
+
+- Android sdk version 2.0.12: https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.12
+- iOS sdk version 2.0.0: https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0
+
 ## 2.0.11
 
 **Improvements:**
 
 - Force keyboard to not overlap survey
-- Fix a case where survey was not displayed
 
 **Native SDK version:**
 
