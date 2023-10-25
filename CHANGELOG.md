@@ -1,390 +1,517 @@
 # CHANGELOGS
 
-## 2.0.12
+## Version 2.0.13
 
 **Improvements:**
 
-- Fix a case where survey was not displayed
+- Fixed a possible crash during the initialization of the SDK
 
-**Native SDK version:**
+**Native SDK Versions:**
 
-- Android sdk version 2.0.12: https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.12
-- iOS sdk version 2.0.0: https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0
+- Android SDK version 2.0.22: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.22)
+- iOS SDK version 2.0.3: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.3)
 
-## 2.0.11
-
-**Improvements:**
-
-- Force keyboard to not overlap survey
-
-**Native SDK version:**
-
-- Android sdk version 2.0.11: https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.11
-- iOS sdk version 2.0.0: https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0
-
-## 2.0.10
+## Version 2.0.12
 
 **Improvements:**
 
-- Improve insets handling
+- Fixed a case where the survey was not displayed
 
-**Native SDK version:**
+**Native SDK Versions:**
 
-- Android sdk version 2.0.10: https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.10
-- iOS sdk version 2.0.0: https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0
+- Android SDK version 2.0.12: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.12)
+- iOS SDK version 2.0.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0)
 
-## 2.0.9
-
-**Improvements:**
-
-- Improve thread safety
-
-**Native SDK version:**
-
-- Android sdk version 2.0.9: https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.9
-- iOS sdk version 2.0.0: https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0
-
-## 2.0.8
+## Version 2.0.11
 
 **Improvements:**
 
-- Avoid keyboard to overlap survey
+- Forced the keyboard to not overlap the survey
 
-**Native SDK version:**
+**Native SDK Versions:**
 
-- Android sdk version 2.0.7: https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.7
-- iOS sdk version 2.0.0: https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0
+- Android SDK version 2.0.11: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.11)
+- iOS SDK version 2.0.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0)
 
-## 2.0.7
+## Version 2.0.10
 
 **Improvements:**
 
-- Add InitProvider to allow setup plugin without overriding Application class
+- Improved insets handling
 
-**Native SDK version:**
+**Native SDK Versions:**
 
-- Android sdk version 2.0.6: https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.6
-- iOS sdk version 2.0.0: https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0
+- Android SDK version 2.0.10: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.10)
+- iOS SDK version 2.0.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0)
 
-## 2.0.6
+## Version 2.0.9
+
+**Improvements:**
+
+- Improved thread safety
+
+**Native SDK Versions:**
+
+- Android SDK version 2.0.9: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.9)
+- iOS SDK version 2.0.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0)
+
+## Version 2.0.8
+
+**Improvements:**
+
+- Avoided the keyboard overlapping the survey
+
+**Native SDK Versions:**
+
+- Android SDK version 2.0.7: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.7)
+- iOS SDK version 2.0.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0)
+
+## Version 2.0.7
+
+**Improvements:**
+
+- Added InitProvider to allow setting up the plugin without overriding the Application class
+
+**Native SDK Versions:**
+
+- Android SDK version 2.0.6: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.6)
+- iOS SDK version 2.0.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0)
+
+## Version 2.0.6
 
 **Improvements:**
 
 - Reduced iOS minimum version to 11.0
 
-**Native SDK version:**
+**Native SDK Versions:**
 
-- Android sdk version 2.0.4: https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.4
-- iOS sdk version 2.0.0: https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0
+- Android SDK version 2.0.4: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.4)
+- iOS SDK version 2.0.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0)
 
-## 2.0.5
+## Version 2.0.5
 
 **Improvements:**
 
-- Catch possible exception when parsing messages
+- Caught possible exceptions when parsing messages
 
-**Native SDK version:**
+**Native SDK Versions:**
 
-- Android sdk version 2.0.4: https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.4
-- iOS sdk version 2.0.0: https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0
+- Android SDK version 2.0.4: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.4)
+- iOS SDK version 2.0.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0)
 
-## 2.0.4
+## Version 2.0.4
 
 **Improvements:**
 
 - Fixed surveys not showing in some cases
 
-**Native SDK version:**
+**Native SDK Versions:**
 
-- Android sdk version 2.0.3: https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.3
-- iOS sdk version 2.0.0: https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0
+- Android SDK version 2.0.3: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.3)
+- iOS SDK version 2.0.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0)
 
-## 2.0.3
+## Version 2.0.3
 
 **Improvements:**
 
 - Improved compatibility with other webviews plugins
 
-**Native SDK version:**
+**Native SDK Versions:**
 
-- Android sdk version 2.0.2: https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.2
-- iOS sdk version 2.0.0: https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0
+- Android SDK version 2.0.2: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.2)
+- iOS SDK version 2.0.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0)
 
-## 2.0.2
+## Version 2.0.2
 
 **Improvements:**
 
-- The SDK has been rewritten from scratch to provide greater stability, instant updates of Screeb features and be even lighter.
+- The SDK has been rewritten from scratch to provide greater stability, instant updates of Screeb features, and to be even lighter.
 - Improved Android Flutter compatibility
-- Hooks
+- Introduced Hooks
 
-**Native SDK version:**
+**Native SDK Versions:**
 
-- Android sdk version 2.0.1: https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.1
-- iOS sdk version 2.0.0: https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0
+- Android SDK version 2.0.1: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.1)
+- iOS SDK version 2.0.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0)
 
-## 1.0.0-rc.2
-
-**Improvements:**
-
-- The SDK has been rewritten from scratch to provide greater stability, instant updates of Screeb features and be even lighter.
-- Improved Android Flutter compatibility
-
-**Native SDK version:**
-
-- Android sdk version 2.0.1: https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.1
-- iOS sdk version 2.0.0: https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0
-
-## 1.0.0-rc.2
+## Version 1.0.0-rc.2
 
 **Improvements:**
 
-- The SDK has been rewritten from scratch to provide greater stability, instant updates of Screeb features and be even lighter.
+- The SDK has been rewritten from scratch to provide greater stability, instant updates of Screeb features, and be even lighter.
 - Improved Android Flutter compatibility
 
-**Native SDK version:**
+**Native SDK Versions:**
 
-- Android sdk version 2.0.0-rc.2: https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.0-rc.2
-- iOS sdk version 2.0.0-rc.3: https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0-rc.3
+- Android SDK version 2.0.1: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.1)
+- iOS SDK version 2.0.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0)
 
-## 1.0.0-rc.1
-
-**Improvements:**
-
-- The SDK has been rewritten from scratch to provide greater stability, instant updates of Screeb features and be even lighter.
-
-**Native SDK version:**
-
-- Android sdk version 2.0.0-rc.1: https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.0-rc.1
-- iOS sdk version 2.0.0-rc.3: https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0-rc.3
-
-## 0.2.7
+## Version 1.0.0-rc.2
 
 **Improvements:**
 
-- Fix unhandled exception in Android internal coroutine
+- The SDK has been rewritten from scratch to provide greater stability, instant updates of Screeb features, and be even lighter.
+- Improved Android Flutter compatibility
 
-**Native SDK version:**
+**Native SDK Versions:**
 
-- Android sdk version 1.13.7: https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.13.7
-- iOS sdk version 1.13.2: https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.13.2
+- Android SDK version 2.0.0-rc.2: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.0-rc.2)
+- iOS SDK version 2.0.0-rc.3: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0-rc.3)
 
-## 0.2.6
-
-**Improvements:**
-
-- Add new "Range rating" type of questions
-
-- Fix crash when host can't be resolved
-
-**Native SDK version:**
-
-- Android sdk version 1.13.5: https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.13.5
-- iOS sdk version 1.13.2: https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.13.2
-
-## 0.2.5
+## Version 1.0.0-rc.1
 
 **Improvements:**
 
-- Improve logger
+- The SDK has been rewritten from scratch to provide greater stability, instant updates of Screeb features, and be even lighter.
 
-- Fix moshi IllegalArgumentException
+**Native SDK Versions:**
 
-- Fix Version Targeting
+- Android SDK version 2.0.0-rc.1: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.0-rc.1)
+- iOS SDK version 2.0.0-rc.3: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0-rc.3)
 
-- Update gradle version
-
-**Native SDK version:**
-
-- Android sdk version 1.13.3: https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.13.3
-- iOS sdk version 1.13.1: https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.13.1
-
-## 0.2.4
+## Version 0.2.7
 
 **Improvements:**
 
-- startSurvey command now accepts the ignoreSurveyStatus argument (default: true)
-- Fix multiple "End survey" buttons
+- Resolved an unhandled exception in Android's internal coroutine.
 
-**Native SDK version:**
+**Native SDK Versions:**
 
-- Android sdk version 1.13.1: https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.13.1
-- iOS sdk version 1.13.0: https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.13.0
+- Android SDK version 1.13.7: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.13.7)
+- iOS SDK version 1.13.2: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.13.2)
 
-## 0.2.3
-
-**Improvements:**
-
-- Dependency update: vanniktech/Emoji
-- Better log management
-- Improved error handling
-
-**Native SDK version:**
-
-- Android sdk version 1.12.3: https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.12.3
-- iOS sdk version 1.12.3: https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.12.3
-
-## 0.2.2
+## Version 0.2.6
 
 **Improvements:**
 
-- Validation event and group name
-- Automatic screen detection
+- Added a new "Range rating" type of questions.
+- Fixed a crash that occurred when the host couldn't be resolved.
 
-**Native SDK version:**
+**Native SDK Versions:**
 
-- Android sdk version 1.12.1: https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.12.1
-- iOS sdk version 1.12.3: https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.12.3
+- Android SDK version 1.13.5: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.13.5)
+- iOS SDK version 1.13.2: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.13.2)
 
-## 0.2.1
-
-**Improvements:**
-
-- resolve some build issues with iOS
-
-**Native SDK version:**
-
-- Android sdk version 1.12.0: https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.12.0
-- iOS sdk version 1.12.1: https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.12.1
-
-## 0.2.0
+## Version 0.2.5
 
 **Improvements:**
 
-- add debug and debugTargeting commands
-- resetIdentity command
-- closeSdk
+- Enhanced the logger.
+- Fixed a Moshi IllegalArgumentException.
+- Improved Version Targeting.
+- Updated Gradle version.
 
-**Native SDK version:**
+**Native SDK Versions:**
 
-- Android sdk version 1.12.0: https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.12.0
-- iOS sdk version 1.12.0: https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.12.0
+- Android SDK version 1.13.3: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.13.3)
+- iOS SDK version 1.13.1: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.13.1)
 
-## 0.1.3
-
-**Improvements:**
-
-- Fix crash on unexpected question/answer flow
-- Fix unexpected behaviour on response closing
-- Dependencies update (Android)
-
-**Native SDK version:**
-
-- Android sdk version 1.10.9: https://github.com/ScreebApp/sdk-android-public/releases/tag/1.10.9
-- iOS sdk version 1.10.4: https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.10.4
-
-## 0.1.2
+## Version 0.2.4
 
 **Improvements:**
 
-- Make targeting more reliable in order to **not** trigger survey in corner-case
+- The "startSurvey" command now accepts the "ignoreSurveyStatus" argument (default: true).
+- Fixed multiple "End survey" buttons.
 
-**Native SDK version:**
+**Native SDK Versions:**
 
-- Android sdk version 1.10.6: https://github.com/ScreebApp/sdk-android-public/releases/tag/1.10.6
-- iOS sdk version 1.10.4: https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.10.4
+- Android SDK version 1.13.1: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.13.1)
+- iOS SDK version 1.13.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.13.0)
 
-## 0.1.1
+## Version 0.2.3
 
-Replace number emojis by custom emojis.
+**Improvements:**
 
-Android sdk version 1.10.5: https://github.com/ScreebApp/sdk-android-public/releases/tag/1.10.5
+- Updated dependencies, including vanniktech/Emoji.
+- Improved log management.
+- Enhanced error handling.
 
-- iOS sdk version 1.10.3: https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.10.3
+**Native SDK Versions:**
 
-## 0.1.0
+- Android SDK version 1.12.3: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.12.3)
+- iOS SDK version 1.12.3: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.12.3)
 
-- Implement startSurvey feature
-- Implement (un)assignGroup features
-- (un)assignGroup permit null properties
+## Version 0.2.2
 
-- Android sdk version 1.10.4: https://github.com/ScreebApp/sdk-android-public/releases/tag/1.10.4
-- iOS sdk version 1.10.2: https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.10.2
+**Improvements:**
 
-Special thanks to @jeff-odopass for his help ;)
+- Added validation for event and group names.
+- Implemented automatic screen detection.
 
-## 0.0.18
+**Native SDK Versions:**
 
-- Android sdk version 1.9.2: https://github.com/ScreebApp/sdk-android-public/releases/tag/1.9.2
-- iOS sdk version 1.8.2: https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.8.2
+- Android SDK version 1.12.1: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.12.1)
+- iOS SDK version 1.12.3: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.12.3)
 
-## 0.0.17
+## Version 0.2.1
 
-- Android sdk version 1.9.1
+**Improvements:**
 
-## 0.0.16
+- Resolved some build issues with iOS.
 
-- iOS sdk version 1.8.0
-- Android sdk version 1.9.0
+**Native SDK Versions:**
 
-## 0.0.15
+- Android SDK version 1.12.0: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.12.0)
+- iOS SDK version 1.12.1: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.12.1)
 
-- Android sdk version 1.8.1
+## Version 0.2.0
 
-## 0.0.14
+**Improvements:**
 
-- Android sdk version 1.8.0
-- iOS sdk version 1.7.0
+- Added "debug" and "debugTargeting" commands.
+- Introduced the "resetIdentity" command.
+- Included "closeSdk" functionality.
 
-## 0.0.13
+**Native SDK Versions:**
 
-- Android sdk version 1.7.1
-- iOS sdk version 1.6.0
+- Android SDK version 1.12.0: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.12.0)
+- iOS SDK version 1.12.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.12.0)
 
-## 0.0.12
+## Version 0.1.3
 
-- Android sdk version 1.7.1
-- iOS sdk version 1.5.1
+**Improvements:**
 
-## 0.0.11
+- Fixed crashes occurring during unexpected question/answer flows.
+- Resolved unexpected behavior when closing responses.
+- Updated dependencies for Android.
 
-- Android sdk version 1.7.0
+**Native SDK Versions:**
 
-## 0.0.10
+- Android SDK version 1.10.9: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.10.4)
+- iOS SDK version 1.10.4: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.10.4)
 
-- iOS sdk version 1.5.0
-- Optional properties can be omitted, ex : setIdentity("user_id")
+## Version 0.1.2
 
-## 0.0.9
+**Improvements:**
 
-- iOS sdk version 1.4.0
+- Made targeting more reliable to avoid triggering surveys in corner cases.
 
-## 0.0.8
+**Native SDK Versions:**
 
-- iOS sdk version 1.3.0
+- Android SDK version 1.10.6: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.10.6)
+- iOS SDK version 1.10.4: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.10.4)
 
-## 0.0.7
+## Version 0.1.1
 
-- iOS : fix null property issue
+**Improvements:**
 
-## 0.0.6
+- Replaced number emojis with custom emojis.
 
-- iOS sdk version 1.2.0
-- android sdk version 1.6.0
+**Native SDK Versions:**
 
-## 0.0.5
+- Android SDK version 1.10.5: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.10.5)
+- iOS SDK version 1.10.3: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.10.3)
 
-- Fix README documentation
+## Version 0.1.0
 
-## 0.0.4
+- Implemented the "startSurvey" feature.
+- Implemented (un)assignGroup features.
+- (Un)assignGroup now permits null properties.
 
-- Rename tracking methods and setProperties
-- iOS sdk version 1.1.0
-- android sdk version 1.4.0
-- Many bugs fixed
+**Native SDK Versions:**
 
-## 0.0.3
+- Android SDK version 1.10.4: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.10.4)
+- iOS SDK version 1.10.2: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.10.2)
+- Special thanks to @jeff-odopass for his assistance. 😊
 
-- iOS sdk version 0.9.0
-- android sdk version 1.3.0
+## Version 0.0.18
 
-## 0.0.2
+**Native SDK Versions:**
+
+- Android SDK version 1.9.2: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.9.2)
+- iOS SDK version 1.8.2: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.8.2)
+
+## Version 0.0.17
+
+**Improvements:**
+
+- Fixed tablet multiple choices appearance.
+
+**Native SDK Versions:**
+
+- Android SDK version 1.9.1: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.9.1)
+
+## Version 0.0.16
+
+**Improvements:**
+
+- Added assignGroup command.
+- Added session targeting support.
+- Fixed translation for Card close text.
+
+**Native SDK Versions:**
+
+- Android SDK version 1.9.0: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.9.0)
+- iOS SDK version 1.8.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.8.0)
+
+## Version 0.0.15
+
+**Improvements:**
+
+- Fixed cut icons in Cards format.
+
+**Native SDK Versions:**
+
+- Android SDK version 1.8.1: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.8.1)
+- iOS SDK version 1.7.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.7.0)
+
+## Version 0.0.14
+
+**Improvements:**
+
+- Chat mode design improved.
+- Card mode design improved.
+- startSurvey command added.
+- Quota management improved.
+- Session targeting added.
+
+**Native SDK Versions:**
+
+- Android SDK version 1.8.0: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.8.0)
+- iOS SDK version 1.7.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.7.0)
+
+## Version 0.0.13
+
+**Improvements:**
+
+- Fixed NPS wrong value issue.
+- Fixed message widget border issue.
+- Fixed non-ASCII keyboard issue.
+
+**Native SDK Versions:**
+
+- Android SDK version 1.7.1: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.7.1)
+- iOS SDK version 1.6.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.6.0)
+
+## Version 0.0.12
+
+**Improvements:**
+
+- Fixed NPS wrong values issue.
+
+**Native SDK Versions:**
+
+- Android SDK version 1.7.1: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.7.1)
+- iOS SDK version 1.5.1: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.5.1)
+
+## Version 0.0.11
+
+**Improvements:**
+
+- Fixed compilation bug due to old Moshi version.
+- Cards format now ready to use.
+
+**Native SDK Versions:**
+
+- Android SDK version 1.7.0: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.7.0)
+- iOS SDK version 1.5.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.5.0)
+
+## Version 0.0.10
+
+**Improvements:**
+
+- Optional properties can be omitted, ex: setIdentity("user_id")
+
+**Native SDK Versions:**
+
+- Android SDK version 1.7.0: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.7.0)
+- iOS SDK version 1.5.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.5.0)
+
+## Version 0.0.9
+
+**Improvements:**
+
+- Performance improvements.
+- Threads related crashes fixed.
+
+**Native SDK Versions:**
+
+- Android SDK version 1.7.0: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.7.0)
+- iOS SDK version 1.4.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.4.0)
+
+## Version 0.0.8
+
+**Improvements:**
+
+- Fixed screen targeting issue.
+
+**Native SDK Versions:**
+
+- Android SDK version 1.7.0: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.7.0)
+- iOS SDK version 1.3.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.3.0)
+
+## Version 0.0.7
+
+**Improvements:**
+
+- Fixed null property issue.
+
+**Native SDK Versions:**
+
+- Android SDK version 1.7.0: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.7.0)
+- iOS SDK version 1.2.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.2.0)
+
+## Version 0.0.6
+
+**Improvements:**
+
+- Adedd Appstore rating/review.
+- Fixed network issue when device is not connected.
+- Message widget format fixed (line breaks).
+- Accurate quota management.
+- Fixed display latencies.
+- Added top mask gradient.
+- Question answered format improved (text inlined).
+- Fixed first message cut issue.
+- Fixed keyboard masking input fields.
+
+**Native SDK Versions:**
+
+- Android SDK version 1.6.0: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.6.0)
+- iOS SDK version 1.2.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.2.0)
+
+## Version 0.0.5
+
+**Improvements:**
+
+- Fixed README documentation.
+
+## Version 0.0.4
+
+**Improvements:**
+
+- Renamed tracking methods and setProperties.
+- Many bugs fixed.
+
+**Native SDK Versions:**
+
+- Android SDK version 1.4.0: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.4.0)
+- iOS SDK version 1.1.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.1.0)
+
+## Version 0.0.3
+
+**Improvements:**
+
+- Added english translations.
+- Improved survey triggering speed.
+- Fixed bugs.
+
+**Native SDK Versions:**
+
+- Android SDK version 1.3.0: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.3.0)
+- iOS SDK version 0.9.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/0.9.0)
+
+## Version 0.0.2
+
+**Improvements:**
 
 - Support SDK initialization as part of the plugin
-- Manage platform specific SDKs versions internally
+- Manage platform-specific SDKs versions internally
 
-## 0.0.1
+## Version 0.0.1
+
+**Improvements:**
 
 - Initial version
-- Support Android/iOS Screeb sdks
-- Public api for commands : setIdentity, sendTrakingEvent, sendTrackingScreen, visitorProperty
+- Support Android/iOS Screeb SDKs
+- Public API for commands: setIdentity, sendTrakingEvent, sendTrackingScreen, visitorProperty
