@@ -1,5 +1,16 @@
 # CHANGELOGS
 
+## Version 2.0.14 - Oct 26, 2023
+
+**Improvements:**
+
+- Fixed an exception when calling closeSdk
+
+**Native SDK Versions:**
+
+- Android SDK version 2.0.23: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.23)
+- iOS SDK version 2.0.3: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.3)
+
 ## Version 2.0.13 - Oct 25, 2023
 
 **Improvements:**
