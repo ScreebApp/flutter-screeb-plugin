@@ -1,10 +1,10 @@
 # CHANGELOGS
 
-## Version 2.0.14 - Oct 26, 2023
+## Version 2.0.14 and 2.0.15 - Oct 27, 2023
 
 **Improvements:**
 
-- Fixed an exception when calling closeSdk
+- Fixed an exception aand lifecycle when calling closeSdk
 
 **Native SDK Versions:**
 
