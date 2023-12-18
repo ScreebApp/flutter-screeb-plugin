@@ -126,6 +126,10 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
                 Screeb.closeSdk()
                 result.success(true)
             }
+            CALL_CLOSE_SURVEY -> {
+                Screeb.closeSurvey()
+                result.success(true)
+            }
             CALL_RESET_IDENTITY -> {
                 Screeb.resetIdentity()
                 result.success(true)
@@ -158,6 +162,7 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
         const val CALL_SEND_TRACKING_SCREEN = "trackScreen"
         const val CALL_START_SURVEY = "startSurvey"
         const val CALL_CLOSE_SDK = "closeSdk"
+        const val CALL_CLOSE_SURVEY = "closeSurvey"
         const val CALL_RESET_IDENTITY = "resetIdentity"
         const val CALL_DEBUG = "debug"
         const val CALL_DEBUG_TARGETING = "debugTargeting"

@@ -31,12 +31,8 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                         }
                     }
                 }
-                if let controller = UIApplication.shared.keyWindow?.rootViewController as? UIViewController {
-                        Screeb.initSdk(context: controller, channelId: channelId, identity: userId, visitorProperty: self.mapToAnyEncodable(map: property), hooks: mapHooks)
-                    result(true)
-                } else {
-                    result(false)
-                }
+                Screeb.initSdk(context: nil, channelId: channelId, identity: userId, visitorProperty: self.mapToAnyEncodable(map: property), hooks: mapHooks)
+                result(true)
             } else {
                 result(FlutterError(code: "-1",
                                     message: "iOS could not extract flutter arguments in method: \(call.method)",
@@ -136,6 +132,9 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
             }
         case "closeSdk":
             Screeb.closeSdk()
+            result(true)
+        case "closeSurvey":
+            Screeb.closeSurvey()
             result(true)
         case "resetIdentity":
             Screeb.resetIdentity()

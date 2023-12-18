@@ -115,6 +115,11 @@ class PluginScreeb {
   ///Its the opposite of initSdk
   static Future<bool?> closeSdk() => _channel.invokeMethod('closeSdk', []);
 
+  ///Provide a way to close the survey
+  ///
+  ///Its the opposite of startSurvey
+  static Future<bool?> closeSurvey() => _channel.invokeMethod('closeSurvey', []);
+
   ///Provide a way to reset the identity of the user
   ///
   ///You can use it on the disconnection of a user for example to make it anonymous

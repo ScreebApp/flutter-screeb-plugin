@@ -1,5 +1,20 @@
 # CHANGELOGS
 
+## Version 2.0.16 - Dec 18, 2023
+
+**Improvements:**
+
+- Added closeSurvey command.
+- Avoid overriding input soft mode on start. (Android)
+- Improve compatibility with other webviews (Android)
+- Properly handle SSL errors. (iOS)
+- Improve errors reporting.
+
+**Native SDK Versions:**
+
+- Android SDK version 2.0.27: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 2.0.7: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
+
 ## Version 2.0.14 and 2.0.15 - Oct 27, 2023
 
 **Improvements:**
@@ -8,8 +23,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 2.0.23: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.23)
-- iOS SDK version 2.0.3: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.3)
+- Android SDK version 2.0.23: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 2.0.3: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 2.0.13 - Oct 25, 2023
 
@@ -19,8 +34,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 2.0.22: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.22)
-- iOS SDK version 2.0.3: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.3)
+- Android SDK version 2.0.22: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 2.0.3: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 2.0.12 - Sep 1, 2023
 
@@ -30,8 +45,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 2.0.12: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.12)
-- iOS SDK version 2.0.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0)
+- Android SDK version 2.0.12: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 2.0.0: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 2.0.11 - Sep 1, 2023
 
@@ -41,8 +56,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 2.0.11: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.11)
-- iOS SDK version 2.0.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0)
+- Android SDK version 2.0.11: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 2.0.0: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 2.0.10 - Aug 31, 2023
 
@@ -52,8 +67,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 2.0.10: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.10)
-- iOS SDK version 2.0.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0)
+- Android SDK version 2.0.10: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 2.0.0: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 2.0.9 - Aug 24, 2023
 
@@ -63,8 +78,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 2.0.9: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.9)
-- iOS SDK version 2.0.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0)
+- Android SDK version 2.0.9: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 2.0.0: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 2.0.8 - Aug 22, 2023
 
@@ -74,8 +89,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 2.0.7: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.7)
-- iOS SDK version 2.0.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0)
+- Android SDK version 2.0.7: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 2.0.0: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 2.0.7 - Aug 21, 2023
 
@@ -85,8 +100,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 2.0.6: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.6)
-- iOS SDK version 2.0.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0)
+- Android SDK version 2.0.6: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 2.0.0: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 2.0.6 - Aug 21, 2023
 
@@ -96,8 +111,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 2.0.4: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.4)
-- iOS SDK version 2.0.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0)
+- Android SDK version 2.0.4: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 2.0.0: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 2.0.5 - Aug 18, 2023
 
@@ -107,8 +122,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 2.0.4: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.4)
-- iOS SDK version 2.0.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0)
+- Android SDK version 2.0.4: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 2.0.0: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 2.0.4 - Aug 18, 2023
 
@@ -118,8 +133,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 2.0.3: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.3)
-- iOS SDK version 2.0.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0)
+- Android SDK version 2.0.3: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 2.0.0: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 2.0.3 - Aug 16, 2023
 
@@ -129,8 +144,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 2.0.2: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.2)
-- iOS SDK version 2.0.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0)
+- Android SDK version 2.0.2: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 2.0.0: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 2.0.1 and 2.0.2 - Aug 7, 2023
 
@@ -142,8 +157,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 2.0.1: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.1)
-- iOS SDK version 2.0.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0)
+- Android SDK version 2.0.1: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 2.0.0: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 2.0.0 - Aug 4, 2023
 
@@ -154,8 +169,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 2.0.1: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.1)
-- iOS SDK version 2.0.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0)
+- Android SDK version 2.0.1: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 2.0.0: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 1.0.0-rc.2 - Jul 31, 2023
 
@@ -166,8 +181,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 2.0.0-rc.2: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.0-rc.2)
-- iOS SDK version 2.0.0-rc.3: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0-rc.3)
+- Android SDK version 2.0.0-rc.2: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 2.0.0-rc.3: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 1.0.0-rc.1 - Jul 5, 2023
 
@@ -177,8 +192,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 2.0.0-rc.1: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v2.0.0-rc.1)
-- iOS SDK version 2.0.0-rc.3: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/2.0.0-rc.3)
+- Android SDK version 2.0.0-rc.1: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 2.0.0-rc.3: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 0.2.7 - Jun 12, 2023
 
@@ -188,8 +203,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 1.13.7: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.13.7)
-- iOS SDK version 1.13.2: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.13.2)
+- Android SDK version 1.13.7: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 1.13.2: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 0.2.6 - Jun 7, 2023
 
@@ -200,8 +215,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 1.13.5: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.13.5)
-- iOS SDK version 1.13.2: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.13.2)
+- Android SDK version 1.13.5: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 1.13.2: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 0.2.5 - May 17, 2023
 
@@ -214,8 +229,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 1.13.3: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.13.3)
-- iOS SDK version 1.13.1: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.13.1)
+- Android SDK version 1.13.3: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 1.13.1: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 0.2.4 - Apr 28, 2023
 
@@ -226,8 +241,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 1.13.1: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.13.1)
-- iOS SDK version 1.13.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.13.0)
+- Android SDK version 1.13.1: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 1.13.0: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 0.2.3 - Mar 31, 2023
 
@@ -239,8 +254,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 1.12.3: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.12.3)
-- iOS SDK version 1.12.3: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.12.3)
+- Android SDK version 1.12.3: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 1.12.3: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 0.2.2 - Mar 10, 2023
 
@@ -251,8 +266,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 1.12.1: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.12.1)
-- iOS SDK version 1.12.3: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.12.3)
+- Android SDK version 1.12.1: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 1.12.3: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 0.2.1 - Feb 24, 2023
 
@@ -262,8 +277,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 1.12.0: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.12.0)
-- iOS SDK version 1.12.1: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.12.1)
+- Android SDK version 1.12.0: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 1.12.1: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 0.2.0 - Feb 10, 2023
 
@@ -275,8 +290,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 1.12.0: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/v1.12.0)
-- iOS SDK version 1.12.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.12.0)
+- Android SDK version 1.12.0: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 1.12.0: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 0.1.3 - Dec 22, 2022
 
@@ -288,8 +303,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 1.10.9: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.10.4)
-- iOS SDK version 1.10.4: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.10.4)
+- Android SDK version 1.10.9: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 1.10.4: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 0.1.2 - Dec 22, 2022
 
@@ -299,8 +314,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 1.10.6: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.10.6)
-- iOS SDK version 1.10.4: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.10.4)
+- Android SDK version 1.10.6: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 1.10.4: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 0.1.1 - Oct 18, 2022
 
@@ -310,8 +325,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 1.10.5: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.10.5)
-- iOS SDK version 1.10.3: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.10.3)
+- Android SDK version 1.10.5: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 1.10.3: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 0.1.0 - Oct 14, 2022
 
@@ -321,16 +336,16 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 1.10.4: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.10.4)
-- iOS SDK version 1.10.2: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.10.2)
+- Android SDK version 1.10.4: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 1.10.2: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 - Special thanks to @jeff-odopass for his assistance. 😊
 
 ## Version 0.0.18 - Aug 3, 2022
 
 **Native SDK Versions:**
 
-- Android SDK version 1.9.2: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.9.2)
-- iOS SDK version 1.8.2: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.8.2)
+- Android SDK version 1.9.2: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 1.8.2: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 0.0.17 - Jun 29, 2022
 
@@ -340,7 +355,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 1.9.1: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.9.1)
+- Android SDK version 1.9.1: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 1.8.1: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 0.0.16 - Jun 28, 2022
 
@@ -352,8 +368,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 1.9.0: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.9.0)
-- iOS SDK version 1.8.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.8.0)
+- Android SDK version 1.9.0: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 1.8.0: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 0.0.15 - Jun 20, 2022
 
@@ -363,8 +379,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 1.8.1: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.8.1)
-- iOS SDK version 1.7.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.7.0)
+- Android SDK version 1.8.1: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 1.7.0: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 0.0.14 - Jun 17, 2022
 
@@ -378,8 +394,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 1.8.0: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.8.0)
-- iOS SDK version 1.7.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.7.0)
+- Android SDK version 1.8.0: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 1.7.0: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 0.0.13 - Jun 2, 2022
 
@@ -391,8 +407,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 1.7.1: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.7.1)
-- iOS SDK version 1.6.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.6.0)
+- Android SDK version 1.7.1: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 1.6.0: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 0.0.12 - May 23, 2022
 
@@ -402,8 +418,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 1.7.1: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.7.1)
-- iOS SDK version 1.5.1: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.5.1)
+- Android SDK version 1.7.1: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 1.5.1: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 0.0.11 - Apr 15, 2022
 
@@ -414,8 +430,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 1.7.0: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.7.0)
-- iOS SDK version 1.5.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.5.0)
+- Android SDK version 1.7.0: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 1.5.0: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 0.0.10 - Mar 16, 2022
 
@@ -425,8 +441,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 1.7.0: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.7.0)
-- iOS SDK version 1.5.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.5.0)
+- Android SDK version 1.7.0: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 1.5.0: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 0.0.9 - Mar 7, 2022
 
@@ -437,8 +453,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 1.7.0: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.7.0)
-- iOS SDK version 1.4.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.4.0)
+- Android SDK version 1.7.0: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 1.4.0: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 0.0.8 - Mar 4, 2022
 
@@ -448,8 +464,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 1.7.0: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.7.0)
-- iOS SDK version 1.3.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.3.0)
+- Android SDK version 1.7.0: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 1.3.0: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 0.0.7 - Mar 4, 2022
 
@@ -459,8 +475,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 1.7.0: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.7.0)
-- iOS SDK version 1.2.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.2.0)
+- Android SDK version 1.7.0: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 1.2.0: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 0.0.6 - Feb 25, 2022
 
@@ -478,8 +494,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 1.6.0: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.6.0)
-- iOS SDK version 1.2.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.2.0)
+- Android SDK version 1.6.0: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 1.2.0: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 0.0.5 - Feb 10, 2022
 
@@ -496,8 +512,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 1.4.0: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.4.0)
-- iOS SDK version 1.1.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/1.1.0)
+- Android SDK version 1.4.0: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 1.1.0: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 0.0.3 - Jan 25, 2022
 
@@ -509,8 +525,8 @@
 
 **Native SDK Versions:**
 
-- Android SDK version 1.3.0: [Release Notes](https://github.com/ScreebApp/sdk-android-public/releases/tag/1.3.0)
-- iOS SDK version 0.9.0: [Release Notes](https://github.com/ScreebApp/sdk-ios-public/releases/tag/0.9.0)
+- Android SDK version 1.3.0: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 0.9.0: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
 
 ## Version 0.0.2 - Jan 4, 2022
 
