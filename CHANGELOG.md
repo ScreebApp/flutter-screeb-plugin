@@ -1,5 +1,16 @@
 # CHANGELOGS
 
+## Version 2.0.17 - Jan 03, 2024
+
+**Improvements:**
+
+- Fixed Close/Init SDK lifecycle. (iOS)
+
+**Native SDK Versions:**
+
+- Android SDK version 2.0.27: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 2.0.8: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
+
 ## Version 2.0.16 - Dec 18, 2023
 
 **Improvements:**
