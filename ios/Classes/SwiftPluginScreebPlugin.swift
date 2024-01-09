@@ -3,13 +3,13 @@ import UIKit
 import Screeb
 
 public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
-
   static var channel: FlutterMethodChannel? = nil
 
   public static func register(with registrar: FlutterPluginRegistrar) {
     SwiftPluginScreebPlugin.channel = FlutterMethodChannel(name: "plugin_screeb", binaryMessenger: registrar.messenger())
     let instance = SwiftPluginScreebPlugin()
     registrar.addMethodCallDelegate(instance, channel: SwiftPluginScreebPlugin.channel!)
+    Screeb.setSecondarySDK(name: "flutter", version: "2.0.18")
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
@@ -24,7 +24,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                 if (hooks != nil) {
                     mapHooks = [:]
                     hooks?.forEach{ hook in
-                        if(hook.key == "version"){
+                        if (hook.key == "version") {
                             mapHooks![hook.key] = hook.value as? String
                         } else {
                             mapHooks![hook.key] = {(payload:Any) -> () in SwiftPluginScreebPlugin.channel!.invokeMethod("handleHooks", arguments: ["hookId":hook.value,"payload":String(describing: payload)]) }
@@ -34,9 +34,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                 Screeb.initSdk(context: nil, channelId: channelId, identity: userId, visitorProperty: self.mapToAnyEncodable(map: property), hooks: mapHooks)
                 result(true)
             } else {
-                result(FlutterError(code: "-1",
-                                    message: "iOS could not extract flutter arguments in method: \(call.method)",
-                                    details: nil))
+                result(FlutterError(code: "-1", message: "iOS could not extract flutter arguments in method: \(call.method)", details: nil))
             }
         case "setIdentity":
             if let userId = args[0] as? String{
@@ -44,9 +42,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                 Screeb.setIdentity(uniqueVisitorId: userId, visitorProperty: self.mapToAnyEncodable(map: property))
                 result(true)
             } else {
-                result(FlutterError(code: "-1",
-                                    message: "iOS could not extract flutter arguments in method: \(call.method)",
-                                    details: nil))
+                result(FlutterError(code: "-1", message: "iOS could not extract flutter arguments in method: \(call.method)", details: nil))
             }
         case "setProperty":
             if let _property = args[0] as? [String: Any?] {
@@ -54,9 +50,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                 Screeb.visitorProperty(visitorProperty: property)
                 result(true)
             } else {
-                result(FlutterError(code: "-1",
-                                    message: "iOS could not extract flutter arguments in method: \(call.method)",
-                                    details: nil))
+                result(FlutterError(code: "-1", message: "iOS could not extract flutter arguments in method: \(call.method)", details: nil))
             }
         case "assignGroup":
             if let groupName = args[1] as? String {
@@ -65,9 +59,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                 Screeb.assignGroup(type: groupType, name: groupName, properties: self.mapToAnyEncodable(map: property))
                 result(true)
             } else {
-                result(FlutterError(code: "-1",
-                                    message: "iOS could not extract flutter arguments in method: \(call.method)",
-                                    details: nil))
+                result(FlutterError(code: "-1", message: "iOS could not extract flutter arguments in method: \(call.method)", details: nil))
             }
         case "unassignGroup":
             if let groupName = args[1] as? String {
@@ -76,9 +68,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                 Screeb.unassignGroup(type: groupType, name: groupName, properties: self.mapToAnyEncodable(map: property))
                 result(true)
             } else {
-                result(FlutterError(code: "-1",
-                                    message: "iOS could not extract flutter arguments in method: \(call.method)",
-                                    details: nil))
+                result(FlutterError(code: "-1", message: "iOS could not extract flutter arguments in method: \(call.method)", details: nil))
             }
         case "trackEvent":
             if let eventId = args[0] as? String {
@@ -86,9 +76,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                 Screeb.trackEvent(name: eventId, trackingEventProperties: self.mapToAnyEncodable(map: property))
                 result(true)
             } else {
-                result(FlutterError(code: "-1",
-                                    message: "iOS could not extract flutter arguments in method: \(call.method)",
-                                    details: nil))
+                result(FlutterError(code: "-1", message: "iOS could not extract flutter arguments in method: \(call.method)", details: nil))
             }
         case "trackScreen":
             if let screen = args[0] as? String {
@@ -96,9 +84,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                 Screeb.trackScreen(name: screen, trackingEventProperties: self.mapToAnyEncodable(map: property))
                 result(true)
             } else {
-                result(FlutterError(code: "-1",
-                                    message: "iOS could not extract flutter arguments in method: \(call.method)",
-                                    details: nil))
+                result(FlutterError(code: "-1", message: "iOS could not extract flutter arguments in method: \(call.method)", details: nil))
             }
         case "startSurvey":
             if let surveyId = args[0] as? String {
@@ -110,7 +96,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                 if (hooks != nil) {
                     mapHooks = [:]
                     hooks?.forEach{ hook in
-                        if(hook.key == "version"){
+                        if (hook.key == "version") {
                             mapHooks![hook.key] = hook.value as? String
                         } else {
                             mapHooks![hook.key] = {(payload:Any) -> () in SwiftPluginScreebPlugin.channel!.invokeMethod("handleHooks", arguments: ["hookId":hook.value,"payload":String(describing: payload)]) }
@@ -126,9 +112,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                 )
                 result(true)
             } else {
-                result(FlutterError(code: "-1",
-                                    message: "iOS could not extract flutter arguments in method: \(call.method)",
-                                    details: nil))
+                result(FlutterError(code: "-1", message: "iOS could not extract flutter arguments in method: \(call.method)", details: nil))
             }
         case "closeSdk":
             Screeb.closeSdk()
@@ -146,8 +130,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
             Screeb.debugTargeting()
             result(true)
         default:
-            result(FlutterError(code: "-1", message: "iOS could not extract " +
-                "flutter arguments in method: \(call.method)", details: nil))
+            result(FlutterError(code: "-1", message: "iOS could not extract " + "flutter arguments in method: \(call.method)", details: nil))
             break
         }
   }
