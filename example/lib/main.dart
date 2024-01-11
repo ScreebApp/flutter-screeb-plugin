@@ -47,14 +47,12 @@ class _MyAppState extends State<MyApp> {
     log("SetIdentityProperties");
   }
 
-  void _sendAssignGroup(
-      String? groupType, String groupName, Map<String, dynamic>? properties) {
+  void _sendAssignGroup(String? groupType, String groupName, Map<String, dynamic>? properties) {
     PluginScreeb.assignGroup(groupType, groupName, properties);
     log("AssignGroup");
   }
 
-  void _sendUnassignGroup(
-      String? groupType, String groupName, Map<String, dynamic>? properties) {
+  void _sendUnassignGroup(String? groupType, String groupName, Map<String, dynamic>? properties) {
     PluginScreeb.unassignGroup(groupType, groupName, properties);
     log("UnassignGroup");
   }
@@ -69,8 +67,7 @@ class _MyAppState extends State<MyApp> {
     log("TrackingScreen");
   }
 
-  void _startSurvey(
-      String surveyId, bool allowMultiple, Map<String, dynamic>? hooks) {
+  void _startSurvey(String surveyId, bool allowMultiple, Map<String, dynamic>? hooks) {
     PluginScreeb.startSurvey(surveyId, allowMultiple, null, true, hooks);
     log("StartSurvey");
   }
@@ -151,8 +148,7 @@ class _MyAppState extends State<MyApp> {
               ),
               ElevatedButton(
                 child: const Text('send tracking event'),
-                onPressed: () =>
-                    _sendTrackingEvent("eventId", <String, dynamic>{
+                onPressed: () => _sendTrackingEvent("eventId", <String, dynamic>{
                   'isConnected': true,
                   'age': 27,
                   'company': 'Screeb',
@@ -162,8 +158,7 @@ class _MyAppState extends State<MyApp> {
               ),
               ElevatedButton(
                 child: const Text('send tracking screen'),
-                onPressed: () =>
-                    _sendTrackingScreen("MainScreen", <String, dynamic>{
+                onPressed: () => _sendTrackingScreen("MainScreen", <String, dynamic>{
                   'isConnected': true,
                   'age': 28,
                   'company': 'Screeb',
@@ -171,11 +166,8 @@ class _MyAppState extends State<MyApp> {
                   'flutterAccount': false
                 }),
               ),
-              ElevatedButton(
-                  child: const Text('reset Identity'),
-                  onPressed: () => _resetIdentity()),
-              ElevatedButton(
-                  child: const Text('debug'), onPressed: () => _debug()),
+              ElevatedButton(child: const Text('reset Identity'), onPressed: () => _resetIdentity()),
+              ElevatedButton(child: const Text('debug'), onPressed: () => _debug()),
             ],
           ),
         ),

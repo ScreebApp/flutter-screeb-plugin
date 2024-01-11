@@ -20,7 +20,7 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/plugin_screeb/ios"
 
 SPEC CHECKSUMS:
-  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   plugin_screeb: a37e27a99ceab57fd633db1d35556f1202ecd555
   Screeb: 569c1881585f5d5e78311dcaa6181e92b350ece9
 
