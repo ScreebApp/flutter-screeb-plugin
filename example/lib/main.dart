@@ -19,22 +19,24 @@ class _MyAppState extends State<MyApp> {
     super.initState();
 
     PluginScreeb.initSdk(
-        "082b7590-1621-4f72-8030-731a98cd1448",
-        "5c62c145-91f1-4abd-8aa2-63d7847db1e1",
-        "flutter_plugin@screeb.app",
-        //     <String, dynamic>{
-        //   "version": "1.0.0",
-        //   "onReady": (dynamic data) {
-        //     log("onReady $data");
-        //   },
-        // },
-        <String, dynamic>{
-          'isConnected': false,
-          'age': 29,
-          'product': 'iPhone 13',
-          'email': 'flutter_plugin@screeb.app',
-          'born': DateTime.now()
-        });
+      "082b7590-1621-4f72-8030-731a98cd1448",
+      "5c62c145-91f1-4abd-8aa2-63d7847db1e1",
+      "flutter_plugin@screeb.app",
+      <String, dynamic>{
+        'isConnected': false,
+        'age': 29,
+        'product': 'iPhone 13',
+        'email': 'flutter_plugin@screeb.app',
+        'born': DateTime.now()
+      },
+      <String, dynamic>{
+        "version": "1.0.0",
+        "onReady": (dynamic data) {
+          log("onReady");
+          log(data.toString());
+        },
+      },
+    );
   }
 
   void _setIdentity(String userId, Map<String, dynamic>? properties) {

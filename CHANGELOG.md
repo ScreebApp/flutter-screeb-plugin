@@ -1,5 +1,19 @@
 # CHANGELOGS
 
+## Version 2.0.20 - Jan 09, 2024
+
+**Improvements:**
+
+- Handle a rare case where a survey is not properly closed.
+- Improved commands encoding.
+- Switched from `play core` libs to `play review` libs. (Android)
+- Fixed a possible crash on old devices. (Android)
+
+**Native SDK Versions:**
+
+- Android SDK version 2.0.31: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 2.0.10: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
+
 ## Version 2.0.19 - Jan 09, 2024
 
 **Improvements:**
