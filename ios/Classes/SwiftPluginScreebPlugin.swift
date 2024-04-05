@@ -9,7 +9,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
     SwiftPluginScreebPlugin.channel = FlutterMethodChannel(name: "plugin_screeb", binaryMessenger: registrar.messenger())
     let instance = SwiftPluginScreebPlugin()
     registrar.addMethodCallDelegate(instance, channel: SwiftPluginScreebPlugin.channel!)
-    Screeb.setSecondarySDK(name: "flutter", version: "2.0.20")
+    Screeb.setSecondarySDK(name: "flutter", version: "2.0.21")
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {

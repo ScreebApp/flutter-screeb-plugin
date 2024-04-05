@@ -1,5 +1,20 @@
 # CHANGELOGS
 
+## Version 2.0.21 - Arp 05, 2024
+
+**Improvements:**
+
+- Multi-platform support.
+- Better handling of window switching. (iOS)
+- Improved handling of activities switching. (Android)
+- Fixed a possible crash when receiving events. (Android)
+- Don’t waive webview when not visible. (Android)
+
+**Native SDK Versions:**
+
+- Android SDK version 2.0.31: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 2.0.11: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
+
 ## Version 2.0.20 - Jan 09, 2024
 
 **Improvements:**
