@@ -1,5 +1,19 @@
 # CHANGELOGS
 
+## Version 2.1.1 - Jun 18, 2024
+
+**Improvements:**
+
+- Improved security
+- Improved handling of activities switching. (Android)
+- Fixed unwanted insets. (Android)
+- Improved surveys hitboxes. (iOS)
+
+**Native SDK Versions:**
+
+- Android SDK version 2.0.38: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 2.1.1: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
+
 ## Version 2.1.0 - Jun 18, 2024
 
 **Improvements:**
