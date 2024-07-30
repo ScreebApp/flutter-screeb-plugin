@@ -4,12 +4,13 @@ import Screeb
 
 public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
   static var channel: FlutterMethodChannel? = nil
+  static let instance = SwiftPluginScreebPlugin()
 
   public static func register(with registrar: FlutterPluginRegistrar) {
+    Screeb.setSecondarySDK(name: "flutter", version: "2.1.2")
     SwiftPluginScreebPlugin.channel = FlutterMethodChannel(name: "plugin_screeb", binaryMessenger: registrar.messenger())
-    let instance = SwiftPluginScreebPlugin()
     registrar.addMethodCallDelegate(instance, channel: SwiftPluginScreebPlugin.channel!)
-    Screeb.setSecondarySDK(name: "flutter", version: "2.1.0")
+    registrar.addApplicationDelegate(instance)
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
@@ -27,7 +28,16 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                         if (hook.key == "version") {
                             mapHooks![hook.key] = hook.value as? String
                         } else {
-                            mapHooks![hook.key] = {(payload:Any) -> () in SwiftPluginScreebPlugin.channel!.invokeMethod("handleHooks", arguments: ["hookId":hook.value,"payload":String(describing: payload)]) }
+                            mapHooks![hook.key] = {(payload: Any) -> () in DispatchQueue.main.async {
+                                SwiftPluginScreebPlugin.channel!.invokeMethod("handleHooks", arguments: ["hookId": hook.value, "payload": String(describing: payload)]) { (result: Any?) in
+                                    if let obj = payload as? [String: Any?] {
+                                        if let hookId = obj["hook_id"] as? String {
+                                            let encoded = self.toAnyEncodable(result)
+                                            Screeb.onHookResult(hookId, encoded)
+                                        }
+                                    }
+                                }
+                            }}
                         }
                     }
                 }
@@ -99,7 +109,14 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                         if (hook.key == "version") {
                             mapHooks![hook.key] = hook.value as? String
                         } else {
-                            mapHooks![hook.key] = {(payload:Any) -> () in SwiftPluginScreebPlugin.channel!.invokeMethod("handleHooks", arguments: ["hookId":hook.value,"payload":String(describing: payload)]) }
+                            mapHooks![hook.key] = {(payload:Any) -> () in DispatchQueue.main.async {
+                                if let obj = payload as? [String: Any?] {
+                                    if let hookId = obj["hook_id"] as? String {
+                                        let encoded = self.toAnyEncodable(result)
+                                        Screeb.onHookResult(hookId, encoded)
+                                    }
+                                }
+                            }}
                         }
                     }
                 }
@@ -130,34 +147,38 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
             Screeb.debugTargeting()
             result(true)
         default:
-            result(FlutterError(code: "-1", message: "iOS could not extract " + "flutter arguments in method: \(call.method)", details: nil))
+            result(FlutterError(code: "-1", message: "iOS could not extract flutter arguments in method: \(call.method)", details: nil))
             break
         }
   }
 
-  private func mapToAnyEncodable(map: [String: Any?]?) -> [String: AnyEncodable?] {
-      var anyEncodableMap: [String: AnyEncodable?] = [:]
-      map?.forEach { key, value in
-        if let nsValue = value as? NSNumber {
-            if CFBooleanGetTypeID() == CFGetTypeID(nsValue) {
-                anyEncodableMap[key] = AnyEncodable(nsValue.boolValue)
-            } else if let value = value as? Int {
-                anyEncodableMap[key] = AnyEncodable(value)
-            } else if let value = value as? Double {
-                anyEncodableMap[key] = AnyEncodable(value)
-            } else if let value = value as? Float {
-                anyEncodableMap[key] = AnyEncodable(value)
-            } else {
-                anyEncodableMap[key] = nil
-            }
-        } else if let value = value as? String {
-            anyEncodableMap[key] = AnyEncodable(value)
-        } else if let value = value as? [String: Any?] {
-            anyEncodableMap[key] = AnyEncodable(self.mapToAnyEncodable(map: value))
+  private func toAnyEncodable(_ value: Any?) -> AnyEncodable? {
+    if let nsValue = value as? NSNumber {
+        if CFBooleanGetTypeID() == CFGetTypeID(nsValue) {
+            return AnyEncodable(nsValue.boolValue)
+        } else if let value = value as? Int {
+            return AnyEncodable(value)
+        } else if let value = value as? Double {
+            return AnyEncodable(value)
+        } else if let value = value as? Float {
+            return AnyEncodable(value)
         } else {
-            anyEncodableMap[key] = nil
+            return nil
         }
-      }
-      return anyEncodableMap
+    } else if let value = value as? String {
+        return AnyEncodable(value)
+    } else if let value = value as? [String: Any?] {
+        return AnyEncodable(self.mapToAnyEncodable(map: value))
+    } else {
+        return nil
+    }
+  }
+
+  private func mapToAnyEncodable(map: [String: Any?]?) -> [String: AnyEncodable?] {
+    var anyEncodableMap: [String: AnyEncodable?] = [:]
+    map?.forEach { key, value in
+        anyEncodableMap[key] = self.toAnyEncodable(value)
+    }
+    return anyEncodableMap
   }
 }

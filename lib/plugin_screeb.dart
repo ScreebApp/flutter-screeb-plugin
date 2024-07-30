@@ -26,8 +26,7 @@ class PluginScreeb {
         if (key == "version") {
           mapHooksId![key] = value.toString();
         } else {
-          // Random UUID
-          String uuid = UniqueKey().toString();
+          String uuid = UniqueKey().toString() + key;
           hooksRegistry[uuid] = value;
           mapHooksId![key] = uuid;
         }
@@ -98,8 +97,7 @@ class PluginScreeb {
         if (key == "version") {
           mapHooksId![key] = value.toString();
         } else {
-          // Random UUID
-          String uuid = UniqueKey().toString();
+          String uuid = UniqueKey().toString() + key;
           hooksRegistry[uuid] = value;
           mapHooksId![key] = uuid;
         }
@@ -137,19 +135,19 @@ class PluginScreeb {
   static Future<dynamic> channelHandler(MethodCall methodCall) async {
     switch (methodCall.method) {
       case "handleHooks":
-        handleHooks(methodCall.arguments["hookId"], methodCall.arguments["payload"]);
-        break;
+        return handleHooks(methodCall.arguments["hookId"], methodCall.arguments["payload"]);
       default:
         throw Exception("Method not implemented");
     }
   }
 
   // Handle hooks callback
-  static dynamic handleHooks(dynamic hookId, dynamic payload) {
+  static Future<dynamic> handleHooks(dynamic hookId, dynamic payload) async {
     if (hooksRegistry.containsKey(hookId)) {
       Function? hook = hooksRegistry[hookId];
       if (hook != null) {
-        hook(payload);
+        final result = hook(payload);
+        return result;
       }
     }
   }

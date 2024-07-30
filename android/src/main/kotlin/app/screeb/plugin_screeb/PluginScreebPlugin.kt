@@ -9,6 +9,7 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
+import org.json.JSONObject
 import java.util.HashMap
 
 /** PluginScreebPlugin */
@@ -20,7 +21,7 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
         channel = MethodChannel(flutterPluginBinding.binaryMessenger, "plugin_screeb")
         channel.setMethodCallHandler(this)
         context = flutterPluginBinding.applicationContext
-        Screeb.setSecondarySDK("flutter", "2.1.0")
+        Screeb.setSecondarySDK("flutter", "2.1.2")
     }
 
     override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
@@ -38,11 +39,23 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
                         if (key == "version"){
                             mapHooks[key as String] = value as String
                         } else {
-                            mapHooks[key as String] = { payload:Any -> channel.invokeMethod("handleHooks", hashMapOf("hookId" to value, "payload" to payload.toString()) ) }
+                            mapHooks[key as String] = { payload: Any -> channel.invokeMethod("handleHooks", hashMapOf("hookId" to value, "payload" to payload.toString()), object : MethodChannel.Result {
+                                override fun success(result: Any?) {
+                                    val obj = payload as? JSONObject ?: return
+                                    val hookId = obj.getString("hook_id") ?: return
+                                    Screeb.onHookResult(hookId, result)
+                                }
+
+                                override fun error(errorCode: String, errorMessage: String?, errorDetails: Any?) {
+                                    println("error: $errorCode, $errorMessage, $errorDetails")
+                                }
+
+                                override fun notImplemented() {}
+                            }) }
                         }
                     }
                 }
-                if(mapHooks.isEmpty()) {
+                if (mapHooks.isEmpty()) {
                     Screeb.pluginInit(channelId, userId, properties, null)
                 } else {
                     Screeb.pluginInit(channelId, userId, properties, mapHooks)
@@ -99,7 +112,19 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
                         if (key == "version"){
                             mapHooks[key as String] = value as String
                         } else {
-                            mapHooks[key as String] = { payload:Any -> channel.invokeMethod("handleHooks", hashMapOf("hookId" to value, "payload" to payload.toString()) ) }
+                            mapHooks[key as String] = { payload:Any -> channel.invokeMethod("handleHooks", hashMapOf("hookId" to value, "payload" to payload.toString()), object : MethodChannel.Result {
+                                override fun success(result: Any?) {
+                                    val obj = payload as? JSONObject ?: return
+                                    val hookId = obj.getString("hook_id") ?: return
+                                    Screeb.onHookResult(hookId, result)
+                                }
+
+                                override fun error(errorCode: String, errorMessage: String?, errorDetails: Any?) {
+                                    println("error: $errorCode, $errorMessage, $errorDetails")
+                                }
+
+                                override fun notImplemented() {}
+                            }) }
                         }
                     }
                 }

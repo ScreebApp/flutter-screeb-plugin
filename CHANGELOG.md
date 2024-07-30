@@ -1,5 +1,19 @@
 # CHANGELOGS
 
+## Version 2.1.2 - Jul 30, 2024
+
+**Improvements:**
+
+- Fixed hooks thread safety. (iOS)
+- Support new onSurveyDisplayAllowed and onMessageDisplayAllowed hooks.
+- Fixed destroy animation.
+- Improved surveys hit boxes. (Android)
+
+**Native SDK Versions:**
+
+- Android SDK version 2.1.2: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 2.1.6: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
+
 ## Version 2.1.1 - Jun 18, 2024
 
 **Improvements:**
