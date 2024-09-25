@@ -33,6 +33,7 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
                 val userId: String? = arguments[1] as? String
                 val properties = (arguments[2] as? Map<*, *>)?.toProperty()
                 val hooks = (arguments[3] as? Map<*, *>)?.toProperty()
+                val language: String? = arguments[4] as? String
                 var mapHooks = hashMapOf<String, Any>()
                 if (hooks != null) {
                     hooks.forEach { (key, value) ->
@@ -56,9 +57,9 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
                     }
                 }
                 if (mapHooks.isEmpty()) {
-                    Screeb.pluginInit(channelId, userId, properties, null)
+                    Screeb.pluginInit(channelId, userId, properties, null, language)
                 } else {
-                    Screeb.pluginInit(channelId, userId, properties, mapHooks)
+                    Screeb.pluginInit(channelId, userId, properties, mapHooks, language)
                 }
 
                 return result.success(true)
@@ -106,6 +107,7 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
                 val hiddenFields = (arguments[2] as? Map<*, *>)?.toProperty()
                 val ignoreSurveyStatus = arguments[3] as Boolean
                 val hooks = (arguments[4] as? Map<*, *>)?.toProperty()
+                val language = arguments[5] as? String
                 var mapHooks = hashMapOf<String, Any>()
                 if (hooks != null) {
                     hooks.forEach { (key, value) ->
@@ -134,7 +136,9 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
                             surveyId = surveyId,
                             allowMultipleResponses,
                             (hiddenFields?.filterValues { it != null }) as HashMap<String, Any>?,
-                            ignoreSurveyStatus
+                            ignoreSurveyStatus,
+                            null,
+                            language
                     )
                 } else {
                     Screeb.startSurvey(
@@ -142,7 +146,8 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
                             allowMultipleResponses,
                             (hiddenFields?.filterValues { it != null }) as HashMap<String, Any>?,
                             ignoreSurveyStatus,
-                            mapHooks
+                            mapHooks,
+                            language
                     )
                 }
                 
