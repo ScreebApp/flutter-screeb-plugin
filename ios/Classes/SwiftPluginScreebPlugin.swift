@@ -21,6 +21,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                 let userId: String? = args[1] as? String
                 let property: [String: Any?]? = args[2] as? [String: Any?]
                 let hooks: [String: Any?]? = args[3] as? [String: Any?]
+                let language: String? = args[4] as? String
                 var mapHooks: [String: Any?]? = nil
                 if (hooks != nil) {
                     mapHooks = [:]
@@ -41,7 +42,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                         }
                     }
                 }
-                Screeb.initSdk(context: nil, channelId: channelId, identity: userId, visitorProperty: self.mapToAnyEncodable(map: property), hooks: mapHooks)
+                Screeb.initSdk(context: nil, channelId: channelId, identity: userId, visitorProperty: self.mapToAnyEncodable(map: property), hooks: mapHooks, language: language)
                 result(true)
             } else {
                 result(FlutterError(code: "-1", message: "iOS could not extract flutter arguments in method: \(call.method)", details: nil))
@@ -102,6 +103,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                 let hiddenFields: [String: Any?]? = args[2] as? [String: Any?]
                 let ignoreSurveyStatus: Bool = (args[3] as? Bool) ?? true
                 let hooks: [String: Any?]? = args[4] as? [String: Any?]
+                let language: String? = args[5] as? String
                 var mapHooks: [String: Any?]? = nil
                 if (hooks != nil) {
                     mapHooks = [:]
@@ -125,7 +127,8 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                     allowMultipleResponses: allowMultipleResponses,
                     hiddenFields: self.mapToAnyEncodable(map: hiddenFields).compactMapValues { $0 } as [String : AnyEncodable],
                     ignoreSurveyStatus: ignoreSurveyStatus,
-                    hooks: mapHooks
+                    hooks: mapHooks,
+                    language: language
                 )
                 result(true)
             } else {

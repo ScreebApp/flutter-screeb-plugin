@@ -16,7 +16,7 @@ class PluginScreeb {
   /// Providing a [androidChannelId] and [iosChannelId] is mandatory, please visit your account to find
   /// the identifiers
   static Future<bool?> initSdk(String androidChannelId, String iosChannelId, String? userId,
-      [Map<String, dynamic>? properties, Map<String, dynamic>? hooks]) {
+      [Map<String, dynamic>? properties, Map<String, dynamic>? hooks, String? language]) {
     _channel.setMethodCallHandler(channelHandler);
 
     Map<String, String>? mapHooksId;
@@ -34,9 +34,9 @@ class PluginScreeb {
     }
 
     if (Platform.isIOS) {
-      return _channel.invokeMethod('initSdk', [iosChannelId, userId, _formatDates(properties), mapHooksId]);
+      return _channel.invokeMethod('initSdk', [iosChannelId, userId, _formatDates(properties), mapHooksId, language]);
     } else if (Platform.isAndroid) {
-      return _channel.invokeMethod('initSdk', [androidChannelId, userId, _formatDates(properties), mapHooksId]);
+      return _channel.invokeMethod('initSdk', [androidChannelId, userId, _formatDates(properties), mapHooksId, language]);
     }
 
     return Future.value(false);
@@ -89,6 +89,7 @@ class PluginScreeb {
     Map<String, dynamic>? properties,
     bool ignoreSurveyStatus = true,
     Map<String, dynamic>? hooks,
+    String? language,
   ]) {
     Map<String, String>? mapHooksId;
     if (hooks != null) {
@@ -105,7 +106,7 @@ class PluginScreeb {
     }
 
     return _channel.invokeMethod(
-        'startSurvey', [surveyId, allowMultipleResponses, _formatDates(properties), ignoreSurveyStatus, mapHooksId]);
+        'startSurvey', [surveyId, allowMultipleResponses, _formatDates(properties), ignoreSurveyStatus, mapHooksId, language]);
   }
 
   ///Provide a way to stop the SDK
