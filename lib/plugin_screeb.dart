@@ -36,7 +36,8 @@ class PluginScreeb {
     if (Platform.isIOS) {
       return _channel.invokeMethod('initSdk', [iosChannelId, userId, _formatDates(properties), mapHooksId, language]);
     } else if (Platform.isAndroid) {
-      return _channel.invokeMethod('initSdk', [androidChannelId, userId, _formatDates(properties), mapHooksId, language]);
+      return _channel
+          .invokeMethod('initSdk', [androidChannelId, userId, _formatDates(properties), mapHooksId, language]);
     }
 
     return Future.value(false);
@@ -105,8 +106,8 @@ class PluginScreeb {
       });
     }
 
-    return _channel.invokeMethod(
-        'startSurvey', [surveyId, allowMultipleResponses, _formatDates(properties), ignoreSurveyStatus, mapHooksId, language]);
+    return _channel.invokeMethod('startSurvey',
+        [surveyId, allowMultipleResponses, _formatDates(properties), ignoreSurveyStatus, mapHooksId, language]);
   }
 
   ///Provide a way to stop the SDK
