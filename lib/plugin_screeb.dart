@@ -91,6 +91,7 @@ class PluginScreeb {
     bool ignoreSurveyStatus = true,
     Map<String, dynamic>? hooks,
     String? language,
+    String? distributionId,
   ]) {
     Map<String, String>? mapHooksId;
     if (hooks != null) {
@@ -106,8 +107,15 @@ class PluginScreeb {
       });
     }
 
-    return _channel.invokeMethod('startSurvey',
-        [surveyId, allowMultipleResponses, _formatDates(properties), ignoreSurveyStatus, mapHooksId, language]);
+    return _channel.invokeMethod('startSurvey', [
+      surveyId,
+      allowMultipleResponses,
+      _formatDates(properties),
+      ignoreSurveyStatus,
+      mapHooksId,
+      language,
+      distributionId
+    ]);
   }
 
   ///Provide a way to stop the SDK

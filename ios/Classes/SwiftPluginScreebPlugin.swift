@@ -7,7 +7,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
   static let instance = SwiftPluginScreebPlugin()
 
   public static func register(with registrar: FlutterPluginRegistrar) {
-    Screeb.setSecondarySDK(name: "flutter", version: "2.1.7")
+    Screeb.setSecondarySDK(name: "flutter", version: "2.1.8")
     SwiftPluginScreebPlugin.channel = FlutterMethodChannel(name: "plugin_screeb", binaryMessenger: registrar.messenger())
     registrar.addMethodCallDelegate(instance, channel: SwiftPluginScreebPlugin.channel!)
     registrar.addApplicationDelegate(instance)
@@ -104,6 +104,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                 let ignoreSurveyStatus: Bool = (args[3] as? Bool) ?? true
                 let hooks: [String: Any?]? = args[4] as? [String: Any?]
                 let language: String? = args[5] as? String
+                var distributionId: String? = args[6] as? String
                 var mapHooks: [String: Any?]? = nil
                 if (hooks != nil) {
                     mapHooks = [:]
@@ -128,7 +129,8 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                     hiddenFields: self.mapToAnyEncodable(map: hiddenFields).compactMapValues { $0 } as [String : AnyEncodable],
                     ignoreSurveyStatus: ignoreSurveyStatus,
                     hooks: mapHooks,
-                    language: language
+                    language: language,
+                    distributionId: distributionId
                 )
                 result(true)
             } else {

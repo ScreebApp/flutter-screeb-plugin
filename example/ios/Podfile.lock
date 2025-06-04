@@ -1,0 +1,29 @@
+PODS:
+  - Flutter (1.0.0)
+  - plugin_screeb (2.1.4):
+    - Flutter
+    - Screeb (= 2.1.11)
+  - Screeb (2.1.11)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - plugin_screeb (from `.symlinks/plugins/plugin_screeb/ios`)
+
+SPEC REPOS:
+  trunk:
+    - Screeb
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  plugin_screeb:
+    :path: ".symlinks/plugins/plugin_screeb/ios"
+
+SPEC CHECKSUMS:
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  plugin_screeb: c6e1687b9e8d840db9f4d09cf47a824c61e38a5a
+  Screeb: 2cdbcbd423e7593bf6c2be6d7f003cc0fe0e55fd
+
+PODFILE CHECKSUM: 4305caec6b40dde0ae97be1573c53de1882a07e5
+
+COCOAPODS: 1.16.2
