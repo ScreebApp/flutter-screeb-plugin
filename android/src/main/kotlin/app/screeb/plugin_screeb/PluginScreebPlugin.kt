@@ -21,7 +21,7 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
         channel = MethodChannel(flutterPluginBinding.binaryMessenger, "plugin_screeb")
         channel.setMethodCallHandler(this)
         context = flutterPluginBinding.applicationContext
-        Screeb.setSecondarySDK("flutter", "2.1.9")
+        Screeb.setSecondarySDK("flutter", "2.1.10")
     }
 
     override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
@@ -135,7 +135,7 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
                     Screeb.startSurvey(
                             surveyId = surveyId,
                             allowMultipleResponses,
-                            (hiddenFields?.filterValues { it != null }) as HashMap<String, Any>?,
+                            (hiddenFields?.filterValues { it != null }) as HashMap<String, Any?>?,
                             ignoreSurveyStatus,
                             null,
                             language
@@ -144,7 +144,7 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
                     Screeb.startSurvey(
                             surveyId = surveyId,
                             allowMultipleResponses,
-                            (hiddenFields?.filterValues { it != null }) as HashMap<String, Any>?,
+                            (hiddenFields?.filterValues { it != null }) as HashMap<String, Any?>?,
                             ignoreSurveyStatus,
                             mapHooks,
                             language
