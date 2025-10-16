@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'plugin_screeb'
-  s.version          = '2.1.10'
+  s.version          = '2.1.11'
   s.summary          = 'Screeb - Continuous Product Discovery Without the Time Sink'
   s.description      = 'Screeb - Continuous Product Discovery Without the Time Sink'
   s.homepage         = 'https://screeb.app'
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
   s.swift_version = '5.0'
 
-  s.dependency 'Screeb', '2.1.13'
+  s.dependency 'Screeb', '2.1.14'
   s.preserve_paths = 'Screeb.xcframework'
     s.xcconfig = { 'OTHER_LDFLAGS' => '-framework Screeb' }
     s.vendored_frameworks = 'Screeb.xcframework'

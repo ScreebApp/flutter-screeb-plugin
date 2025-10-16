@@ -45,5 +45,18 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+	<dict>
+		<key>CFBundleTypeRole</key>
+		<string>Viewer</string>
+		<key>CFBundleURLName</key>
+		<string>screeb</string>
+		<key>CFBundleURLSchemes</key>
+		<array>
+		<string>screeb-0e2b609a-8dce-4695-a80f-966fbfa87a88</string>
+		</array>
+	</dict>
+	</array>
 </dict>
 </plist>
