@@ -1,5 +1,23 @@
 # CHANGELOGS
 
+## Version 2.2.0 - Oct 23, 2025
+
+**Breaking Changes:**
+- The `initSdk` method now requires a single `channelId` parameter instead of separate `androidChannelId` and `iosChannelId`.
+- Make sure to update your calls to `initSdk` accordingly.
+
+**Improvements:**
+
+- Thread safety fixes. (iOS)
+- Added startMessage, closeMessage commands.
+- Added optional distribution_id param to startSurvey.
+- Added optional surveyId param to closeSurvey.
+
+**Native SDK Versions:**
+
+- Android SDK version 2.2.0: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 2.2.1: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
+
 ## Version 2.1.11 - Oct 16, 2025
 
 **Improvements:**

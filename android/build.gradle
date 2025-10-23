@@ -1,5 +1,5 @@
 group 'app.screeb.plugin_screeb'
-version '2.1.11'
+version '2.2.0'
 
 buildscript {
     ext.kotlin_version = '1.8.22'
@@ -50,6 +50,6 @@ android {
 }
 
 dependencies {
-    api "app.screeb.sdk:survey:2.1.17"
+    api "app.screeb.sdk:survey:2.2.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 }

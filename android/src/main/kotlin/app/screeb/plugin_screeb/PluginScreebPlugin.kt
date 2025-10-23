@@ -21,7 +21,7 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
         channel = MethodChannel(flutterPluginBinding.binaryMessenger, "plugin_screeb")
         channel.setMethodCallHandler(this)
         context = flutterPluginBinding.applicationContext
-        Screeb.setSecondarySDK("flutter", "2.1.11")
+        Screeb.setSecondarySDK("flutter", "2.2.0")
     }
 
     override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
@@ -108,6 +108,7 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
                 val ignoreSurveyStatus = arguments[3] as Boolean
                 val hooks = (arguments[4] as? Map<*, *>)?.toProperty()
                 val language = arguments[5] as? String
+                val distributionId = arguments[6] as? String
                 var mapHooks = hashMapOf<String, Any>()
                 if (hooks != null) {
                     hooks.forEach { (key, value) ->
@@ -131,26 +132,57 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
                     }
                 }
 
-                if (mapHooks.isEmpty()) {
-                    Screeb.startSurvey(
-                            surveyId = surveyId,
-                            allowMultipleResponses,
-                            (hiddenFields?.filterValues { it != null }) as HashMap<String, Any?>?,
-                            ignoreSurveyStatus,
-                            null,
-                            language
-                    )
-                } else {
-                    Screeb.startSurvey(
-                            surveyId = surveyId,
-                            allowMultipleResponses,
-                            (hiddenFields?.filterValues { it != null }) as HashMap<String, Any?>?,
-                            ignoreSurveyStatus,
-                            mapHooks,
-                            language
-                    )
+                Screeb.startSurvey(
+                    surveyId = surveyId,
+                    allowMultipleResponses,
+                    (hiddenFields?.filterValues { it != null }) as HashMap<String, Any?>?,
+                    ignoreSurveyStatus,
+                    mapHooks.isNotEmpty().let { if (it) mapHooks else null },
+                    language,
+                    distributionId
+                )
+                result.success(true)
+            }
+            CALL_START_MESSAGE -> {
+                val messageId = arguments[0] as String
+                val allowMultipleResponses = arguments[1] as Boolean
+                val hiddenFields = (arguments[2] as? Map<*, *>)?.toProperty()
+                val ignoreMessageStatus = arguments[3] as Boolean
+                val hooks = (arguments[4] as? Map<*, *>)?.toProperty()
+                val language = arguments[5] as? String
+                val distributionId = arguments[6] as? String
+                var mapHooks = hashMapOf<String, Any>()
+                if (hooks != null) {
+                    hooks.forEach { (key, value) ->
+                        if (key == "version"){
+                            mapHooks[key as String] = value as String
+                        } else {
+                            mapHooks[key as String] = { payload:Any -> channel.invokeMethod("handleHooks", hashMapOf("hookId" to value, "payload" to payload.toString()), object : MethodChannel.Result {
+                                override fun success(result: Any?) {
+                                    val obj = payload as? JSONObject ?: return
+                                    val hookId = obj.getString("hook_id") ?: return
+                                    Screeb.onHookResult(hookId, result)
+                                }
+
+                                override fun error(errorCode: String, errorMessage: String?, errorDetails: Any?) {
+                                    println("error: $errorCode, $errorMessage, $errorDetails")
+                                }
+
+                                override fun notImplemented() {}
+                            }) }
+                        }
+                    }
                 }
-                
+
+                Screeb.startMessage(
+                    messageId = messageId,
+                    allowMultipleResponses,
+                    (hiddenFields?.filterValues { it != null }) as HashMap<String, Any?>?,
+                    ignoreMessageStatus,
+                    mapHooks.isNotEmpty().let { if (it) mapHooks else null },
+                    language,
+                    distributionId
+                )
                 result.success(true)
             }
             CALL_CLOSE_SDK -> {
@@ -158,7 +190,13 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
                 result.success(true)
             }
             CALL_CLOSE_SURVEY -> {
-                Screeb.closeSurvey()
+                val surveyId: String? = arguments[0] as? String
+                Screeb.closeSurvey(surveyId: surveyId)
+                result.success(true)
+            }
+            CALL_CLOSE_MESSAGE -> {
+                val messageId: String? = arguments[0] as? String
+                Screeb.closeMessage(messageId: messageId)
                 result.success(true)
             }
             CALL_RESET_IDENTITY -> {
@@ -192,8 +230,10 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
         const val CALL_SEND_TRACKING_EVENT = "trackEvent"
         const val CALL_SEND_TRACKING_SCREEN = "trackScreen"
         const val CALL_START_SURVEY = "startSurvey"
+        const val CALL_START_MESSAGE = "startMessage"
         const val CALL_CLOSE_SDK = "closeSdk"
         const val CALL_CLOSE_SURVEY = "closeSurvey"
+        const val CALL_CLOSE_MESSAGE = "closeMessage"
         const val CALL_RESET_IDENTITY = "resetIdentity"
         const val CALL_DEBUG = "debug"
         const val CALL_DEBUG_TARGETING = "debugTargeting"

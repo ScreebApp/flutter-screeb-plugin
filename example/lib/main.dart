@@ -20,7 +20,6 @@ class _MyAppState extends State<MyApp> {
 
     PluginScreeb.initSdk(
       "0e2b609a-8dce-4695-a80f-966fbfa87a88",
-      "0e2b609a-8dce-4695-a80f-966fbfa87a88",
       "dev@screeb.app",
       <String, dynamic>{
         'isConnected': false,

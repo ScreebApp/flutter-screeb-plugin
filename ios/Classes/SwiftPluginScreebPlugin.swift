@@ -1,13 +1,13 @@
 import Flutter
-import UIKit
 import Screeb
+import SwiftUI
 
 public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
   static var channel: FlutterMethodChannel? = nil
   static let instance = SwiftPluginScreebPlugin()
 
   public static func register(with registrar: FlutterPluginRegistrar) {
-    Screeb.setSecondarySDK(name: "flutter", version: "2.1.11")
+    Screeb.setSecondarySDK(name: "flutter", version: "2.2.0")
     SwiftPluginScreebPlugin.channel = FlutterMethodChannel(name: "plugin_screeb", binaryMessenger: registrar.messenger())
     registrar.addMethodCallDelegate(instance, channel: SwiftPluginScreebPlugin.channel!)
     registrar.addApplicationDelegate(instance)
@@ -42,7 +42,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                         }
                     }
                 }
-                Screeb.initSdk(context: nil, channelId: channelId, identity: userId, visitorProperty: self.mapToAnyEncodable(map: property), hooks: mapHooks, language: language)
+                Screeb.initSdk(context: nil, channelId: channelId, identity: userId, visitorProperty: self.mapToAnyEncodable(map: property), hooks: mapHooks as GlobalHooks?, language: language)
                 result(true)
             } else {
                 result(FlutterError(code: "-1", message: "iOS could not extract flutter arguments in method: \(call.method)", details: nil))
@@ -104,7 +104,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                 let ignoreSurveyStatus: Bool = (args[3] as? Bool) ?? true
                 let hooks: [String: Any?]? = args[4] as? [String: Any?]
                 let language: String? = args[5] as? String
-                var distributionId: String? = args[6] as? String
+                let distributionId: String? = args[6] as? String
                 var mapHooks: [String: Any?]? = nil
                 if (hooks != nil) {
                     mapHooks = [:]
@@ -128,7 +128,46 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                     allowMultipleResponses: allowMultipleResponses,
                     hiddenFields: self.mapToAnyEncodable(map: hiddenFields).compactMapValues { $0 } as [String : AnyEncodable],
                     ignoreSurveyStatus: ignoreSurveyStatus,
-                    hooks: mapHooks,
+                    hooks: mapHooks as SurveyHooks?,
+                    language: language,
+                    distributionId: distributionId
+                )
+                result(true)
+            } else {
+                result(FlutterError(code: "-1", message: "iOS could not extract flutter arguments in method: \(call.method)", details: nil))
+            }
+        case "startMessage":
+            if let messageId = args[0] as? String {
+                let allowMultipleResponses: Bool = (args[1] as? Bool) ?? true
+                let hiddenFields: [String: Any?]? = args[2] as? [String: Any?]
+                let ignoreMessageStatus: Bool = (args[3] as? Bool) ?? true
+                let hooks: [String: Any?]? = args[4] as? [String: Any?]
+                let language: String? = args[5] as? String
+                let distributionId: String? = args[6] as? String
+                var mapHooks: [String: Any?]? = nil
+                if (hooks != nil) {
+                    mapHooks = [:]
+                    hooks?.forEach{ hook in
+                        if (hook.key == "version") {
+                            mapHooks![hook.key] = hook.value as? String
+                        } else {
+                            mapHooks![hook.key] = {(payload:Any) -> () in DispatchQueue.main.async {
+                                if let obj = payload as? [String: Any?] {
+                                    if let hookId = obj["hook_id"] as? String {
+                                        let encoded = self.toAnyEncodable(result)
+                                        Screeb.onHookResult(hookId, encoded)
+                                    }
+                                }
+                            }}
+                        }
+                    }
+                }
+                Screeb.startMessage(
+                    messageId: messageId,
+                    allowMultipleResponses: allowMultipleResponses,
+                    hiddenFields: self.mapToAnyEncodable(map: hiddenFields).compactMapValues { $0 } as [String : AnyEncodable],
+                    ignoreMessageStatus: ignoreMessageStatus,
+                    hooks: mapHooks as SurveyHooks?,
                     language: language,
                     distributionId: distributionId
                 )
@@ -140,7 +179,12 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
             Screeb.closeSdk()
             result(true)
         case "closeSurvey":
-            Screeb.closeSurvey()
+            let surveyId: String? = args[0] as? String
+            Screeb.closeSurvey(surveyId: surveyId)
+            result(true)
+        case "closeMessage":
+            let messageId: String? = args[0] as? String
+            Screeb.closeMessage(messageId: messageId)
             result(true)
         case "resetIdentity":
             Screeb.resetIdentity()

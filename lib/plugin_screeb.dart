@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
@@ -9,13 +8,12 @@ class PluginScreeb {
 
   static Map<String, Function> hooksRegistry = <String, Function>{};
 
-  /// Provides a way to initialize the SDK with a specific channel ID by
-  /// platform Android and iOS
+  /// Provides a way to initialize the SDK with a specific channel ID
   ///
   /// Call this method first elsewhere subsequent calls will fail
-  /// Providing a [androidChannelId] and [iosChannelId] is mandatory, please visit your account to find
+  /// Providing a [channelId] is mandatory, please visit your account to find
   /// the identifiers
-  static Future<bool?> initSdk(String androidChannelId, String iosChannelId, String? userId,
+  static Future<bool?> initSdk(String channelId, String? userId,
       [Map<String, dynamic>? properties, Map<String, dynamic>? hooks, String? language]) {
     _channel.setMethodCallHandler(channelHandler);
 
@@ -33,14 +31,7 @@ class PluginScreeb {
       });
     }
 
-    if (Platform.isIOS) {
-      return _channel.invokeMethod('initSdk', [iosChannelId, userId, _formatDates(properties), mapHooksId, language]);
-    } else if (Platform.isAndroid) {
-      return _channel
-          .invokeMethod('initSdk', [androidChannelId, userId, _formatDates(properties), mapHooksId, language]);
-    }
-
-    return Future.value(false);
+    return _channel.invokeMethod('initSdk', [channelId, userId, _formatDates(properties), mapHooksId, language]);
   }
 
   /// Provides an id for the user of the app with optional [properties]
@@ -80,10 +71,10 @@ class PluginScreeb {
   static Future<bool?> trackScreen(String screen, [Map<String, dynamic>? properties]) =>
       _channel.invokeMethod('trackScreen', [screen, _formatDates(properties)]);
 
-  /// Send to Screeb backend a tracking [screen] name with optional [properties]
+  /// Provide a way to start a survey with a specific [surveyId]
   ///
-  /// This api call is important to trigger a survey where the targeting is
-  /// configured using screens parameters.
+  /// You can provide optional [properties] to sharpen targeting rules
+  /// You can also provide [hooks] to handle survey events
   static Future<bool?> startSurvey(
     String surveyId, [
     bool allowMultipleResponses = true,
@@ -118,6 +109,44 @@ class PluginScreeb {
     ]);
   }
 
+  /// Provide a way to start a message with a specific [messageId]
+  ///
+  /// You can provide optional [properties] to sharpen targeting rules
+  /// You can also provide [hooks] to handle message events
+  static Future<bool?> startMessage(
+    String messageId, [
+    bool allowMultipleResponses = true,
+    Map<String, dynamic>? properties,
+    bool ignoreMessageStatus = true,
+    Map<String, dynamic>? hooks,
+    String? language,
+    String? distributionId,
+  ]) {
+    Map<String, String>? mapHooksId;
+    if (hooks != null) {
+      mapHooksId = <String, String>{};
+      hooks.forEach((key, value) {
+        if (key == "version") {
+          mapHooksId![key] = value.toString();
+        } else {
+          String uuid = UniqueKey().toString() + key;
+          hooksRegistry[uuid] = value;
+          mapHooksId![key] = uuid;
+        }
+      });
+    }
+
+    return _channel.invokeMethod('startMessage', [
+      messageId,
+      allowMultipleResponses,
+      _formatDates(properties),
+      ignoreMessageStatus,
+      mapHooksId,
+      language,
+      distributionId
+    ]);
+  }
+
   ///Provide a way to stop the SDK
   ///
   ///Its the opposite of initSdk
@@ -126,7 +155,12 @@ class PluginScreeb {
   ///Provide a way to close the survey
   ///
   ///Its the opposite of startSurvey
-  static Future<bool?> closeSurvey() => _channel.invokeMethod('closeSurvey', []);
+  static Future<bool?> closeSurvey([String? surveyId]) => _channel.invokeMethod('closeSurvey', [surveyId]);
+
+  ///Provide a way to close the message
+  ///
+  ///Its the opposite of startMessage
+  static Future<bool?> closeMessage([String? messageId]) => _channel.invokeMethod('closeMessage', [messageId]);
 
   ///Provide a way to reset the identity of the user
   ///
