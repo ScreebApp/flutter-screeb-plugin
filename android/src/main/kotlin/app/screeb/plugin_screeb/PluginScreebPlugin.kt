@@ -21,7 +21,7 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
         channel = MethodChannel(flutterPluginBinding.binaryMessenger, "plugin_screeb")
         channel.setMethodCallHandler(this)
         context = flutterPluginBinding.applicationContext
-        Screeb.setSecondarySDK("flutter", "2.2.0")
+        Screeb.setSecondarySDK("flutter", "2.2.1")
     }
 
     override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
@@ -191,12 +191,12 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
             }
             CALL_CLOSE_SURVEY -> {
                 val surveyId: String? = arguments[0] as? String
-                Screeb.closeSurvey(surveyId: surveyId)
+                Screeb.closeSurvey(surveyId = surveyId)
                 result.success(true)
             }
             CALL_CLOSE_MESSAGE -> {
                 val messageId: String? = arguments[0] as? String
-                Screeb.closeMessage(messageId: messageId)
+                Screeb.closeMessage(messageId = messageId)
                 result.success(true)
             }
             CALL_RESET_IDENTITY -> {
