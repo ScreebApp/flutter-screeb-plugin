@@ -7,7 +7,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
   static let instance = SwiftPluginScreebPlugin()
 
   public static func register(with registrar: FlutterPluginRegistrar) {
-    Screeb.setSecondarySDK(name: "flutter", version: "2.2.1")
+    Screeb.setSecondarySDK(name: "flutter", version: "2.2.2")
     SwiftPluginScreebPlugin.channel = FlutterMethodChannel(name: "plugin_screeb", binaryMessenger: registrar.messenger())
     registrar.addMethodCallDelegate(instance, channel: SwiftPluginScreebPlugin.channel!)
     registrar.addApplicationDelegate(instance)
@@ -33,8 +33,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                                 SwiftPluginScreebPlugin.channel!.invokeMethod("handleHooks", arguments: ["hookId": hook.value, "payload": String(describing: payload)]) { (result: Any?) in
                                     if let obj = payload as? [String: Any?] {
                                         if let hookId = obj["hook_id"] as? String {
-                                            let encoded = self.toAnyEncodable(result)
-                                            Screeb.onHookResult(hookId, encoded)
+                                            Screeb.onHookResult(hookId, result)
                                         }
                                     }
                                 }
@@ -42,7 +41,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                         }
                     }
                 }
-                Screeb.initSdk(context: nil, channelId: channelId, identity: userId, visitorProperty: self.mapToAnyEncodable(map: property), hooks: mapHooks as GlobalHooks?, language: language)
+                Screeb.initSdk(context: nil, channelId: channelId, identity: userId, visitorProperty: property ?? [:], hooks: mapHooks as GlobalHooks?, language: language)
                 result(true)
             } else {
                 result(FlutterError(code: "-1", message: "iOS could not extract flutter arguments in method: \(call.method)", details: nil))
@@ -50,15 +49,14 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
         case "setIdentity":
             if let userId = args[0] as? String{
                 let property: [String: Any?]? = args[1] as? [String: Any?]
-                Screeb.setIdentity(uniqueVisitorId: userId, visitorProperty: self.mapToAnyEncodable(map: property))
+                Screeb.setIdentity(uniqueVisitorId: userId, visitorProperty: property ?? [:])
                 result(true)
             } else {
                 result(FlutterError(code: "-1", message: "iOS could not extract flutter arguments in method: \(call.method)", details: nil))
             }
         case "setProperty":
-            if let _property = args[0] as? [String: Any?] {
-                let property = self.mapToAnyEncodable(map: _property)
-                Screeb.visitorProperty(visitorProperty: property)
+            if let property = args[0] as? [String: Any] {
+                Screeb.visitorProperty(visitorProperty: property ?? [:])
                 result(true)
             } else {
                 result(FlutterError(code: "-1", message: "iOS could not extract flutter arguments in method: \(call.method)", details: nil))
@@ -67,7 +65,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
             if let groupName = args[1] as? String {
                 let groupType: String? = args[0] as? String;
                 let property: [String: Any?]? = args[2] as? [String: Any?]
-                Screeb.assignGroup(type: groupType, name: groupName, properties: self.mapToAnyEncodable(map: property))
+                Screeb.assignGroup(type: groupType, name: groupName, properties: property ?? [:])
                 result(true)
             } else {
                 result(FlutterError(code: "-1", message: "iOS could not extract flutter arguments in method: \(call.method)", details: nil))
@@ -76,7 +74,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
             if let groupName = args[1] as? String {
                 let groupType: String? = args[0] as? String;
                 let property: [String: Any?]? = args[2] as? [String: Any?]
-                Screeb.unassignGroup(type: groupType, name: groupName, properties: self.mapToAnyEncodable(map: property))
+                Screeb.unassignGroup(type: groupType, name: groupName, properties: property ?? [:])
                 result(true)
             } else {
                 result(FlutterError(code: "-1", message: "iOS could not extract flutter arguments in method: \(call.method)", details: nil))
@@ -84,7 +82,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
         case "trackEvent":
             if let eventId = args[0] as? String {
                 let property: [String: Any?]? = args[1] as? [String: Any?]
-                Screeb.trackEvent(name: eventId, trackingEventProperties: self.mapToAnyEncodable(map: property))
+                Screeb.trackEvent(name: eventId, trackingEventProperties: property ?? [:])
                 result(true)
             } else {
                 result(FlutterError(code: "-1", message: "iOS could not extract flutter arguments in method: \(call.method)", details: nil))
@@ -92,7 +90,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
         case "trackScreen":
             if let screen = args[0] as? String {
                 let property: [String: Any?]? = args[1] as? [String: Any?]
-                Screeb.trackScreen(name: screen, trackingEventProperties: self.mapToAnyEncodable(map: property))
+                Screeb.trackScreen(name: screen, trackingEventProperties: property ?? [:])
                 result(true)
             } else {
                 result(FlutterError(code: "-1", message: "iOS could not extract flutter arguments in method: \(call.method)", details: nil))
@@ -115,8 +113,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                             mapHooks![hook.key] = {(payload:Any) -> () in DispatchQueue.main.async {
                                 if let obj = payload as? [String: Any?] {
                                     if let hookId = obj["hook_id"] as? String {
-                                        let encoded = self.toAnyEncodable(result)
-                                        Screeb.onHookResult(hookId, encoded)
+                                        Screeb.onHookResult(hookId, result)
                                     }
                                 }
                             }}
@@ -126,7 +123,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                 Screeb.startSurvey(
                     surveyId: surveyId,
                     allowMultipleResponses: allowMultipleResponses,
-                    hiddenFields: self.mapToAnyEncodable(map: hiddenFields).compactMapValues { $0 } as [String : AnyEncodable],
+                    hiddenFields: hiddenFields ?? [:],
                     ignoreSurveyStatus: ignoreSurveyStatus,
                     hooks: mapHooks as SurveyHooks?,
                     language: language,
@@ -154,8 +151,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                             mapHooks![hook.key] = {(payload:Any) -> () in DispatchQueue.main.async {
                                 if let obj = payload as? [String: Any?] {
                                     if let hookId = obj["hook_id"] as? String {
-                                        let encoded = self.toAnyEncodable(result)
-                                        Screeb.onHookResult(hookId, encoded)
+                                        Screeb.onHookResult(hookId, result)
                                     }
                                 }
                             }}
@@ -165,7 +161,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                 Screeb.startMessage(
                     messageId: messageId,
                     allowMultipleResponses: allowMultipleResponses,
-                    hiddenFields: self.mapToAnyEncodable(map: hiddenFields).compactMapValues { $0 } as [String : AnyEncodable],
+                    hiddenFields: hiddenFields ?? [:],
                     ignoreMessageStatus: ignoreMessageStatus,
                     hooks: mapHooks as SurveyHooks?,
                     language: language,
@@ -199,35 +195,5 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
             result(FlutterError(code: "-1", message: "iOS could not extract flutter arguments in method: \(call.method)", details: nil))
             break
         }
-  }
-
-  private func toAnyEncodable(_ value: Any?) -> AnyEncodable? {
-    if let nsValue = value as? NSNumber {
-        if CFBooleanGetTypeID() == CFGetTypeID(nsValue) {
-            return AnyEncodable(nsValue.boolValue)
-        } else if let value = value as? Int {
-            return AnyEncodable(value)
-        } else if let value = value as? Double {
-            return AnyEncodable(value)
-        } else if let value = value as? Float {
-            return AnyEncodable(value)
-        } else {
-            return nil
-        }
-    } else if let value = value as? String {
-        return AnyEncodable(value)
-    } else if let value = value as? [String: Any?] {
-        return AnyEncodable(self.mapToAnyEncodable(map: value))
-    } else {
-        return nil
-    }
-  }
-
-  private func mapToAnyEncodable(map: [String: Any?]?) -> [String: AnyEncodable?] {
-    var anyEncodableMap: [String: AnyEncodable?] = [:]
-    map?.forEach { key, value in
-        anyEncodableMap[key] = self.toAnyEncodable(value)
-    }
-    return anyEncodableMap
   }
 }

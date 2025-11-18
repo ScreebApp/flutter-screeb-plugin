@@ -1,5 +1,17 @@
 # CHANGELOGS
 
+## Version 2.2.2 - Nov 18, 2025
+
+**Improvements:**
+
+- Fixed Closing IAM builder reopening it.
+- Enforce a non-zero size. (Android)
+
+**Native SDK Versions:**
+
+- Android SDK version 2.2.9: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 2.2.2: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
+
 ## Version 2.2.1 - Nov 03, 2025
 
 **Improvements:**
