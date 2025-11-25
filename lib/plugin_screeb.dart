@@ -13,8 +13,12 @@ class PluginScreeb {
   /// Call this method first elsewhere subsequent calls will fail
   /// Providing a [channelId] is mandatory, please visit your account to find
   /// the identifiers
-  static Future<bool?> initSdk(String channelId, String? userId,
-      [Map<String, dynamic>? properties, Map<String, dynamic>? hooks, String? language]) {
+  static Future<bool?> initSdk(String channelId,
+      {String? userId,
+      Map<String, dynamic>? properties,
+      Map<String, dynamic>? initOptions,
+      Map<String, dynamic>? hooks,
+      String? language}) {
     _channel.setMethodCallHandler(channelHandler);
 
     Map<String, String>? mapHooksId;
@@ -31,14 +35,21 @@ class PluginScreeb {
       });
     }
 
-    return _channel.invokeMethod('initSdk', [channelId, userId, _formatDates(properties), mapHooksId, language]);
+    return _channel.invokeMethod('initSdk', [
+      channelId,
+      userId,
+      _formatDates(properties),
+      initOptions,
+      mapHooksId,
+      language,
+    ]);
   }
 
   /// Provides an id for the user of the app with optional [properties]
   ///
   /// Providing a [userId] is important to sharpen the Screeb targeting engine
   /// and avoid survey triggering more than necessary.
-  static Future<bool?> setIdentity(String userId, [Map<String, dynamic>? properties]) =>
+  static Future<bool?> setIdentity(String userId, {Map<String, dynamic>? properties}) =>
       _channel.invokeMethod('setIdentity', [userId, _formatDates(properties)]);
 
   /// Send to Screeb backend the user's custom [properties]
@@ -51,7 +62,7 @@ class PluginScreeb {
   /// Send to Screeb backend a group assignation for current user [properties]
   ///
   /// This api call is important to improve analysis.
-  static Future<bool?> assignGroup(String? groupType, String groupName, Map<String, dynamic>? properties) =>
+  static Future<bool?> assignGroup(String? groupType, String groupName, {Map<String, dynamic>? properties}) =>
       _channel.invokeMethod('assignGroup', [groupType, groupName, _formatDates(properties)]);
 
   /// Send to Screeb backend a group unassignation for current user [properties]
@@ -61,14 +72,14 @@ class PluginScreeb {
       _channel.invokeMethod('unassignGroup', [groupType, groupName, _formatDates(properties)]);
 
   /// Send to Screeb backend a tracking [eventId] with optional [properties]
-  static Future<bool?> trackEvent(String eventId, [Map<String, dynamic>? properties]) =>
+  static Future<bool?> trackEvent(String eventId, {Map<String, dynamic>? properties}) =>
       _channel.invokeMethod('trackEvent', [eventId, _formatDates(properties)]);
 
   /// Send to Screeb backend a tracking [screen] name with optional [properties]
   ///
   /// This api call is important to trigger a survey where the targeting is
   /// configured using screens parameters.
-  static Future<bool?> trackScreen(String screen, [Map<String, dynamic>? properties]) =>
+  static Future<bool?> trackScreen(String screen, {Map<String, dynamic>? properties}) =>
       _channel.invokeMethod('trackScreen', [screen, _formatDates(properties)]);
 
   /// Provide a way to start a survey with a specific [surveyId]
@@ -76,14 +87,14 @@ class PluginScreeb {
   /// You can provide optional [properties] to sharpen targeting rules
   /// You can also provide [hooks] to handle survey events
   static Future<bool?> startSurvey(
-    String surveyId, [
+    String surveyId, {
     bool allowMultipleResponses = true,
     Map<String, dynamic>? properties,
     bool ignoreSurveyStatus = true,
     Map<String, dynamic>? hooks,
     String? language,
     String? distributionId,
-  ]) {
+  }) {
     Map<String, String>? mapHooksId;
     if (hooks != null) {
       mapHooksId = <String, String>{};
@@ -114,14 +125,14 @@ class PluginScreeb {
   /// You can provide optional [properties] to sharpen targeting rules
   /// You can also provide [hooks] to handle message events
   static Future<bool?> startMessage(
-    String messageId, [
+    String messageId, {
     bool allowMultipleResponses = true,
     Map<String, dynamic>? properties,
     bool ignoreMessageStatus = true,
     Map<String, dynamic>? hooks,
     String? language,
     String? distributionId,
-  ]) {
+  }) {
     Map<String, String>? mapHooksId;
     if (hooks != null) {
       mapHooksId = <String, String>{};
@@ -155,12 +166,12 @@ class PluginScreeb {
   ///Provide a way to close the survey
   ///
   ///Its the opposite of startSurvey
-  static Future<bool?> closeSurvey([String? surveyId]) => _channel.invokeMethod('closeSurvey', [surveyId]);
+  static Future<bool?> closeSurvey({String? surveyId}) => _channel.invokeMethod('closeSurvey', [surveyId]);
 
   ///Provide a way to close the message
   ///
   ///Its the opposite of startMessage
-  static Future<bool?> closeMessage([String? messageId]) => _channel.invokeMethod('closeMessage', [messageId]);
+  static Future<bool?> closeMessage({String? messageId}) => _channel.invokeMethod('closeMessage', [messageId]);
 
   ///Provide a way to reset the identity of the user
   ///

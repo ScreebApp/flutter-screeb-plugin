@@ -20,15 +20,15 @@ class _MyAppState extends State<MyApp> {
 
     PluginScreeb.initSdk(
       "0e2b609a-8dce-4695-a80f-966fbfa87a88",
-      "dev@screeb.app",
-      <String, dynamic>{
+      userId: "dev@screeb.app",
+      properties: <String, dynamic>{
         'isConnected': false,
         'age': 29,
         'product': 'iPhone 13',
         'email': 'dev@screeb.app',
         'born': DateTime.now(),
       },
-      <String, dynamic>{
+      hooks: <String, dynamic>{
         "version": "1.0.0",
         "onReady": (dynamic data) {
           log("onReady");
@@ -39,7 +39,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   void _setIdentity(String userId, Map<String, dynamic>? properties) {
-    PluginScreeb.setIdentity(userId, properties);
+    PluginScreeb.setIdentity(userId, properties: properties);
     log("SetIdentity");
   }
 
@@ -49,7 +49,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   void _sendAssignGroup(String? groupType, String groupName, Map<String, dynamic>? properties) {
-    PluginScreeb.assignGroup(groupType, groupName, properties);
+    PluginScreeb.assignGroup(groupType, groupName, properties: properties);
     log("AssignGroup");
   }
 
@@ -59,17 +59,17 @@ class _MyAppState extends State<MyApp> {
   }
 
   void _sendTrackingEvent(String eventId, Map<String, dynamic>? properties) {
-    PluginScreeb.trackEvent(eventId, properties);
+    PluginScreeb.trackEvent(eventId, properties: properties);
     log("TrackingEvent");
   }
 
   void _sendTrackingScreen(String screen, Map<String, dynamic>? properties) {
-    PluginScreeb.trackScreen(screen, properties);
+    PluginScreeb.trackScreen(screen, properties: properties);
     log("TrackingScreen");
   }
 
   void _startSurvey(String surveyId, bool allowMultiple, Map<String, dynamic>? hooks) {
-    PluginScreeb.startSurvey(surveyId, allowMultiple, null, true, hooks);
+    PluginScreeb.startSurvey(surveyId, allowMultipleResponses: allowMultiple, hooks: hooks);
     log("StartSurvey");
   }
 

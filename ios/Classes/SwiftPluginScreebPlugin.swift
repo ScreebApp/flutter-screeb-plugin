@@ -7,7 +7,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
   static let instance = SwiftPluginScreebPlugin()
 
   public static func register(with registrar: FlutterPluginRegistrar) {
-    Screeb.setSecondarySDK(name: "flutter", version: "2.2.2")
+    Screeb.setSecondarySDK(name: "flutter", version: "2.2.3")
     SwiftPluginScreebPlugin.channel = FlutterMethodChannel(name: "plugin_screeb", binaryMessenger: registrar.messenger())
     registrar.addMethodCallDelegate(instance, channel: SwiftPluginScreebPlugin.channel!)
     registrar.addApplicationDelegate(instance)
@@ -20,8 +20,9 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
             if let channelId = args[0] as? String {
                 let userId: String? = args[1] as? String
                 let property: [String: Any?]? = args[2] as? [String: Any?]
-                let hooks: [String: Any?]? = args[3] as? [String: Any?]
-                let language: String? = args[4] as? String
+                let initOptions: [String: Any?]? = args[3] as? [String: Any?]
+                let hooks: [String: Any?]? = args[4] as? [String: Any?]
+                let language: String? = args[5] as? String
                 var mapHooks: [String: Any?]? = nil
                 if (hooks != nil) {
                     mapHooks = [:]

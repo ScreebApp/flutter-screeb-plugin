@@ -12,7 +12,6 @@ import io.flutter.plugin.common.MethodChannel.Result
 import org.json.JSONObject
 import java.util.HashMap
 
-/** PluginScreebPlugin */
 class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
     private lateinit var channel: MethodChannel
     private lateinit var context: Context
@@ -21,7 +20,7 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
         channel = MethodChannel(flutterPluginBinding.binaryMessenger, "plugin_screeb")
         channel.setMethodCallHandler(this)
         context = flutterPluginBinding.applicationContext
-        Screeb.setSecondarySDK("flutter", "2.2.2")
+        Screeb.setSecondarySDK("flutter", "2.2.3")
     }
 
     override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
@@ -32,8 +31,9 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
                 val channelId = arguments[0] as String
                 val userId: String? = arguments[1] as? String
                 val properties = (arguments[2] as? Map<*, *>)?.toProperty()
-                val hooks = (arguments[3] as? Map<*, *>)?.toProperty()
-                val language: String? = arguments[4] as? String
+                val initOptions = (arguments[3] as? Map<*, *>)?.toProperty()
+                val hooks = (arguments[4] as? Map<*, *>)?.toProperty()
+                val language: String? = arguments[5] as? String
                 var mapHooks = hashMapOf<String, Any>()
                 if (hooks != null) {
                     hooks.forEach { (key, value) ->
@@ -56,12 +56,8 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
                         }
                     }
                 }
-                if (mapHooks.isEmpty()) {
-                    Screeb.pluginInit(channelId, userId, properties, null, language)
-                } else {
-                    Screeb.pluginInit(channelId, userId, properties, mapHooks, language)
-                }
 
+                Screeb.pluginInit(channelId, userId, properties, initOptions, mapHooks, language)
                 return result.success(true)
             }
             CALL_SET_IDENTITY -> {
