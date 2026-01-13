@@ -1,5 +1,18 @@
 # CHANGELOGS
 
+## Version 3.0.0 - Jan 12, 2026
+
+**Improvements:**
+
+- Session Replay in Beta.
+- Added disableMirror to InitOptions to force disable IAM mirroring and Session Replay.
+- Ensure webview is not in the accessible tree when it is hidden.
+
+**Native SDK Versions:**
+
+- Android SDK version 3.0.0: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 3.0.2: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
+
 ## Version 2.2.3 - Nov 25, 2025
 
 **Breaking Changes:**

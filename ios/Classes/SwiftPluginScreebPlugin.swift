@@ -7,7 +7,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
   static let instance = SwiftPluginScreebPlugin()
 
   public static func register(with registrar: FlutterPluginRegistrar) {
-    Screeb.setSecondarySDK(name: "flutter", version: "2.2.3")
+    Screeb.setSecondarySDK(name: "flutter", version: "3.0.0")
     SwiftPluginScreebPlugin.channel = FlutterMethodChannel(name: "plugin_screeb", binaryMessenger: registrar.messenger())
     registrar.addMethodCallDelegate(instance, channel: SwiftPluginScreebPlugin.channel!)
     registrar.addApplicationDelegate(instance)
@@ -42,7 +42,10 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
                         }
                     }
                 }
-                Screeb.initSdk(context: nil, channelId: channelId, identity: userId, visitorProperty: property ?? [:], hooks: mapHooks as GlobalHooks?, language: language)
+
+                let initOptionsDict: NSDictionary = NSDictionary(dictionary: (initOptions ?? [:]).compactMapValues { $0 })
+                let initOptionsFinal = InitOptions(dict: initOptionsDict)
+                Screeb.initSdk(context: nil, channelId: channelId, identity: userId, visitorProperty: property ?? [:], initOptions: initOptionsFinal, hooks: mapHooks as GlobalHooks?, language: language)
                 result(true)
             } else {
                 result(FlutterError(code: "-1", message: "iOS could not extract flutter arguments in method: \(call.method)", details: nil))

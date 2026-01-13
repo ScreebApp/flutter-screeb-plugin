@@ -20,7 +20,7 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
         channel = MethodChannel(flutterPluginBinding.binaryMessenger, "plugin_screeb")
         channel.setMethodCallHandler(this)
         context = flutterPluginBinding.applicationContext
-        Screeb.setSecondarySDK("flutter", "2.2.3")
+        Screeb.setSecondarySDK("flutter", "3.0.0")
     }
 
     override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
