@@ -31,8 +31,8 @@ class _MyAppState extends State<MyApp> {
       hooks: <String, dynamic>{
         "version": "1.0.0",
         "onReady": (dynamic data) {
-          log("onReady");
-          log(data.toString());
+          debugPrint("onReady");
+          debugPrint(data.toString());
         },
       },
     );
@@ -40,57 +40,74 @@ class _MyAppState extends State<MyApp> {
 
   void _setIdentity(String userId, Map<String, dynamic>? properties) {
     PluginScreeb.setIdentity(userId, properties: properties);
-    log("SetIdentity");
+    debugPrint("SetIdentity");
   }
 
   void _visitorProperty(Map<String, dynamic>? properties) {
     PluginScreeb.setProperty(properties);
-    log("SetIdentityProperties");
+    debugPrint("SetIdentityProperties");
   }
 
   void _sendAssignGroup(String? groupType, String groupName, Map<String, dynamic>? properties) {
     PluginScreeb.assignGroup(groupType, groupName, properties: properties);
-    log("AssignGroup");
+    debugPrint("AssignGroup");
   }
 
   void _sendUnassignGroup(String? groupType, String groupName, Map<String, dynamic>? properties) {
     PluginScreeb.unassignGroup(groupType, groupName, properties);
-    log("UnassignGroup");
+    debugPrint("UnassignGroup");
   }
 
   void _sendTrackingEvent(String eventId, Map<String, dynamic>? properties) {
     PluginScreeb.trackEvent(eventId, properties: properties);
-    log("TrackingEvent");
+    debugPrint("TrackingEvent");
   }
 
   void _sendTrackingScreen(String screen, Map<String, dynamic>? properties) {
     PluginScreeb.trackScreen(screen, properties: properties);
-    log("TrackingScreen");
+    debugPrint("TrackingScreen");
   }
 
   void _startSurvey(String surveyId, bool allowMultiple, Map<String, dynamic>? hooks) {
     PluginScreeb.startSurvey(surveyId, allowMultipleResponses: allowMultiple, hooks: hooks);
-    log("StartSurvey");
+    debugPrint("StartSurvey");
   }
 
   void _closeSdk() {
     PluginScreeb.closeSdk();
-    log("CloseSdk");
+    debugPrint("CloseSdk");
   }
 
   void _resetIdentity() {
     PluginScreeb.resetIdentity();
-    log("ResetIdentity");
+    debugPrint("ResetIdentity");
   }
 
-  void _debug() {
-    PluginScreeb.debug();
-    log("debug");
+  void _getIdentity() async {
+    try {
+      final identity = await PluginScreeb.getIdentity();
+      debugPrint("getIdentity: $identity");
+    } catch (e) {
+      debugPrint("getIdentity error: $e");
+    }
   }
 
-  void _debugTargeting() {
-    PluginScreeb.debugTargeting();
-    log("debugTargeting");
+  void _debug() async {
+    try {
+      final debugInfo = await PluginScreeb.debug();
+      debugPrint("debug: $debugInfo");
+    } catch (e) {
+      debugPrint("debug error: $e");
+    }
+  }
+
+  void _debugTargeting() async {
+    try {
+      final debugInfo = await PluginScreeb.debugTargeting();
+      debugPrint("debugTargeting: $debugInfo");
+    } catch (e) {
+      debugPrint("debugTargeting error: $e");
+    }
   }
 
   @override
@@ -162,6 +179,7 @@ class _MyAppState extends State<MyApp> {
                       }),
                 ),
                 ElevatedButton(child: const Text('reset Identity'), onPressed: () => _resetIdentity()),
+                ElevatedButton(child: const Text('get identity'), onPressed: () => _getIdentity()),
                 ElevatedButton(child: const Text('debug'), onPressed: () => _debug()),
                 ElevatedButton(child: const Text('debug targeting'), onPressed: () => _debugTargeting()),
               ],

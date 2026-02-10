@@ -20,7 +20,7 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
         channel = MethodChannel(flutterPluginBinding.binaryMessenger, "plugin_screeb")
         channel.setMethodCallHandler(this)
         context = flutterPluginBinding.applicationContext
-        Screeb.setSecondarySDK("flutter", "3.0.0")
+        Screeb.setSecondarySDK("flutter", "3.1.0")
     }
 
     override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
@@ -195,17 +195,44 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
                 Screeb.closeMessage(messageId = messageId)
                 result.success(true)
             }
+            CALL_SESSION_REPLAY_START -> {
+                Screeb.sessionReplayStart()
+                result.success(true)
+            }
+            CALL_SESSION_REPLAY_STOP -> {
+                Screeb.sessionReplayStop()
+                result.success(true)
+            }
             CALL_RESET_IDENTITY -> {
                 Screeb.resetIdentity()
                 result.success(true)
             }
+            CALL_GET_IDENTITY -> {
+                Screeb.getIdentity { identity, error ->
+                    if (error != null) {
+                        result.error("GET_IDENTITY_ERROR", error.message, null)
+                    } else {
+                        result.success(identity)
+                    }
+                }
+            }
             CALL_DEBUG -> {
-                Screeb.debug()
-                result.success(true)
+                Screeb.debug { debugInfo, error ->
+                    if (error != null) {
+                        result.error("DEBUG_ERROR", error.message, null)
+                    } else {
+                        result.success(debugInfo)
+                    }
+                }
             }
             CALL_DEBUG_TARGETING -> {
-                Screeb.debugTargeting()
-                result.success(true)
+                Screeb.debugTargeting { debugInfo, error ->
+                    if (error != null) {
+                        result.error("DEBUG_TARGETING_ERROR", error.message, null)
+                    } else {
+                        result.success(debugInfo)
+                    }
+                }
             }
             else -> {
                 result.notImplemented()
@@ -230,7 +257,10 @@ class PluginScreebPlugin : FlutterPlugin, MethodCallHandler {
         const val CALL_CLOSE_SDK = "closeSdk"
         const val CALL_CLOSE_SURVEY = "closeSurvey"
         const val CALL_CLOSE_MESSAGE = "closeMessage"
+        const val CALL_SESSION_REPLAY_START = "sessionReplayStart"
+        const val CALL_SESSION_REPLAY_STOP = "sessionReplayStop"
         const val CALL_RESET_IDENTITY = "resetIdentity"
+        const val CALL_GET_IDENTITY = "getIdentity"
         const val CALL_DEBUG = "debug"
         const val CALL_DEBUG_TARGETING = "debugTargeting"
 

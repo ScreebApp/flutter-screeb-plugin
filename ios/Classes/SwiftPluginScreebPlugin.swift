@@ -7,7 +7,7 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
   static let instance = SwiftPluginScreebPlugin()
 
   public static func register(with registrar: FlutterPluginRegistrar) {
-    Screeb.setSecondarySDK(name: "flutter", version: "3.0.0")
+    Screeb.setSecondarySDK(name: "flutter", version: "3.1.0")
     SwiftPluginScreebPlugin.channel = FlutterMethodChannel(name: "plugin_screeb", binaryMessenger: registrar.messenger())
     registrar.addMethodCallDelegate(instance, channel: SwiftPluginScreebPlugin.channel!)
     registrar.addApplicationDelegate(instance)
@@ -186,15 +186,39 @@ public class SwiftPluginScreebPlugin: NSObject, FlutterPlugin {
             let messageId: String? = args[0] as? String
             Screeb.closeMessage(messageId: messageId)
             result(true)
+        case "sessionReplayStart":
+            Screeb.sessionReplayStart()
+            result(true)
+        case "sessionReplayStop":
+            Screeb.sessionReplayStop()
+            result(true)
         case "resetIdentity":
             Screeb.resetIdentity()
             result(true)
+        case "getIdentity":
+            Screeb.getIdentity { identity, error in
+                if let error = error {
+                    result(FlutterError(code: "GET_IDENTITY_ERROR", message: error.localizedDescription, details: nil))
+                } else {
+                    result(identity)
+                }
+            }
         case "debug":
-            Screeb.debug()
-            result(true)
+            Screeb.debug { debugInfo, error in
+                if let error = error {
+                    result(FlutterError(code: "DEBUG_ERROR", message: error.localizedDescription, details: nil))
+                } else {
+                    result(debugInfo)
+                }
+            }
         case "debugTargeting":
-            Screeb.debugTargeting()
-            result(true)
+            Screeb.debugTargeting { debugInfo, error in
+                if let error = error {
+                    result(FlutterError(code: "DEBUG_TARGETING_ERROR", message: error.localizedDescription, details: nil))
+                } else {
+                    result(debugInfo)
+                }
+            }
         default:
             result(FlutterError(code: "-1", message: "iOS could not extract flutter arguments in method: \(call.method)", details: nil))
             break

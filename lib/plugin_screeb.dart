@@ -173,18 +173,41 @@ class PluginScreeb {
   ///Its the opposite of startMessage
   static Future<bool?> closeMessage({String? messageId}) => _channel.invokeMethod('closeMessage', [messageId]);
 
+  ///Provide a way to start session replay recording
+  static Future<bool?> sessionReplayStart() => _channel.invokeMethod('sessionReplayStart', []);
+
+  ///Provide a way to stop session replay recording
+  ///
+  ///Its the opposite of sessionReplayStart
+  static Future<bool?> sessionReplayStop() => _channel.invokeMethod('sessionReplayStop', []);
+
   ///Provide a way to reset the identity of the user
   ///
   ///You can use it on the disconnection of a user for example to make it anonymous
   static Future<bool?> resetIdentity() => _channel.invokeMethod('resetIdentity', []);
 
+  /// Provides a way to get the current visitor identity
+  static Future<Map<String, dynamic>?> getIdentity() async {
+    final result = await _channel.invokeMethod('getIdentity', []);
+    if (result is Map) {
+      return Map<String, dynamic>.from(result);
+    }
+    return null;
+  }
+
   ///Provide a way to get various debug informations
-  static Future<bool?> debug() => _channel.invokeMethod('debug', []);
+  static Future<String?> debug() async {
+    final result = await _channel.invokeMethod('debug', []);
+    return result as String?;
+  }
 
   ///Provide a way to debug targeting rules
   ///
   ///If you don't know why your survey isn't showing you can use this command to print debug log
-  static Future<bool?> debugTargeting() => _channel.invokeMethod('debugTargeting', []);
+  static Future<String?> debugTargeting() async {
+    final result = await _channel.invokeMethod('debugTargeting', []);
+    return result as String?;
+  }
 
   // Channel handler
   static Future<dynamic> channelHandler(MethodCall methodCall) async {

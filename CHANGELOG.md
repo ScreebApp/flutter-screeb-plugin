@@ -1,5 +1,20 @@
 # CHANGELOGS
 
+## Version 3.1.0 - Feb 10, 2026
+
+**Improvements:**
+
+- Added sessionReplay{start|stop} commands.
+- Added GetIdentity command.
+- Return debug/debug targeting results in the command result instead of logs.
+- Added file picker support for In-App Messages.
+- Improved Session Replay for complex apps. (Android)
+
+**Native SDK Versions:**
+
+- Android SDK version 3.1.1: [Release Notes](https://www.notion.so/screeb/Android-SDK-4e588a60a5b94e40bfb44595c9defe60)
+- iOS SDK version 3.1.1: [Release Notes](https://www.notion.so/screeb/iOS-SDK-4ad6756875a14f2eb60711b86150a29d)
+
 ## Version 3.0.0 - Jan 12, 2026
 
 **Improvements:**
