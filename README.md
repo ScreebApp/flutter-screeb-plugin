@@ -1,3 +1,7 @@
+> ⚠️ **This repository has been archived.** Development has moved to [ScreebApp/sdk](https://github.com/ScreebApp/sdk/tree/master/packages/sdk-flutter).
+
+---
+
 <p align="center">
 <a href="https://pub.dev/packages/plugin_screeb"><img src="https://img.shields.io/pub/v/plugin_screeb" alt="Pub: plugin_screeb"></a>
 <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-purple.svg" alt="License: MIT"></a>
